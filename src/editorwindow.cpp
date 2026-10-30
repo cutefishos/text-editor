@@ -177,12 +177,13 @@ protected:
     {
         const double width = geometry().width;
         const double height = geometry().height;
-        // At the end, with the window button spacing before the window buttons.
-        menu->setGeometry({width - 32, rounding::centeredStart(height, 32), 32, 32});
+        // At the end, with the margin the window buttons keep at the start.
+        const double endMargin = 4;
+        menu->setGeometry({width - endMargin - 32, rounding::centeredStart(height, 32), 32, 32});
         // The terminal's inset; past the new tab button, a stretch of title
         // bar stays free to move the window by.
         const double left = Theme::current().smallSpacing;
-        const double right = width - 32 - (4 + 32 + 40);
+        const double right = width - endMargin - 32 - (4 + 32 + 40);
         const double tabHeight = tabBar->sizeHint().height;
         tabBar->setGeometry({left, rounding::centeredStart(height, tabHeight), std::max(0.0, right - left), tabHeight});
         placeNewTab();
