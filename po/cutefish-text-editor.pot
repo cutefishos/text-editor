@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-10-19 22:27+0800\n"
+"POT-Creation-Date: 2026-10-31 16:10+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Restore Session on Start"
 msgstr ""
 
-#: src/dialogs.cpp src/editorwindow.cpp
+#: src/dialogs.cpp
 msgid "Settings"
 msgstr ""
 
@@ -298,15 +298,15 @@ msgstr ""
 msgid "Redo"
 msgstr ""
 
-#: src/editorpage.cpp
+#: src/editorpage.cpp src/editorwindow.cpp
 msgid "Cut"
 msgstr ""
 
-#: src/editorpage.cpp
+#: src/editorpage.cpp src/editorwindow.cpp
 msgid "Copy"
 msgstr ""
 
-#: src/editorpage.cpp
+#: src/editorpage.cpp src/editorwindow.cpp
 msgid "Paste"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/editorpage.cpp
+#: src/editorpage.cpp src/editorwindow.cpp
 msgid "Select All"
 msgstr ""
 
@@ -324,6 +324,34 @@ msgstr ""
 
 #: src/editorwindow.cpp
 msgid "Open"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr ""
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
 msgstr ""
 
 #: src/editorwindow.cpp
@@ -339,15 +367,15 @@ msgid "Clear Recent Files"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "New Tab"
-msgstr ""
-
-#: src/editorwindow.cpp cutefish-text-editor.desktop
-msgid "New Window"
+msgid "Reopen Closed Tab"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
+msgid "Close Tab"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Close Window"
 msgstr ""
 
 #: src/editorwindow.cpp src/pagebars.cpp
@@ -363,19 +391,7 @@ msgid "Revert to Saved…"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "Close Tab"
-msgstr ""
-
-#: src/editorwindow.cpp
-msgid "Find…"
-msgstr ""
-
-#: src/editorwindow.cpp
-msgid "Replace…"
-msgstr ""
-
-#: src/editorwindow.cpp
-msgid "Go to Line…"
+msgid "Document Statistics"
 msgstr ""
 
 #: src/editorwindow.cpp
@@ -420,6 +436,26 @@ msgid "Unindent"
 msgstr ""
 
 #: src/editorwindow.cpp
+msgid "Find…"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr ""
+
+#: src/editorwindow.cpp
 msgid "Word Wrap"
 msgstr ""
 
@@ -436,15 +472,43 @@ msgid "Actual Size"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "Full Screen"
+msgid "Enter Full Screen"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
+msgid "Exit Full Screen"
 msgstr ""
 
 #: src/editorwindow.cpp
-msgid "About Text Editor"
+msgid "Window"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "Help"
 msgstr ""
 
 #: src/editorwindow.cpp
@@ -703,6 +767,13 @@ msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr ""
 
 #: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/pagebars.cpp
 msgid "Find"
 msgstr ""
 
@@ -733,13 +804,6 @@ msgstr ""
 #: src/pagebars.cpp
 msgid "Replace All"
 msgstr ""
-
-#: src/pagebars.cpp
-#, python-brace-format
-msgid "Replaced {n} occurrence"
-msgid_plural "Replaced {n} occurrences"
-msgstr[0] ""
-msgstr[1] ""
 
 #. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
 #: src/pagebars.cpp

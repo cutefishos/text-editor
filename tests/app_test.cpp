@@ -15,6 +15,7 @@
 #include "ui/application.h"
 #include "ui/drag.h"
 #include "ui/keys.h"
+#include "ui/menu.h"
 #include "ui/test_input.h"
 #include "ui/theme.h"
 #include "ui/window.h"
@@ -152,6 +153,25 @@ TEST_F(AppTest, OpensFileAndTypes)
     frame(window);
     TestInput::click(window->window(), at(view, {view->gutterWidth() + 2, 6 + view->lineHeight() * 1.5}));
     EXPECT_EQ(document.cursor().line, 1);
+}
+
+TEST_F(AppTest, WindowShowsItsMenusInTheStatusBar)
+{
+    EditorWindow *window = start({});
+    ASSERT_TRUE(window);
+    Menu *menu = window->window().mainMenu();
+    ASSERT_TRUE(menu);
+    const std::vector<MenuRole> roles {MenuRole::Application, MenuRole::None, MenuRole::None, MenuRole::None,
+                                       MenuRole::Windows, MenuRole::Help};
+    for (size_t i = 0; i < roles.size(); ++i) {
+        ASSERT_TRUE(menu->submenu(i)) << i;
+        EXPECT_EQ(menu->submenu(i)->role(), roles[i]) << i;
+    }
+    EXPECT_FALSE(menu->submenu(roles.size()));
+
+    Application::instance()->languageChanged.emit();
+    ASSERT_TRUE(window->window().mainMenu());
+    EXPECT_EQ(window->window().mainMenu()->submenu(0)->role(), MenuRole::Application);
 }
 
 TEST_F(AppTest, ClickSelection)
@@ -431,7 +451,6 @@ TEST_F(AppTest, WrappingAndDialogs)
     EXPECT_EQ(wrapped.line, 2);
     EXPECT_GT(wrapped.column, 2);
 
-    window->showMainMenu();
     window->showPreferences();
     window->showShortcuts();
     TestSupport::wait(30);

@@ -160,14 +160,6 @@ int main(int argc, char **argv)
         if (wanted("dump"))
             std::printf("%s\n", window.window().layoutDump().c_str());
     }
-    if (wanted("main-menu")) {
-        Run run(root);
-        EditorWindow &window = run.start({});
-        window.showMainMenu();
-        spin(50);
-        save(window.window(), "main-menu");
-        savePopups(window.window(), "main-menu");
-    }
     if (wanted("settings")) {
         Run run(root);
         EditorWindow &window = run.start({});

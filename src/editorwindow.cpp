@@ -72,7 +72,7 @@ protected:
     }
 };
 
-// The tab bar, the "+" after the last tab and the main menu button.
+// The tab bar and the "+" after the last tab.
 class EditorWindow::HeaderContent : public View
 {
 public:
@@ -80,19 +80,16 @@ public:
         : owner(owner)
         , tabBar(addChild<WindowTabBar>())
         , newTab(addChild<HeaderButton>("add", 32))
-        , menu(addChild<HeaderButton>("menu", 32))
     {
         setName("headerContent");
         tabBar->setName("tabBar");
         newTab->setName("newTabButton");
         newTab->setToolTip({});
-        menu->setName("menuButton");
     }
 
     EditorWindow *owner;
     WindowTabBar *tabBar;
     HeaderButton *newTab;
-    HeaderButton *menu;
 
 protected:
     // Tabs dragged from another window of this process, and files.
@@ -177,13 +174,10 @@ protected:
     {
         const double width = geometry().width;
         const double height = geometry().height;
-        // At the end, with the margin the window buttons keep at the start.
-        const double endMargin = 4;
-        menu->setGeometry({width - endMargin - 32, rounding::centeredStart(height, 32), 32, 32});
         // The terminal's inset; past the new tab button, a stretch of title
         // bar stays free to move the window by.
         const double left = Theme::current().smallSpacing;
-        const double right = width - endMargin - 32 - (4 + 32 + 40);
+        const double right = width - (4 + 32 + 40);
         const double tabHeight = tabBar->sizeHint().height;
         tabBar->setGeometry({left, rounding::centeredStart(height, tabHeight), std::max(0.0, right - left), tabHeight});
         placeNewTab();
@@ -326,7 +320,6 @@ EditorWindow::EditorWindow(EditorApplication &application, Options options)
         });
     };
     m_header->newTab->onClicked = [this] { newTab(); };
-    m_header->menu->onClicked = [this] { showMainMenu(); };
 
     m_window->onCloseRequested = [this] { requestClose(); };
     m_window->onActiveChanged = [this] {
@@ -339,6 +332,7 @@ EditorWindow::EditorWindow(EditorApplication &application, Options options)
     m_connections.push_back(m_application.settings().changed.connect([this] { applySettings(); }));
     m_languageChanged = Application::instance()->languageChanged.connect([this] { retranslate(); });
     addShortcuts();
+    buildMainMenu();
 
     if (options.detachedPage) {
         insertTab(std::move(options.detachedPage), 0);
@@ -364,9 +358,7 @@ EditorWindow::~EditorWindow()
 
 void EditorWindow::retranslate()
 {
-    if (m_mainMenu)
-        m_mainMenu->close();
-    m_mainMenu.reset();
+    buildMainMenu();
     if (m_tabMenu)
         m_tabMenu->close();
     m_tabMenu.reset();
@@ -887,116 +879,201 @@ void EditorWindow::openDialog()
     m_openChooser->open();
 }
 
-void EditorWindow::showMainMenu()
+void EditorWindow::buildMainMenu()
 {
-    EditorPage *page = currentPage();
-    Document *document = page ? &page->document() : nullptr;
+    m_window->setMainMenu(nullptr);
     m_mainMenu = std::make_unique<Menu>();
-    Menu &menu = *m_mainMenu;
-    Menu *recent = nullptr;
-    Menu *edit = nullptr;
-    Menu *view = nullptr;
-    menu.addItem(tr("Open\xE2\x80\xA6"), [this] { openDialog(); }, "Ctrl+O");
-    recent = menu.addSubmenu(tr("Open Recent"));
-    menu.setItemEnabled(1, !m_application.recentFiles().files().empty());
-    for (const std::string &path : m_application.recentFiles().files()) {
-        recent->addItem(std::filesystem::path(path).filename().string(), [this, path] {
-            m_application.openPaths({path}, 0, this);
-        });
-    }
-    recent->addSeparator();
-    recent->addItem(tr("Clear Recent Files"), [this] { m_application.recentFiles().clear(); });
-    menu.addSeparator();
-    menu.addItem(tr("New Tab"), [this] { newTab(); }, "Ctrl+T");
-    menu.addItem(tr("New Window"), [this] { m_application.newWindow(); }, "Ctrl+N");
-    menu.setItemEnabled(menu.addItem(tr("Reopen Closed Tab"), [this] { reopenClosedTab(); }, "Ctrl+Shift+T"),
-                        m_application.canReopenClosedTab());
-    menu.addSeparator();
-    menu.setItemEnabled(menu.addItem(tr("Save"), [this] { savePage(currentPage()); }, "Ctrl+S"), document != nullptr);
-    menu.setItemEnabled(menu.addItem(tr("Save As\xE2\x80\xA6"), [this] { saveAs(currentPage()); }, "Ctrl+Shift+S"),
-                        document != nullptr);
-    menu.addItem(tr("Save All"), [this] { saveAll(); }, "Ctrl+Alt+S");
-    menu.setItemEnabled(menu.addItem(tr("Revert to Saved\xE2\x80\xA6"),
-                                     [this] {
-                                         if (EditorPage *current = currentPage())
-                                             current->revert();
-                                     }),
-                        document && !document->isUntitled() && document->isModified());
-    menu.addItem(tr("Close Tab"), [this] { closeCurrentTab(); }, "Ctrl+W");
-    menu.addSeparator();
-    menu.addItem(tr("Find\xE2\x80\xA6"), [this] {
-        if (EditorPage *current = currentPage())
-            current->showFind(false);
-    }, "Ctrl+F");
-    menu.addItem(tr("Replace\xE2\x80\xA6"), [this] {
-        if (EditorPage *current = currentPage())
-            current->showFind(true);
-    }, "Ctrl+H");
-    menu.addItem(tr("Go to Line\xE2\x80\xA6"), [this] {
-        if (EditorPage *current = currentPage())
-            current->showGoToLine();
-    }, "Ctrl+I");
-    menu.addSeparator();
-
-    edit = menu.addSubmenu(tr("Edit"));
+    const uint32_t ctrl = ControlModifier;
+    const uint32_t shift = ShiftModifier;
+    const uint32_t alt = AltModifier;
+    const auto onPage = [this](std::function<void(EditorPage &)> action) {
+        return [this, action] {
+            if (EditorPage *current = currentPage())
+                action(*current);
+        };
+    };
     const auto onDocument = [this](std::function<void(Document &)> action) {
         return [this, action] {
             if (EditorPage *current = currentPage())
                 action(current->document());
         };
     };
-    edit->setItemEnabled(edit->addItem(tr("Undo"), onDocument([](Document &d) { d.undo(); }), "Ctrl+Z"),
-                         document && document->canUndo());
-    edit->setItemEnabled(edit->addItem(tr("Redo"), onDocument([](Document &d) { d.redo(); }), "Ctrl+Shift+Z"),
-                         document && document->canRedo());
+
+    Menu *application = m_mainMenu->addSubmenu(tr("Text Editor"));
+    application->setRole(MenuRole::Application);
+    application->addItem(tr("About Text Editor"), [this] { showAbout(); });
+    application->addSeparator();
+    const size_t settings = application->addItem(tr("Settings\xE2\x80\xA6"), [this] { showPreferences(); });
+    application->setItemKeyEquivalent(settings, ",", ctrl);
+    application->addSeparator();
+    application->addItem(tr("Hide Text Editor"), [this] { m_window->hideApplication(); });
+    application->addSeparator();
+    const size_t quit = application->addItem(tr("Quit Text Editor"), [this] { quitApplication(); });
+    application->setItemKeyEquivalent(quit, "q", ctrl);
+
+    Menu *file = m_mainMenu->addSubmenu(tr("File"));
+    const size_t newTabRow = file->addItem(tr("New Tab"), [this] { newTab(); });
+    file->setItemKeyEquivalent(newTabRow, "t", ctrl);
+    const size_t newWindow = file->addItem(tr("New Window"), [this] { m_application.newWindow(); });
+    file->setItemKeyEquivalent(newWindow, "n", ctrl);
+    file->addSeparator();
+    const size_t open = file->addItem(tr("Open\xE2\x80\xA6"), [this] { openDialog(); });
+    file->setItemKeyEquivalent(open, "o", ctrl);
+    const size_t recentRow = open + 1;
+    Menu *recent = file->addSubmenu(tr("Open Recent"));
+    recent->onAboutToShow = [this, recent] {
+        recent->clear();
+        for (const std::string &path : m_application.recentFiles().files()) {
+            recent->addItem(std::filesystem::path(path).filename().string(), [this, path] {
+                m_application.openPaths({path}, 0, this);
+            });
+        }
+        recent->addSeparator();
+        recent->addItem(tr("Clear Recent Files"), [this] { m_application.recentFiles().clear(); });
+    };
+    const size_t reopen = file->addItem(tr("Reopen Closed Tab"), [this] { reopenClosedTab(); });
+    file->setItemKeyEquivalent(reopen, "t", ctrl | shift);
+    file->addSeparator();
+    const size_t closeTab = file->addItem(tr("Close Tab"), [this] { closeCurrentTab(); });
+    file->setItemKeyEquivalent(closeTab, "w", ctrl);
+    const size_t closeWindow = file->addItem(tr("Close Window"), [this] { requestClose(); });
+    file->setItemKeyEquivalent(closeWindow, "w", ctrl | shift);
+    const size_t save = file->addItem(tr("Save"), [this] { savePage(currentPage()); });
+    file->setItemKeyEquivalent(save, "s", ctrl);
+    const size_t saveAsRow = file->addItem(tr("Save As\xE2\x80\xA6"), [this] { saveAs(currentPage()); });
+    file->setItemKeyEquivalent(saveAsRow, "s", ctrl | shift);
+    const size_t saveAllRow = file->addItem(tr("Save All"), [this] { saveAll(); });
+    file->setItemKeyEquivalent(saveAllRow, "s", ctrl | alt);
+    const size_t revert = file->addItem(tr("Revert to Saved\xE2\x80\xA6"), onPage([](EditorPage &p) { p.revert(); }));
+    file->addSeparator();
+    const size_t statistics = file->addItem(tr("Document Statistics"), [this] { showStatistics(); });
+    file->onAboutToShow = [this, file, recentRow, reopen, save, saveAsRow, revert, statistics] {
+        EditorPage *page = currentPage();
+        Document *document = page ? &page->document() : nullptr;
+        file->setItemEnabled(recentRow, !m_application.recentFiles().files().empty());
+        file->setItemEnabled(reopen, m_application.canReopenClosedTab());
+        file->setItemEnabled(save, document != nullptr);
+        file->setItemEnabled(saveAsRow, document != nullptr);
+        file->setItemEnabled(revert, document && !document->isUntitled() && document->isModified());
+        file->setItemEnabled(statistics, document != nullptr);
+    };
+
+    Menu *edit = m_mainMenu->addSubmenu(tr("Edit"));
+    const size_t undo = edit->addItem(tr("Undo"), onDocument([](Document &d) { d.undo(); }));
+    edit->setItemKeyEquivalent(undo, "z", ctrl);
+    const size_t redo = edit->addItem(tr("Redo"), onDocument([](Document &d) { d.redo(); }));
+    edit->setItemKeyEquivalent(redo, "z", ctrl | shift);
     edit->addSeparator();
-    edit->addItem(tr("Duplicate Line"), onDocument([](Document &d) { d.duplicateLines(); }), "Ctrl+Alt+D");
-    edit->addItem(tr("Delete Line"), onDocument([](Document &d) { d.deleteLines(); }), "Ctrl+D");
-    edit->addItem(tr("Move Line Up"), onDocument([](Document &d) { d.moveLines(true); }), "Alt+Up");
-    edit->addItem(tr("Move Line Down"), onDocument([](Document &d) { d.moveLines(false); }), "Alt+Down");
+    const size_t cut = edit->addItem(tr("Cut"), onPage([](EditorPage &p) { p.editor().cut(); }));
+    edit->setItemKeyEquivalent(cut, "x", ctrl);
+    const size_t copy = edit->addItem(tr("Copy"), onPage([](EditorPage &p) { p.editor().copy(); }));
+    edit->setItemKeyEquivalent(copy, "c", ctrl);
+    const size_t paste = edit->addItem(tr("Paste"), onPage([](EditorPage &p) { p.editor().paste(); }));
+    edit->setItemKeyEquivalent(paste, "v", ctrl);
+    const size_t selectAll = edit->addItem(tr("Select All"), onDocument([](Document &d) { d.selectAll(); }));
+    edit->setItemKeyEquivalent(selectAll, "a", ctrl);
+    edit->addSeparator();
+    const size_t duplicate = edit->addItem(tr("Duplicate Line"), onDocument([](Document &d) { d.duplicateLines(); }));
+    edit->setItemKeyEquivalent(duplicate, "d", ctrl | alt);
+    const size_t deleteLine = edit->addItem(tr("Delete Line"), onDocument([](Document &d) { d.deleteLines(); }));
+    edit->setItemKeyEquivalent(deleteLine, "d", ctrl);
+    const size_t moveUp = edit->addItem(tr("Move Line Up"), onDocument([](Document &d) { d.moveLines(true); }));
+    edit->setItemKeyEquivalent(moveUp, "Up", alt);
+    const size_t moveDown = edit->addItem(tr("Move Line Down"), onDocument([](Document &d) { d.moveLines(false); }));
+    edit->setItemKeyEquivalent(moveDown, "Down", alt);
     edit->addSeparator();
     // TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-    edit->addItem(tr("UPPERCASE"), onDocument([](Document &d) { d.changeCase(Document::Upper); }), "Ctrl+U");
-    edit->addItem(tr("lowercase"), onDocument([](Document &d) { d.changeCase(Document::Lower); }), "Ctrl+Shift+U");
+    const size_t upper = edit->addItem(tr("UPPERCASE"), onDocument([](Document &d) { d.changeCase(Document::Upper); }));
+    edit->setItemKeyEquivalent(upper, "u", ctrl);
+    const size_t lower = edit->addItem(tr("lowercase"), onDocument([](Document &d) { d.changeCase(Document::Lower); }));
+    edit->setItemKeyEquivalent(lower, "u", ctrl | shift);
     edit->addItem(tr("Title Case"), onDocument([](Document &d) { d.changeCase(Document::Title); }));
     edit->addSeparator();
-    edit->addItem(tr("Indent"), onDocument([](Document &d) { d.indentSelection(false); }), "Tab");
-    edit->addItem(tr("Unindent"), onDocument([](Document &d) { d.indentSelection(true); }), "Shift+Tab");
+    const size_t indent = edit->addItem(tr("Indent"), onDocument([](Document &d) { d.indentSelection(false); }));
+    edit->setItemKeyEquivalent(indent, "Tab", NoModifier);
+    const size_t unindent = edit->addItem(tr("Unindent"), onDocument([](Document &d) { d.indentSelection(true); }));
+    edit->setItemKeyEquivalent(unindent, "Tab", shift);
+    edit->addSeparator();
+    const size_t find = edit->addItem(tr("Find\xE2\x80\xA6"), onPage([](EditorPage &p) { p.showFind(false); }));
+    edit->setItemKeyEquivalent(find, "f", ctrl);
+    const size_t replace = edit->addItem(tr("Replace\xE2\x80\xA6"), onPage([](EditorPage &p) { p.showFind(true); }));
+    edit->setItemKeyEquivalent(replace, "h", ctrl);
+    const size_t findNext = edit->addItem(tr("Find Next"), onPage([](EditorPage &p) { p.findNext(false); }));
+    edit->setItemKeyEquivalent(findNext, "g", ctrl);
+    const size_t findPrevious = edit->addItem(tr("Find Previous"), onPage([](EditorPage &p) { p.findNext(true); }));
+    edit->setItemKeyEquivalent(findPrevious, "g", ctrl | shift);
+    const size_t goToLine = edit->addItem(tr("Go to Line\xE2\x80\xA6"), onPage([](EditorPage &p) { p.showGoToLine(); }));
+    edit->setItemKeyEquivalent(goToLine, "i", ctrl);
+    edit->onAboutToShow = [this, edit, undo, redo, cut, copy] {
+        EditorPage *page = currentPage();
+        Document *document = page ? &page->document() : nullptr;
+        edit->setItemEnabled(undo, document && document->canUndo());
+        edit->setItemEnabled(redo, document && document->canRedo());
+        edit->setItemEnabled(cut, document && document->hasSelection());
+        edit->setItemEnabled(copy, document && document->hasSelection());
+    };
 
-    view = menu.addSubmenu(tr("View"));
-    EditorSettings &settings = m_application.settings();
-    const auto toggle = [&settings](bool EditorSettings::*member) {
-        return [&settings, member] {
-            settings.*member = !(settings.*member);
-            settings.commit();
+    Menu *view = m_mainMenu->addSubmenu(tr("View"));
+    EditorSettings &editorSettings = m_application.settings();
+    const auto toggle = [&editorSettings](bool EditorSettings::*member) {
+        return [&editorSettings, member] {
+            editorSettings.*member = !(editorSettings.*member);
+            editorSettings.commit();
         };
     };
-    view->setItemChecked(view->addItem(tr("Word Wrap"), toggle(&EditorSettings::wordWrap), "Alt+W"), settings.wordWrap);
-    view->setItemChecked(view->addItem(tr("Line Numbers"), toggle(&EditorSettings::lineNumbers)), settings.lineNumbers);
-    view->setItemChecked(view->addItem(tr("Highlight Current Line"), toggle(&EditorSettings::highlightCurrentLine)),
-                         settings.highlightCurrentLine);
-    view->setItemChecked(view->addItem(tr("Show Whitespace"), toggle(&EditorSettings::showWhitespace)),
-                         settings.showWhitespace);
-    view->setItemChecked(view->addItem(tr("Match Brackets"), toggle(&EditorSettings::matchBrackets)), settings.matchBrackets);
+    const size_t wordWrap = view->addItem(tr("Word Wrap"), toggle(&EditorSettings::wordWrap));
+    view->setItemKeyEquivalent(wordWrap, "w", alt);
+    const size_t lineNumbers = view->addItem(tr("Line Numbers"), toggle(&EditorSettings::lineNumbers));
+    const size_t currentLine = view->addItem(tr("Highlight Current Line"), toggle(&EditorSettings::highlightCurrentLine));
+    const size_t whitespace = view->addItem(tr("Show Whitespace"), toggle(&EditorSettings::showWhitespace));
+    const size_t brackets = view->addItem(tr("Match Brackets"), toggle(&EditorSettings::matchBrackets));
     view->addSeparator();
-    view->addItem(tr("Zoom In"), [this] { zoomBy(1); }, "Ctrl+=");
-    view->addItem(tr("Zoom Out"), [this] { zoomBy(-1); }, "Ctrl+-");
-    view->setItemEnabled(view->addItem(tr("Actual Size"), [this] { zoomBy(0); }, "Ctrl+0"), m_zoom != 1);
-    view->setItemChecked(view->addItem(tr("Full Screen"), [this] { toggleFullScreen(); }, "F11"), isFullScreen());
-
-    menu.addSeparator();
-    menu.addItem(tr("Document Statistics"), [this] { showStatistics(); });
-    menu.addSeparator();
-    menu.addItem(tr("Settings"), [this] { showPreferences(); }, "Ctrl+,");
-    menu.addItem(tr("Keyboard Shortcuts"), [this] { showShortcuts(); }, "Ctrl+?");
-    menu.addItem(tr("About Text Editor"), [this] { showAbout(); });
-
-    menu.onClosed = [this, alive = std::weak_ptr<bool>(m_alive)] {
-        if (!alive.expired())
-            m_header->menu->setChecked(false);
+    const size_t zoomIn = view->addItem(tr("Zoom In"), [this] { zoomBy(1); });
+    view->setItemKeyEquivalent(zoomIn, "=", ctrl);
+    const size_t zoomOut = view->addItem(tr("Zoom Out"), [this] { zoomBy(-1); });
+    view->setItemKeyEquivalent(zoomOut, "-", ctrl);
+    const size_t actualSize = view->addItem(tr("Actual Size"), [this] { zoomBy(0); });
+    view->setItemKeyEquivalent(actualSize, "0", ctrl);
+    view->addSeparator();
+    const size_t fullScreen = view->addItem(tr("Enter Full Screen"), [this] { toggleFullScreen(); });
+    view->setItemKeyEquivalent(fullScreen, "F11", NoModifier);
+    view->onAboutToShow = [this, view, wordWrap, lineNumbers, currentLine, whitespace, brackets, actualSize,
+                           fullScreen] {
+        const EditorSettings &settings = m_application.settings();
+        view->setItemChecked(wordWrap, settings.wordWrap);
+        view->setItemChecked(lineNumbers, settings.lineNumbers);
+        view->setItemChecked(currentLine, settings.highlightCurrentLine);
+        view->setItemChecked(whitespace, settings.showWhitespace);
+        view->setItemChecked(brackets, settings.matchBrackets);
+        view->setItemEnabled(actualSize, m_zoom != 1);
+        view->setItemText(fullScreen, isFullScreen() ? tr("Exit Full Screen") : tr("Enter Full Screen"));
     };
-    m_header->menu->setChecked(true);
-    menu.popupFor(m_header->menu, 4);
+
+    Menu *windowMenu = m_mainMenu->addSubmenu(tr("Window"));
+    windowMenu->setRole(MenuRole::Windows);
+    windowMenu->addItem(tr("Minimize"), [this] { m_window->minimize(); });
+    windowMenu->addItem(tr("Zoom"), [this] { m_window->setMaximized(!m_window->states().maximized); });
+    windowMenu->addSeparator();
+    const size_t previousTab = windowMenu->addItem(tr("Show Previous Tab"), [this] { cycleTab(-1); });
+    windowMenu->setItemKeyEquivalent(previousTab, "Tab", ctrl | shift);
+    const size_t nextTab = windowMenu->addItem(tr("Show Next Tab"), [this] { cycleTab(1); });
+    windowMenu->setItemKeyEquivalent(nextTab, "Tab", ctrl);
+    const size_t moveLeft = windowMenu->addItem(tr("Move Tab Left"), [this] { moveTab(m_currentIndex, m_currentIndex - 1); });
+    const size_t moveRight = windowMenu->addItem(tr("Move Tab Right"), [this] { moveTab(m_currentIndex, m_currentIndex + 1); });
+    windowMenu->onAboutToShow = [this, windowMenu, previousTab, nextTab, moveLeft, moveRight] {
+        const int count = int(m_pages.size());
+        windowMenu->setItemEnabled(previousTab, count > 1);
+        windowMenu->setItemEnabled(nextTab, count > 1);
+        windowMenu->setItemEnabled(moveLeft, m_currentIndex > 0);
+        windowMenu->setItemEnabled(moveRight, m_currentIndex >= 0 && m_currentIndex < count - 1);
+    };
+
+    Menu *help = m_mainMenu->addSubmenu(tr("Help"));
+    help->setRole(MenuRole::Help);
+    const size_t shortcuts = help->addItem(tr("Keyboard Shortcuts"), [this] { showShortcuts(); });
+    help->setItemKeyEquivalent(shortcuts, "?", ctrl);
+
+    m_window->setMainMenu(m_mainMenu.get());
 }
 
 void EditorWindow::showPreferences()

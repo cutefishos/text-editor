@@ -102,7 +102,6 @@ public:
     void saveAll();
     void openDialog();
 
-    void showMainMenu();
     // Move to New Window, Copy Path, Show in Folder and the closing items.
     void openTabMenu(int index, cutefish::ui::PointF position);
     void showPreferences();
@@ -134,6 +133,8 @@ private:
     class HeaderContent;
 
     void addShortcuts();
+    // The menus the status bar shows while the window is active.
+    void buildMainMenu();
     void showPage(int index);
     void attach(EditorPage *page);
     void updateTitle();
@@ -142,6 +143,8 @@ private:
     void retranslate();
 
     EditorApplication &m_application;
+    // The window shows it until the window goes, so it outlives the window.
+    std::unique_ptr<cutefish::ui::Menu> m_mainMenu;
     std::unique_ptr<cutefish::ui::Window> m_window;
     Content *m_content = nullptr;
     HeaderContent *m_header = nullptr;
@@ -151,7 +154,6 @@ private:
     double m_zoom = 1;
     bool m_closeConfirmed = false;
 
-    std::unique_ptr<cutefish::ui::Menu> m_mainMenu;
     std::unique_ptr<cutefish::ui::Menu> m_tabMenu;
     int m_tabMenuIndex = -1;
     std::unique_ptr<cutefish::ui::FileChooser> m_openChooser;
