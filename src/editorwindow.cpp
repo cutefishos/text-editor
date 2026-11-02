@@ -13,6 +13,7 @@
 #include "base/i18n.h"
 #include "base/strings.h"
 #include "base/url.h"
+#include "ui/about_dialog.h"
 #include "ui/application.h"
 #include "ui/drag.h"
 #include "ui/dialog_window.h"
@@ -1123,8 +1124,12 @@ void EditorWindow::showStatistics()
 
 void EditorWindow::showAbout()
 {
-    if (!m_about)
+    if (!m_about) {
         m_about = std::make_unique<AboutDialog>(m_window.get());
+        m_about->setName(tr("Text Editor"));
+        m_about->setDescription(tr("A simple editor for plain text"));
+        m_about->setIconSource("accessories-text-editor");
+    }
     m_about->show();
 }
 

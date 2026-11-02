@@ -8,13 +8,11 @@
 
 #include "base/event_loop.h"
 #include "base/i18n.h"
-#include "base/process.h"
 #include "ui/application.h"
 #include "ui/check_box.h"
 #include "ui/color_provider.h"
 #include "ui/combo_box.h"
 #include "ui/dialog_window.h"
-#include "ui/icon.h"
 #include "ui/keys.h"
 #include "ui/label.h"
 #include "ui/layout.h"
@@ -695,98 +693,4 @@ void ShortcutsDialog::show()
     DialogWindow *dialog = m_dialog.get();
     m_dialog->window()->addShortcut(NoModifier, key::Escape, [dialog] { dialog->close(); });
     m_dialog->show();
-}
-
-static constexpr const char *projectLink = "https://github.com/cutefishos/text-editor";
-
-class AboutDialog::Content : public View
-{
-public:
-    Content()
-        : m_header(addChild<WindowHeader>(40))
-        , m_icon(addChild<ThemeIcon>("accessories-text-editor", 64))
-        , m_name(addChild<Label>(tr("Text Editor")))
-        , m_description(addChild<Label>(tr("A simple editor for plain text")))
-        , m_link(addChild<Label>())
-    {
-        m_header->setMinimizeVisible(false);
-        m_header->setMaximizeVisible(false);
-        // 14 points.
-        m_name->setFontSize(14.0 * 4 / 3);
-        m_link->setSpans({{projectLink, 0, Theme::current().highlight, false, true, projectLink}});
-        m_link->setCursorShape(CursorShape::Pointer);
-    }
-
-    double heightForWidth(double) const override { return 40 + columnHeight() + 40; }
-    bool acceptsPointer() const override { return true; }
-
-protected:
-    void layout() override
-    {
-        const double width = geometry().width;
-        m_header->setGeometry({0, 0, width, 40});
-        // A column under the header, spacing 5: icon, a 12 high gap, the labels.
-        double y = 40;
-        m_icon->setGeometry({rounding::centeredStart(width, 64), y, 64, 64});
-        y += 64 + 5 + 12 + 5;
-        for (Label *label : {m_name, m_description, m_link}) {
-            const SizeF size = label->sizeHint();
-            label->setGeometry({std::round((width - std::ceil(size.width)) / 2), y, std::ceil(size.width),
-                                std::ceil(size.height)});
-            y += std::ceil(size.height) + 5;
-        }
-    }
-
-    void pointerRelease(const PointerEvent &event) override
-    {
-        if (m_link->geometry().contains(event.position))
-            cutefish::base::Process::startDetached("xdg-open", {projectLink}, {});
-    }
-
-private:
-    double columnHeight() const
-    {
-        return 64 + 5 + 12 + 5 + std::ceil(m_name->sizeHint().height) + 5 + std::ceil(m_description->sizeHint().height)
-                + 5 + std::ceil(m_link->sizeHint().height);
-    }
-
-    WindowHeader *m_header;
-    ThemeIcon *m_icon;
-    Label *m_name;
-    Label *m_description;
-    Label *m_link;
-};
-
-AboutDialog::AboutDialog(Window *parent)
-    : m_parent(parent)
-{
-}
-
-AboutDialog::~AboutDialog() = default;
-
-void AboutDialog::show()
-{
-    if (m_window) {
-        m_window->activate();
-        return;
-    }
-    m_window = std::make_unique<Window>();
-    m_window->setTitle(tr("Text Editor"));
-    m_window->setTransientParent(m_parent, true);
-    auto content = std::make_unique<Content>();
-    const double height = content->heightForWidth(300);
-    m_window->setContentView(std::move(content));
-    m_window->resize({300, height});
-    m_window->setMinimumSize({300, height});
-    m_window->setMaximumSize({300, height});
-    m_window->onCloseRequested = [this] { close(); };
-    m_window->show();
-}
-
-void AboutDialog::close()
-{
-    if (!m_window)
-        return;
-    m_window->hide();
-    releaseLater(m_window);
 }

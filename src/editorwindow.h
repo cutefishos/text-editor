@@ -17,6 +17,7 @@
 #include <vector>
 
 namespace cutefish::ui {
+class AboutDialog;
 class ConfirmDialog;
 class FileChooser;
 class HeaderButton;
@@ -27,7 +28,6 @@ class WindowTabBar;
 class WindowHeader;
 }
 
-class AboutDialog;
 class EditorApplication;
 class PreferencesDialog;
 class SaveChangesDialog;
@@ -161,7 +161,7 @@ private:
     std::unique_ptr<SaveChangesDialog> m_saveDialog;
     std::unique_ptr<PreferencesDialog> m_preferences;
     std::unique_ptr<ShortcutsDialog> m_shortcuts;
-    std::unique_ptr<AboutDialog> m_about;
+    std::unique_ptr<cutefish::ui::AboutDialog> m_about;
     std::unique_ptr<cutefish::ui::ConfirmDialog> m_statistics;
     std::unique_ptr<cutefish::ui::Toast> m_toast;
     std::vector<cutefish::base::Subscription> m_connections;

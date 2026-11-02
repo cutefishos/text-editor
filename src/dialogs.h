@@ -88,24 +88,4 @@ private:
     std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
 };
 
-// The icon, the name, a line and the project's link.
-class AboutDialog
-{
-public:
-    explicit AboutDialog(cutefish::ui::Window *parent);
-    ~AboutDialog();
-
-    void show();
-    cutefish::ui::Window *window() const { return m_window.get(); }
-
-private:
-    class Content;
-
-    void close();
-
-    cutefish::ui::Window *m_parent;
-    std::unique_ptr<cutefish::ui::Window> m_window;
-    std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
-};
-
 #endif
