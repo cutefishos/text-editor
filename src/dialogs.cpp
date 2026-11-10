@@ -62,8 +62,6 @@ public:
         auto *texts = m_column->addChild<Column>();
         texts->setSpacing(4);
         texts->setLayoutHints({.fillWidth = true});
-        // Clear of the close button in the window's corner.
-        texts->setMargins({0, 0, 32, 0});
         Label *titleLabel = texts->addChild<Label>(title);
         titleLabel->setFontSize(14);
         titleLabel->setWeight(600);
@@ -114,6 +112,8 @@ public:
         m_header->setButtonMargin(8);
         m_header->setMinimizeVisible(false);
         m_header->setMaximizeVisible(false);
+        // Cancel closes it.
+        m_header->setCloseVisible(false);
     }
 
     DialogButton *saveButton() const { return m_save; }
