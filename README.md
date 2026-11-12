@@ -3,6 +3,8 @@
 A plain-text editor for Cutefish, with tabs, session restore, encoding
 detection and syntax highlighting for common languages.
 
+<img src="screenshots/text-editor.png" alt="Text Editor" width="945">
+
 ## Dependencies
 
 cutefish-toolkit, ICU and PCRE2; GoogleTest for the tests.
