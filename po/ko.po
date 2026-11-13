@@ -1,0 +1,945 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "저장하지 않으면 변경 사항이 사라집니다."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "취소"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "모두 폐기"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "저장 안 함"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "저장"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "“{name}”의 변경 사항을 저장하겠습니까?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "문서 {n}개의 변경 사항을 저장하겠습니까?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "시스템 고정폭"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "글꼴"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "시스템 기본값"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size}pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "크기"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "탭 너비"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "탭 대신 공백 삽입"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "자동 들여쓰기"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "줄 바꿈"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "줄 번호"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "현재 줄 강조"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "공백 문자 보기"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "괄호 짝 표시"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "시작 시 세션 복원"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "설정"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "파일 및 탭"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "새 탭"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "새 창"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "파일 열기"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "저장, 다른 이름으로 저장"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "모두 저장"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "탭 닫기, 창 닫기"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "닫은 탭 다시 열기"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "다음 또는 이전 탭"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "탭 이동"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "탭 1–9로 이동"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "종료"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "편집"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "실행 취소, 다시 실행"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "잘라내기, 복사, 붙여넣기"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "앞 또는 뒤 단어 삭제"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "들여쓰기 또는 내어쓰기"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "줄을 위나 아래로 이동"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "줄 복제"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "줄 삭제"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "대문자, 소문자"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "겹쳐쓰기 모드"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "찾기 및 이동"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "찾기, 바꾸기"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "다음 또는 이전 일치 항목"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "줄로 이동"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "왼쪽 또는 오른쪽 단어"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "문서의 처음 또는 끝"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "보기"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "확대, 축소, 초기화"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "자동 줄 바꿈"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "전체 화면"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "키보드 단축키"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "키보드 단축키"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "파일이 존재하지 않습니다."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "폴더입니다."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "제목 없음"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "기존 파일에 쓸 수 없습니다: {path}"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "“{name}” 파일을 되돌리겠습니까?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "{encoding} 인코딩으로 다시 열겠습니까?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "저장하지 않은 변경 사항이 사라집니다."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "되돌리기"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "다시 열기"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "실행 취소"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "다시 실행"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "잘라내기"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "복사"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "붙여넣기"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "삭제"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "모두 선택"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "텍스트 편집기"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "다른 이름으로 저장"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "열기"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "텍스트 편집기 정보"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "설정…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "텍스트 편집기 숨기기"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "텍스트 편집기 종료"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "파일"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "새 탭"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "새 창"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "열기…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "최근 항목 열기"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "최근 파일 지우기"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "닫은 탭 다시 열기"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "탭 닫기"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "창 닫기"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "다른 이름으로 저장…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "모두 저장"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "저장된 버전으로 되돌리기…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "문서 통계"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "편집"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "줄 복제"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "줄 삭제"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "줄을 위로 이동"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "줄을 아래로 이동"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "대문자"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "소문자"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "단어 첫 글자 대문자"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "들여쓰기"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "내어쓰기"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "찾기…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "바꾸기…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "다음 찾기"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "이전 찾기"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "줄로 이동…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "자동 줄 바꿈"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "확대"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "축소"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "실제 크기"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "전체 화면 시작"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "전체 화면 종료"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "창"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "최소화"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "확대/축소"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "이전 탭 보기"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "다음 탭 보기"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "탭을 왼쪽으로 이동"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "탭을 오른쪽으로 이동"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "도움말"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "줄: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "단어: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "문자: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "공백 제외 문자: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "선택 영역: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n}줄"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n}단어"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n}자"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "확인"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "일반 텍스트를 위한 간단한 편집기"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "새 창으로 이동"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "경로 복사"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "폴더에서 보기"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "다른 탭 닫기"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "오른쪽 탭 닫기"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "줄 {line}, 열 {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  ({n}자 선택됨)"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "겹쳐쓰기"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "읽기 전용"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "공백: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "탭 너비: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "공백으로 들여쓰기"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "탭으로 들여쓰기"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "너비: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix(LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows(CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "클래식 Mac(CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "인코딩을 지정하여 다시 열기"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "인코딩을 지정하여 저장"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "바이트 순서 표시(BOM)"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "지난 세션에서 저장하지 않은 변경 사항이 복원되었습니다."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "변경 사항 폐기"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "디스크의 파일이 변경되었습니다. 지금 저장하면 그 변경 사항을 덮어씁니다."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "내 버전 유지"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "다시 불러오기"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "파일이 삭제되었거나 이동되었습니다. 텍스트는 그대로 남아 있습니다."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "닫기"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "일부 문자를 {encoding} 인코딩으로 읽을 수 없어 �로 표시됩니다."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "닫기"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "인코딩 선택…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "이 파일은 텍스트가 아닌 것 같습니다. 편집하면 파일이 손상될 수 있습니다."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "그래도 편집"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "이 파일을 저장할 권한이 없습니다."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "이 파일을 열 권한이 없습니다."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "다시 시도"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "파일을 열 수 없습니다."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "파일을 열 수 없습니다. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "파일이 너무 커서 열 수 없습니다(256MB 초과)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "파일을 저장할 수 없습니다."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "파일을 저장할 수 없습니다. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "일부 문자를 {encoding} 인코딩으로 저장할 수 없습니다. 아무것도 저장되지 않았습니다."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "UTF-8로 저장"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "큰 파일이어서 구문 강조가 꺼져 있습니다."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "그래도 강조"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "저장하면 {encoding} 인코딩으로 읽을 수 없었던 문자가 대체됩니다."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "그래도 저장"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "이 파일에는 여러 종류의 줄 끝이 섞여 있습니다. 저장하면 모두 {ending} 방식으로 통일됩니다."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "{n}개 항목 바꿈"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "찾기"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "대소문자 구분"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "단어 단위로"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "정규 표현식"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "선택 영역에서"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "바꿀 내용"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "바꾸기"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "모두 바꾸기"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "잘못됨"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "반대쪽 끝에서 계속"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "일치 항목 없음"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index}/{count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "일치 항목 {n}개"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "줄로 이동(1–{count}), :열"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "“{name}” 여는 중…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "일반 텍스트"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "유니코드(UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "유니코드(UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "유니코드(UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "중국어 간체(GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "중국어 번체(Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "중국어 번체(Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "일본어(Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "일본어(EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "한국어(EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "서유럽어(Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "서유럽어(ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "서유럽어(ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "중앙 유럽어(Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "중앙 유럽어(ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "키릴 자모(Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "키릴 자모(KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "키릴 자모(KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "그리스어(Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "터키어(Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "히브리어(Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "아랍어(Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "발트어(Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "베트남어(Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "태국어(Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "일반 텍스트 파일을 편집합니다"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "텍스트;편집기;메모장;메모;코드;Text;Editor;Plain;Notes;Code;"

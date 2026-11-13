@@ -1,0 +1,959 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 12:00+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Если не сохранить, изменения будут потеряны."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Отбросить все"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Не сохранять"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Сохранить изменения в «{name}»?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Сохранить изменения в {n} документе?"
+msgstr[1] "Сохранить изменения в {n} документах?"
+msgstr[2] "Сохранить изменения в {n} документах?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "Системный моноширинный"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Шрифт"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "Системный"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} пт"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Размер"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Ширина табуляции"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Вставлять пробелы вместо табуляции"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Автоматический отступ"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Переносить строки"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Номера строк"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Выделять текущую строку"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Показывать пробельные символы"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Парные скобки"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "Восстанавливать сеанс при запуске"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Настройки"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "Файлы и вкладки"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "Новая вкладка"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "Новое окно"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "Открыть файл"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "Сохранить, сохранить как"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "Сохранить все"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "Закрыть вкладку, окно"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "Открыть закрытую вкладку"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "Следующая или предыдущая вкладка"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "Переместить вкладку"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "Перейти на вкладку 1–9"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "Завершить"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "Правка"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "Отменить, повторить"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "Вырезать, копировать, вставить"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "Удалить слово до или после курсора"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "Увеличить или уменьшить отступ"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "Переместить строку вверх или вниз"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "Дублировать строку"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "Удалить строку"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "Прописные, строчные"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "Режим замены"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "Поиск и перемещение"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "Найти, заменить"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "Следующее или предыдущее совпадение"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "Перейти к строке"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "На слово влево или вправо"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "Начало или конец документа"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "Вид"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "Увеличить, уменьшить, сбросить масштаб"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "Перенос по словам"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "Полноэкранный режим"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "Сочетания клавиш"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "Сочетания клавиш"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "Файл не существует."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Это папка."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "Без названия"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "Существующий файл {path} недоступен для записи"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "Вернуть «{name}» к сохраненной версии?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "Открыть заново в кодировке {encoding}?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Несохраненные изменения будут потеряны."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Вернуть"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Открыть заново"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Отменить"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Повторить"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Вырезать"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Копировать"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Вставить"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Удалить"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Текстовый редактор"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Сохранить как"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Открыть"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "О программе «Текстовый редактор»"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Настройки…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Скрыть «Текстовый редактор»"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Завершить «Текстовый редактор»"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "Файл"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Новая вкладка"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Новое окно"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Открыть…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Открыть недавние"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Очистить недавние файлы"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "Открыть закрытую вкладку"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Закрыть вкладку"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Закрыть окно"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Сохранить как…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Сохранить все"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Вернуть к сохраненному…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "Статистика документа"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Правка"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "Дублировать строку"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "Удалить строку"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "Переместить строку вверх"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "Переместить строку вниз"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "ПРОПИСНЫЕ"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "строчные"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "Каждое Слово С Прописной"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Увеличить отступ"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Уменьшить отступ"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Найти…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Заменить…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Найти далее"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Найти ранее"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Перейти к строке…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Перенос по словам"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Увеличить"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Уменьшить"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Фактический размер"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Перейти в полноэкранный режим"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Выйти из полноэкранного режима"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Окно"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Свернуть"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Изменить масштаб"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Показать предыдущую вкладку"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Показать следующую вкладку"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "Переместить вкладку влево"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "Переместить вкладку вправо"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "Справка"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "Строк: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "Слов: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "Символов: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "Символов без пробелов: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "Выделено: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} строка"
+msgstr[1] "{n} строки"
+msgstr[2] "{n} строк"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} слово"
+msgstr[1] "{n} слова"
+msgstr[2] "{n} слов"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} символ"
+msgstr[1] "{n} символа"
+msgstr[2] "{n} символов"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "ОК"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Простой редактор обычного текста"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "Переместить в новое окно"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Копировать путь"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Показать в папке"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "Закрыть другие вкладки"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "Закрыть вкладки справа"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Стр. {line}, стлб. {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  (выбрано: {n})"
+msgstr[1] "{position}  (выбрано: {n})"
+msgstr[2] "{position}  (выбрано: {n})"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "ЗАМ"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Только чтение"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Пробелы: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Ширина табуляции: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Отступ пробелами"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Отступ табуляцией"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Ширина: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Classic Mac (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Открыть заново в кодировке"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Сохранить в кодировке"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Метка порядка байтов (BOM)"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "Несохраненные изменения из прошлого сеанса восстановлены."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "Отбросить изменения"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "Файл изменился на диске. Если сохранить сейчас, это изменение будет перезаписано."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Оставить мою версию"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Загрузить заново"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "Файл удален или перемещен. Ваш текст сохранился здесь."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Закрыть"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "Некоторые символы не удалось прочитать в кодировке {encoding}, они показаны как �."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Закрыть"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Выбрать кодировку…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "Этот файл не похож на текстовый. Его правка может его повредить."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Все равно править"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "У вас нет прав на сохранение этого файла."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "У вас нет прав на открытие этого файла."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Повторить"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "Не удалось открыть файл."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "Не удалось открыть файл. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "Файл слишком большой для открытия (более 256 МБ)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "Не удалось сохранить файл."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "Не удалось сохранить файл. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "Некоторые символы нельзя сохранить в кодировке {encoding}. Ничего не сохранено."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "Сохранить в UTF-8"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Для этого большого файла подсветка синтаксиса отключена."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Все равно подсветить"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "При сохранении символы, которые не удалось прочитать в кодировке {encoding}, будут заменены."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Все равно сохранить"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "В файле смешаны концы строк. При сохранении везде будет использоваться формат {ending}."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "Заменено {n} вхождение"
+msgstr[1] "Заменено {n} вхождения"
+msgstr[2] "Заменено {n} вхождений"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Найти"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "С учетом регистра"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Слова целиком"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Регулярное выражение"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "В выделенном"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Заменить на"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Заменить"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Заменить все"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Недопустимо"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "С начала"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Нет совпадений"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index} из {count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} совпадение"
+msgstr[1] "{n} совпадения"
+msgstr[2] "{n} совпадений"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Перейти к строке (1–{count}), :столбец"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "Открытие «{name}»…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Обычный текст"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Юникод (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Юникод (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Юникод (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Китайская упрощенная (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Китайская традиционная (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Китайская традиционная (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Японская (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Японская (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Корейская (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Западноевропейская (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Западноевропейская (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Западноевропейская (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Центральноевропейская (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Центральноевропейская (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Кириллица (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Кириллица (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Кириллица (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Греческая (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Турецкая (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "Иврит (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Арабская (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Балтийская (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Вьетнамская (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Тайская (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Редактирование текстовых файлов"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Текст;Редактор;Блокнот;Заметки;Код;Text;Editor;"

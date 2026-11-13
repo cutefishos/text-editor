@@ -1,0 +1,945 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "如果不儲存，您所做的變更將會遺失。"
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "取消"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "全部捨棄"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "不儲存"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "儲存"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "要儲存對「{name}」所做的變更嗎？"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "要儲存對 {n} 份文件所做的變更嗎？"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "系統等寬字體"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "字體"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "系統"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "大小"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Tab 寬度"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "插入空格取代 Tab"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "自動縮排"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "自動換行"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "行號"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "標示目前所在行"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "顯示空白字元"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "對應括號"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "啟動時恢復工作階段"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "設定"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "檔案與標籤頁"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "新增標籤頁"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "新增視窗"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "開啟檔案"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "儲存、另存新檔"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "全部儲存"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "關閉標籤頁、視窗"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "重新開啟已關閉的標籤頁"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "下一個或上一個標籤頁"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "移動標籤頁"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "前往第 1 至第 9 個標籤頁"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "結束"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "編輯"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "還原、重做"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "剪下、複製、貼上"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "刪除前一個或後一個字詞"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "縮排或取消縮排"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "將此行上移或下移"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "複製此行"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "刪除此行"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "轉為大寫、小寫"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "覆寫模式"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "尋找與移動"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "尋找、取代"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "下一個或上一個符合項目"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "前往行"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "向左或向右移動一個字詞"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "文件開頭或結尾"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "檢視"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "放大、縮小、重置"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "自動換行"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "全螢幕"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "鍵盤快速鍵"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "鍵盤快速鍵"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "檔案不存在。"
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "這是資料夾。"
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "未命名"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "現有檔案 {path} 無法寫入"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "要回復「{name}」嗎？"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "要以 {encoding} 重新開啟嗎？"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "您尚未儲存的變更將會遺失。"
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "回復"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "重新開啟"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "還原"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "重做"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "剪下"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "複製"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "貼上"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "刪除"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "全選"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "文字編輯器"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "另存新檔"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "開啟"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "關於文字編輯器"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "設定…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "隱藏文字編輯器"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "結束文字編輯器"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "檔案"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "新增標籤頁"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "新增視窗"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "開啟…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "開啟最近使用的檔案"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "清除最近使用的檔案"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "重新開啟已關閉的標籤頁"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "關閉標籤頁"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "關閉視窗"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "另存新檔…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "全部儲存"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "回復到已儲存的版本…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "文件統計資料"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "編輯"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "複製此行"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "刪除此行"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "將此行上移"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "將此行下移"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "全部大寫"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "全部小寫"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "字首大寫"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "縮排"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "取消縮排"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "尋找…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "取代…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "尋找下一個"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "尋找上一個"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "前往行…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "自動換行"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "放大"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "縮小"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "實際大小"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "進入全螢幕"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "結束全螢幕"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "視窗"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "最小化"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "縮放"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "顯示上一個標籤頁"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "顯示下一個標籤頁"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "將標籤頁左移"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "將標籤頁右移"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "說明"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "行數：{count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "字數：{count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "字元數：{count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "不含空格的字元數：{count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "選取範圍：{lines}、{words}、{characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} 行"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} 個字詞"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} 個字元"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "好"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "簡易的純文字編輯器"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "移到新視窗"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "複製路徑"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "在資料夾中顯示"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "關閉其他標籤頁"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "關閉右側的標籤頁"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "第 {line} 行，第 {column} 欄"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  （已選取 {n} 個字元）"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "覆寫"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "唯讀"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "空格：{width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Tab 寬度：{width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "以空格縮排"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "以 Tab 縮排"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "寬度：{width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix（LF）"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows（CRLF）"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "傳統 Mac（CR）"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "以其他編碼重新開啟"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "以其他編碼儲存"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "位元組順序標記"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "已恢復您上次工作階段中未儲存的變更。"
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "捨棄變更"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "磁碟上的檔案已變更。現在儲存會覆寫該變更。"
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "保留我的版本"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "重新載入"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "檔案已被刪除或移動。您的文字仍保留在此。"
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "關閉"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "部分字元無法以 {encoding} 讀取，會顯示為 �。"
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "關閉"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "選擇編碼…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "此檔案看起來不像文字檔。編輯它可能會使其損壞。"
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "仍要編輯"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "您沒有儲存此檔案的權限。"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "您沒有開啟此檔案的權限。"
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "重試"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "無法開啟檔案。"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "無法開啟檔案。{error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "檔案過大，無法開啟（超過 256 MB）。"
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "無法儲存檔案。"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "無法儲存檔案。{error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "部分字元無法以 {encoding} 儲存。未儲存任何內容。"
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "儲存為 UTF-8"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "已針對此大型檔案關閉語法突顯。"
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "仍要突顯"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "儲存將會取代無法以 {encoding} 讀取的字元。"
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "仍要儲存"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "此檔案混用了多種行尾符號。儲存時將全部使用 {ending}。"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "已取代 {n} 處"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "尋找"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "區分大小寫"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "全字拼寫須相符"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "正規表示式"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "在選取範圍內"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "取代為"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "取代"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "全部取代"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "無效"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "已從頭繼續"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "沒有符合項目"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "第 {index} 個，共 {count} 個"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} 個符合項目"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "前往行（1–{count}），:欄"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "正在開啟「{name}」…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "純文字"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode（UTF-8）"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode（UTF-16 LE）"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode（UTF-16 BE）"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "簡體中文（GB18030）"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "繁體中文（Big5）"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "繁體中文（Big5-HKSCS）"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "日文（Shift_JIS）"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "日文（EUC-JP）"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "韓文（EUC-KR）"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "西歐語系（Windows-1252）"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "西歐語系（ISO-8859-1）"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "西歐語系（ISO-8859-15）"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "中歐語系（Windows-1250）"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "中歐語系（ISO-8859-2）"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "斯拉夫語系（Windows-1251）"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "斯拉夫語系（KOI8-R）"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "斯拉夫語系（KOI8-U）"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "希臘文（Windows-1253）"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "土耳其文（Windows-1254）"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "希伯來文（Windows-1255）"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "阿拉伯文（Windows-1256）"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "波羅的海語系（Windows-1257）"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "越南文（Windows-1258）"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "泰文（Windows-874）"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "編輯純文字檔案"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Text;Editor;Plain;Notes;Code;文字;編輯器;純文字;筆記;程式碼;"

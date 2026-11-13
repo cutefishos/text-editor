@@ -1,0 +1,952 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Wenn Sie nicht speichern, gehen Ihre Änderungen verloren."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Alle verwerfen"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Nicht speichern"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Speichern"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Änderungen an „{name}“ speichern?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Änderungen an {n} Dokument speichern?"
+msgstr[1] "Änderungen an {n} Dokumenten speichern?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "System-Monospace"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Schrift"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "System"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Größe"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Tabbreite"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Leerzeichen statt Tabs einfügen"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Automatisch einrücken"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Zeilen umbrechen"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Zeilennummern"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Aktuelle Zeile hervorheben"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Leerraum anzeigen"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Klammerpaare hervorheben"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "Sitzung beim Start wiederherstellen"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "Dateien und Tabs"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "Neuer Tab"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "Neues Fenster"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "Datei öffnen"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "Speichern, speichern unter"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "Alle speichern"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "Tab, Fenster schließen"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "Geschlossenen Tab wieder öffnen"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "Nächster oder vorheriger Tab"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "Tab verschieben"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "Zu Tab 1 bis 9 wechseln"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "Beenden"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "Bearbeiten"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "Rückgängig, wiederholen"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "Ausschneiden, kopieren, einfügen"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "Wort davor oder danach löschen"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "Einrücken oder ausrücken"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "Zeile nach oben oder unten verschieben"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "Zeile duplizieren"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "Zeile löschen"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "Großbuchstaben, Kleinbuchstaben"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "Überschreibmodus"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "Suchen und Navigieren"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "Suchen, ersetzen"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "Nächster oder vorheriger Treffer"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "Gehe zu Zeile"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "Wort nach links oder rechts"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "Anfang oder Ende des Dokuments"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "Ansicht"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "Vergrößern, verkleinern, zurücksetzen"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "Zeilenumbruch"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "Vollbild"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "Tastaturkurzbefehle"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "Tastaturkurzbefehle"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "Die Datei existiert nicht."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Dies ist ein Ordner."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "Ohne Titel"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "Die vorhandene Datei {path} ist nicht beschreibbar"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "„{name}“ zurücksetzen?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "Mit {encoding} erneut öffnen?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Ihre nicht gespeicherten Änderungen gehen verloren."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Zurücksetzen"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Erneut öffnen"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Wiederholen"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Kopieren"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Einfügen"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Löschen"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Alles auswählen"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Texteditor"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Speichern unter"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Öffnen"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "Über Texteditor"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Einstellungen …"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Texteditor ausblenden"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Texteditor beenden"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "Datei"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Neuer Tab"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Neues Fenster"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Öffnen …"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Zuletzt geöffnet"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Liste löschen"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "Geschlossenen Tab wieder öffnen"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Tab schließen"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Fenster schließen"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Speichern unter …"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Alle speichern"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Auf Gespeichertes zurücksetzen …"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "Dokumentstatistik"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "Zeile duplizieren"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "Zeile löschen"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "Zeile nach oben"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "Zeile nach unten"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "GROSSBUCHSTABEN"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "kleinbuchstaben"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "Wortanfänge Groß"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Einrücken"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Ausrücken"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Suchen …"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Ersetzen …"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Weitersuchen"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Rückwärts suchen"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Gehe zu Zeile …"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Zeilenumbruch"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Vergrößern"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Verkleinern"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Originalgröße"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Vollbild aktivieren"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Vollbild beenden"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Fenster"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Minimieren"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Zoomen"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Vorherigen Tab anzeigen"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Nächsten Tab anzeigen"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "Tab nach links verschieben"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "Tab nach rechts verschieben"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "Hilfe"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "Zeilen: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "Wörter: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "Zeichen: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "Zeichen ohne Leerzeichen: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "Auswahl: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} Zeile"
+msgstr[1] "{n} Zeilen"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} Wort"
+msgstr[1] "{n} Wörter"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} Zeichen"
+msgstr[1] "{n} Zeichen"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Ein einfacher Editor für reinen Text"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "In neues Fenster verschieben"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Pfad kopieren"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Im Ordner anzeigen"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "Andere Tabs schließen"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "Tabs rechts schließen"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Z. {line}, Sp. {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  ({n} ausgewählt)"
+msgstr[1] "{position}  ({n} ausgewählt)"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "ÜB"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Schreibgeschützt"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Leerzeichen: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Tabbreite: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Mit Leerzeichen einrücken"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Mit Tabs einrücken"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Breite: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Klassisches Mac OS (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Mit Codierung erneut öffnen"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Mit Codierung speichern"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Byte Order Mark (BOM)"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "Nicht gespeicherte Änderungen aus Ihrer letzten Sitzung wurden wiederhergestellt."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "Änderungen verwerfen"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "Die Datei wurde auf dem Datenträger geändert. Speichern würde diese Änderung überschreiben."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Meine Version behalten"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Neu laden"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "Die Datei wurde gelöscht oder verschoben. Ihr Text ist noch vorhanden."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Schließen"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "Einige Zeichen konnten nicht als {encoding} gelesen werden und erscheinen als �."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Schließen"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Codierung wählen …"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "Diese Datei scheint kein Text zu sein. Bearbeiten könnte sie beschädigen."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Trotzdem bearbeiten"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "Sie haben keine Berechtigung, diese Datei zu speichern."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "Sie haben keine Berechtigung, diese Datei zu öffnen."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Wiederholen"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "Die Datei konnte nicht geöffnet werden."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "Die Datei konnte nicht geöffnet werden. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "Die Datei ist zu groß zum Öffnen (mehr als 256 MB)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "Die Datei konnte nicht gespeichert werden."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "Die Datei konnte nicht gespeichert werden. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "Einige Zeichen können nicht als {encoding} gespeichert werden. Es wurde nichts gespeichert."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "Als UTF-8 speichern"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Die Syntaxhervorhebung ist für diese große Datei aus."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Trotzdem hervorheben"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "Beim Speichern würden die Zeichen ersetzt, die nicht als {encoding} gelesen werden konnten."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Trotzdem speichern"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "Diese Datei hat gemischte Zeilenenden. Beim Speichern wird durchgehend {ending} verwendet."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "{n} Vorkommen ersetzt"
+msgstr[1] "{n} Vorkommen ersetzt"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Suchen"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "Groß-/Kleinschreibung"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Ganze Wörter"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Regulärer Ausdruck"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "In Auswahl"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Ersetzen durch"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Alle ersetzen"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Ungültig"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "Fortgesetzt"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Keine Treffer"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index} von {count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} Treffer"
+msgstr[1] "{n} Treffer"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Gehe zu Zeile (1–{count}), :Spalte"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "„{name}“ wird geöffnet …"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Reiner Text"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Chinesisch vereinfacht (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Chinesisch traditionell (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Chinesisch traditionell (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Japanisch (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Japanisch (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Koreanisch (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Westeuropäisch (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Westeuropäisch (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Westeuropäisch (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Mitteleuropäisch (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Mitteleuropäisch (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kyrillisch (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kyrillisch (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Kyrillisch (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Griechisch (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Türkisch (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "Hebräisch (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Arabisch (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Baltisch (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Vietnamesisch (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Thailändisch (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Reine Textdateien bearbeiten"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Text;Editor;Texteditor;Notizen;Code;"
