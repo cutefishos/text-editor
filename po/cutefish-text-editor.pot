@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-10-31 16:10+0800\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -243,14 +243,6 @@ msgstr ""
 msgid "Keyboard Shortcuts"
 msgstr ""
 
-#: src/dialogs.cpp src/editorwindow.cpp cutefish-text-editor.desktop
-msgid "Text Editor"
-msgstr ""
-
-#: src/dialogs.cpp
-msgid "A simple editor for plain text"
-msgstr ""
-
 #: src/document.cpp
 msgid "The file does not exist."
 msgstr ""
@@ -316,6 +308,10 @@ msgstr ""
 
 #: src/editorpage.cpp src/editorwindow.cpp
 msgid "Select All"
+msgstr ""
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
 msgstr ""
 
 #: src/editorwindow.cpp
@@ -560,6 +556,10 @@ msgstr[1] ""
 
 #: src/editorwindow.cpp src/pagebars.cpp
 msgid "OK"
+msgstr ""
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
 msgstr ""
 
 #: src/editorwindow.cpp
