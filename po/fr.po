@@ -323,7 +323,7 @@ msgstr "Ouvrir"
 
 #: src/editorwindow.cpp
 msgid "About Text Editor"
-msgstr "À propos de Éditeur de texte"
+msgstr "À propos d'Éditeur de texte"
 
 #: src/editorwindow.cpp
 msgid "Settings…"
