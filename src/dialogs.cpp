@@ -600,6 +600,7 @@ public:
         : m_scroll(addChild<ScrollView>())
     {
         m_scroll->setElastic(false);
+        m_scroll->setBottomCornerRadius(Theme::current().windowRadius);
         m_list = m_scroll->setContent<List>();
     }
 
