@@ -133,7 +133,7 @@ private:
     class HeaderContent;
 
     void addShortcuts();
-    // The menus the status bar shows while the window is active.
+    // The menus the menu bar shows while the window is active.
     void buildMainMenu();
     void showPage(int index);
     void attach(EditorPage *page);
