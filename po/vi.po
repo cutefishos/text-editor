@@ -1,0 +1,945 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Nếu bạn không lưu, các thay đổi sẽ bị mất."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "Hủy"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Bỏ tất cả"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Không lưu"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Lưu"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Lưu thay đổi cho “{name}”?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Lưu thay đổi cho {n} tài liệu?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "Phông đơn cách hệ thống"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Phông chữ"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "Hệ thống"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Cỡ chữ"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Độ rộng tab"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Chèn dấu cách thay cho tab"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Tự động thụt lề"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Ngắt dòng"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Số dòng"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Tô sáng dòng hiện tại"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Hiện khoảng trắng"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Tô sáng cặp ngoặc"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "Khôi phục phiên khi khởi động"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Cài đặt"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "Tệp và thẻ"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "Thẻ mới"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "Cửa sổ mới"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "Mở tệp"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "Lưu, lưu thành"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "Lưu tất cả"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "Đóng thẻ, đóng cửa sổ"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "Mở lại thẻ đã đóng"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "Thẻ tiếp theo hoặc trước đó"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "Di chuyển thẻ"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "Đi tới thẻ 1 đến 9"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "Thoát"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "Chỉnh sửa"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "Hoàn tác, làm lại"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "Cắt, sao chép, dán"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "Xóa từ phía trước hoặc phía sau"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "Thụt lề hoặc bỏ thụt lề"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "Chuyển dòng lên hoặc xuống"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "Nhân đôi dòng"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "Xóa dòng"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "Chữ hoa, chữ thường"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "Chế độ ghi đè"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "Tìm và di chuyển"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "Tìm, thay thế"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "Kết quả tiếp theo hoặc trước đó"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "Đi tới dòng"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "Sang trái hoặc phải một từ"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "Đầu hoặc cuối tài liệu"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "Xem"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "Phóng to, thu nhỏ, đặt lại"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "Ngắt dòng"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "Toàn màn hình"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "Phím tắt"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "Phím tắt"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "Tệp không tồn tại."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Đây là một thư mục."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "Không tiêu đề"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "Không thể ghi vào tệp hiện có {path}"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "Hoàn nguyên “{name}”?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "Mở lại bằng {encoding}?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Các thay đổi chưa lưu sẽ bị mất."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Hoàn nguyên"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Mở lại"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Hoàn tác"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Làm lại"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Cắt"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Sao chép"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Dán"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Xóa"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Chọn tất cả"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Trình soạn thảo văn bản"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Lưu thành"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Mở"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "Giới thiệu về Trình soạn thảo văn bản"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Cài đặt…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Ẩn Trình soạn thảo văn bản"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Thoát Trình soạn thảo văn bản"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "Tệp"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Thẻ mới"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Cửa sổ mới"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Mở…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Mở gần đây"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Xóa danh sách tệp gần đây"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "Mở lại thẻ đã đóng"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Đóng thẻ"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Đóng cửa sổ"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Lưu thành…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Lưu tất cả"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Hoàn nguyên về bản đã lưu…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "Thống kê tài liệu"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Sửa"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "Nhân đôi dòng"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "Xóa dòng"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "Chuyển dòng lên"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "Chuyển dòng xuống"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "CHỮ HOA"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "chữ thường"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "Viết Hoa Đầu Từ"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Thụt lề"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Bỏ thụt lề"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Tìm…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Thay thế…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Tìm tiếp"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Tìm lùi"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Đi tới dòng…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Ngắt dòng"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Phóng to"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Thu nhỏ"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Kích thước thực"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Vào toàn màn hình"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Thoát toàn màn hình"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Cửa sổ"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Thu nhỏ"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Phóng to"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Hiện thẻ trước"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Hiện thẻ tiếp theo"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "Chuyển thẻ sang trái"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "Chuyển thẻ sang phải"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "Trợ giúp"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "Số dòng: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "Số từ: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "Số ký tự: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "Số ký tự không tính dấu cách: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "Vùng chọn: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} dòng"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} từ"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} ký tự"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Trình soạn thảo đơn giản cho văn bản thuần"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "Chuyển sang cửa sổ mới"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Sao chép đường dẫn"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Hiện trong thư mục"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "Đóng các thẻ khác"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "Đóng các thẻ bên phải"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Dòng {line}, Cột {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  (đã chọn {n})"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "GHI ĐÈ"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Chỉ đọc"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Dấu cách: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Độ rộng tab: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Thụt lề bằng dấu cách"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Thụt lề bằng tab"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Độ rộng: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Mac cổ điển (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Mở lại với bảng mã"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Lưu với bảng mã"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Dấu thứ tự byte (BOM)"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "Đã khôi phục các thay đổi chưa lưu từ phiên trước của bạn."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "Bỏ thay đổi"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "Tệp đã thay đổi trên ổ đĩa. Lưu bây giờ sẽ ghi đè thay đổi đó."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Giữ phiên bản của tôi"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Tải lại"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "Tệp đã bị xóa hoặc di chuyển. Văn bản của bạn vẫn còn ở đây."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Đóng"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "Một số ký tự không đọc được theo {encoding} và hiển thị thành �."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Bỏ qua"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Chọn bảng mã…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "Tệp này có vẻ không phải văn bản. Chỉnh sửa có thể làm hỏng tệp."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Vẫn chỉnh sửa"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "Bạn không có quyền lưu tệp này."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "Bạn không có quyền mở tệp này."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Thử lại"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "Không thể mở tệp."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "Không thể mở tệp. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "Tệp quá lớn để mở (hơn 256 MB)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "Không thể lưu tệp."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "Không thể lưu tệp. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "Một số ký tự không thể lưu theo {encoding}. Chưa có gì được lưu."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "Lưu dạng UTF-8"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Tô sáng cú pháp đã tắt cho tệp lớn này."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Vẫn tô sáng"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "Khi lưu, các ký tự không đọc được theo {encoding} sẽ bị thay thế."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Vẫn lưu"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "Tệp này dùng lẫn nhiều kiểu xuống dòng. Khi lưu, toàn bộ tệp sẽ dùng {ending}."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "Đã thay thế {n} chỗ"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Tìm"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "Phân biệt hoa thường"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Nguyên từ"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Biểu thức chính quy"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "Trong vùng chọn"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Thay bằng"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Thay thế"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Thay thế tất cả"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Không hợp lệ"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "Đã quay vòng"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Không có kết quả khớp"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index}/{count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} kết quả khớp"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Đi tới dòng (1–{count}), :cột"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "Đang mở “{name}”…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Văn bản thuần"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Tiếng Trung giản thể (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Tiếng Trung phồn thể (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Tiếng Trung phồn thể (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Tiếng Nhật (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Tiếng Nhật (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Tiếng Hàn (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Tây Âu (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Tây Âu (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Tây Âu (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Trung Âu (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Trung Âu (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kirin (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kirin (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Kirin (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Tiếng Hy Lạp (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Tiếng Thổ Nhĩ Kỳ (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "Tiếng Do Thái (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Tiếng Ả Rập (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Baltic (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Tiếng Việt (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Tiếng Thái (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Chỉnh sửa tệp văn bản thuần"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Văn bản;Trình soạn thảo;Ghi chú;Mã;Text;Editor;Notes;Code;"

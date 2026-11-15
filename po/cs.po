@@ -1,0 +1,959 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Pokud změny neuložíte, budou ztraceny."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Zahodit vše"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Neukládat"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Uložit"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Uložit změny v dokumentu „{name}“?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Uložit změny v {n} dokumentu?"
+msgstr[1] "Uložit změny ve {n} dokumentech?"
+msgstr[2] "Uložit změny v {n} dokumentech?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "Systémové neproporcionální"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Písmo"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "Systémová"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Velikost"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Šířka tabulátoru"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Vkládat mezery místo tabulátorů"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Automatické odsazení"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Zalamovat řádky"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Čísla řádků"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Zvýraznit aktuální řádek"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Zobrazit prázdné znaky"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Párovat závorky"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "Při spuštění obnovit relaci"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Nastavení"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "Soubory a karty"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "Nová karta"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "Nové okno"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "Otevřít soubor"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "Uložit, uložit jako"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "Uložit vše"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "Zavřít kartu, okno"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "Znovu otevřít zavřenou kartu"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "Další nebo předchozí karta"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "Přesunout kartu"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "Přejít na kartu 1 až 9"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "Ukončit"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "Úpravy"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "Zpět, znovu"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "Vyjmout, kopírovat, vložit"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "Smazat slovo před nebo za kurzorem"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "Odsadit nebo zrušit odsazení"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "Přesunout řádek nahoru nebo dolů"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "Duplikovat řádek"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "Smazat řádek"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "Velká písmena, malá písmena"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "Režim přepisování"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "Hledání a pohyb"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "Najít, nahradit"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "Další nebo předchozí shoda"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "Přejít na řádek"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "O slovo doleva nebo doprava"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "Začátek nebo konec dokumentu"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "Zobrazení"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "Přiblížit, oddálit, obnovit"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "Zalamování řádků"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "Celá obrazovka"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "Klávesové zkratky"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "Klávesové zkratky"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "Soubor neexistuje."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Toto je složka."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "Bez názvu"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "Do existujícího souboru {path} nelze zapisovat"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "Vrátit „{name}“ do uloženého stavu?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "Znovu otevřít v kódování {encoding}?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Neuložené změny budou ztraceny."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Vrátit"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Znovu otevřít"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Zpět"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Znovu"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Vyjmout"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Vložit"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Smazat"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Vybrat vše"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Textový editor"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Uložit jako"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Otevřít"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "O aplikaci Textový editor"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Nastavení…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Skrýt Textový editor"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Ukončit Textový editor"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "Soubor"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Nová karta"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Nové okno"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Otevřít…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Otevřít nedávné"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Vymazat nedávné soubory"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "Znovu otevřít zavřenou kartu"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Zavřít kartu"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Zavřít okno"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Uložit jako…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Uložit vše"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Vrátit k uložené verzi…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "Statistika dokumentu"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Úpravy"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "Duplikovat řádek"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "Smazat řádek"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "Přesunout řádek nahoru"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "Přesunout řádek dolů"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "VELKÁ PÍSMENA"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "malá písmena"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "Velká Počáteční Písmena"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Odsadit"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Zrušit odsazení"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Najít…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Nahradit…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Najít další"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Najít předchozí"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Přejít na řádek…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Zalamování řádků"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Přiblížit"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Oddálit"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Skutečná velikost"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Přejít na celou obrazovku"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Ukončit celou obrazovku"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Okno"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Minimalizovat"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Zvětšit"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Zobrazit předchozí kartu"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Zobrazit následující kartu"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "Přesunout kartu doleva"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "Přesunout kartu doprava"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "Nápověda"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "Řádky: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "Slova: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "Znaky: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "Znaky bez mezer: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "Výběr: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} řádek"
+msgstr[1] "{n} řádky"
+msgstr[2] "{n} řádků"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} slovo"
+msgstr[1] "{n} slova"
+msgstr[2] "{n} slov"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} znak"
+msgstr[1] "{n} znaky"
+msgstr[2] "{n} znaků"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Jednoduchý editor prostého textu"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "Přesunout do nového okna"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Kopírovat cestu"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Zobrazit ve složce"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "Zavřít ostatní karty"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "Zavřít karty vpravo"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Ř {line}, Sl {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  (vybrán {n})"
+msgstr[1] "{position}  (vybrány {n})"
+msgstr[2] "{position}  (vybráno {n})"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "PŘE"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Jen pro čtení"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Mezery: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Šířka tabulátoru: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Odsazovat mezerami"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Odsazovat tabulátory"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Šířka: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Klasický Mac (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Znovu otevřít v kódování"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Uložit v kódování"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Značka pořadí bajtů (BOM)"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "Neuložené změny z minulé relace byly obnoveny."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "Zahodit změny"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "Soubor se na disku změnil. Uložením byste tuto změnu přepsali."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Ponechat mou verzi"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Načíst znovu"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "Soubor byl smazán nebo přesunut. Váš text tu stále je."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Zavřít"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "Některé znaky nelze přečíst jako {encoding} a zobrazují se jako �."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Zavřít"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Zvolit kódování…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "Tento soubor nevypadá jako text. Úpravy by ho mohly poškodit."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Přesto upravit"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "K uložení tohoto souboru nemáte oprávnění."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "K otevření tohoto souboru nemáte oprávnění."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Zkusit znovu"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "Soubor nelze otevřít."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "Soubor nelze otevřít. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "Soubor je příliš velký k otevření (více než 256 MB)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "Soubor nelze uložit."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "Soubor nelze uložit. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "Některé znaky nelze uložit v kódování {encoding}. Nic nebylo uloženo."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "Uložit jako UTF-8"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Zvýrazňování syntaxe je u tohoto velkého souboru vypnuto."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Přesto zvýraznit"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "Uložením se nahradí znaky, které nešlo přečíst jako {encoding}."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Přesto uložit"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "Tento soubor míchá konce řádků. Při uložení se všude použije {ending}."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "Nahrazen {n} výskyt"
+msgstr[1] "Nahrazeny {n} výskyty"
+msgstr[2] "Nahrazeno {n} výskytů"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Najít"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "Rozlišovat velikost písmen"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Celá slova"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Regulární výraz"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "Ve výběru"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Nahradit čím"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Nahradit"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Nahradit vše"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Neplatné"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "Od začátku"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Žádné shody"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index} z {count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} shoda"
+msgstr[1] "{n} shody"
+msgstr[2] "{n} shod"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Přejít na řádek (1–{count}), :sloupec"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "Otevírání „{name}“…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Prostý text"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Čínština zjednodušená (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Čínština tradiční (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Čínština tradiční (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Japonština (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Japonština (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Korejština (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Západní (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Západní (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Západní (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Středoevropské (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Středoevropské (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Cyrilice (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Cyrilice (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Cyrilice (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Řečtina (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Turečtina (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "Hebrejština (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Arabština (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Baltské (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Vietnamština (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Thajština (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Úpravy souborů s prostým textem"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Text;Editor;Prostý;Poznámky;Kód;Plain;Notes;Code;"

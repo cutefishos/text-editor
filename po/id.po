@@ -1,0 +1,945 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"PO-Revision-Date: 2026-11-13 15:22+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Jika tidak disimpan, perubahan Anda akan hilang."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "Batal"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Buang Semua"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Jangan Simpan"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Simpan"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Simpan perubahan pada “{name}”?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Simpan perubahan pada {n} dokumen?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "Monospace Sistem"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Font"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "Sistem"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} pt"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Ukuran"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Lebar Tab"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Sisipkan Spasi Alih-alih Tab"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Indentasi Otomatis"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Bungkus Baris"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Nomor Baris"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Sorot Baris Saat Ini"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Tampilkan Spasi Kosong"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Cocokkan Kurung"
+
+#: src/dialogs.cpp
+msgid "Restore Session on Start"
+msgstr "Pulihkan Sesi saat Mulai"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Pengaturan"
+
+#: src/dialogs.cpp
+msgid "Files and Tabs"
+msgstr "File dan Tab"
+
+#: src/dialogs.cpp
+msgid "New tab"
+msgstr "Tab baru"
+
+#: src/dialogs.cpp
+msgid "New window"
+msgstr "Jendela baru"
+
+#: src/dialogs.cpp
+msgid "Open a file"
+msgstr "Buka file"
+
+#: src/dialogs.cpp
+msgid "Save, save as"
+msgstr "Simpan, simpan sebagai"
+
+#: src/dialogs.cpp
+msgid "Save all"
+msgstr "Simpan semua"
+
+#: src/dialogs.cpp
+msgid "Close the tab, the window"
+msgstr "Tutup tab, jendela"
+
+#: src/dialogs.cpp
+msgid "Reopen the closed tab"
+msgstr "Buka kembali tab yang ditutup"
+
+#: src/dialogs.cpp
+msgid "Next or previous tab"
+msgstr "Tab berikutnya atau sebelumnya"
+
+#: src/dialogs.cpp
+msgid "Move the tab"
+msgstr "Pindahkan tab"
+
+#: src/dialogs.cpp
+msgid "Go to tab 1 to 9"
+msgstr "Ke tab 1 sampai 9"
+
+#: src/dialogs.cpp
+msgid "Quit"
+msgstr "Keluar"
+
+#: src/dialogs.cpp
+msgid "Editing"
+msgstr "Pengeditan"
+
+#: src/dialogs.cpp
+msgid "Undo, redo"
+msgstr "Urungkan, ulangi"
+
+#: src/dialogs.cpp
+msgid "Cut, copy, paste"
+msgstr "Potong, salin, tempel"
+
+#: src/dialogs.cpp
+msgid "Delete the word before or after"
+msgstr "Hapus kata sebelum atau sesudah"
+
+#: src/dialogs.cpp
+msgid "Indent or unindent"
+msgstr "Indentasi atau hapus indentasi"
+
+#: src/dialogs.cpp
+msgid "Move the line up or down"
+msgstr "Pindahkan baris ke atas atau ke bawah"
+
+#: src/dialogs.cpp
+msgid "Duplicate the line"
+msgstr "Gandakan baris"
+
+#: src/dialogs.cpp
+msgid "Delete the line"
+msgstr "Hapus baris"
+
+#: src/dialogs.cpp
+msgid "Uppercase, lowercase"
+msgstr "Huruf besar, huruf kecil"
+
+#: src/dialogs.cpp
+msgid "Overwrite mode"
+msgstr "Mode timpa"
+
+#: src/dialogs.cpp
+msgid "Find and Move"
+msgstr "Cari dan Pindah"
+
+#: src/dialogs.cpp
+msgid "Find, replace"
+msgstr "Cari, ganti"
+
+#: src/dialogs.cpp
+msgid "Next or previous match"
+msgstr "Kecocokan berikutnya atau sebelumnya"
+
+#: src/dialogs.cpp
+msgid "Go to line"
+msgstr "Ke baris"
+
+#: src/dialogs.cpp
+msgid "Word left or right"
+msgstr "Kata ke kiri atau kanan"
+
+#: src/dialogs.cpp
+msgid "Start or end of the document"
+msgstr "Awal atau akhir dokumen"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "View"
+msgstr "Tampilan"
+
+#: src/dialogs.cpp
+msgid "Zoom in, out, reset"
+msgstr "Perbesar, perkecil, atur ulang"
+
+#: src/dialogs.cpp
+msgid "Word wrap"
+msgstr "Bungkus kata"
+
+#: src/dialogs.cpp
+msgid "Full screen"
+msgstr "Layar penuh"
+
+#: src/dialogs.cpp
+msgid "Keyboard shortcuts"
+msgstr "Pintasan keyboard"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Keyboard Shortcuts"
+msgstr "Pintasan Keyboard"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "File tidak ada."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Ini adalah folder."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "Tanpa Judul"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "File {path} yang ada tidak dapat ditulisi"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "Kembalikan “{name}”?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "Buka ulang dengan {encoding}?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Perubahan yang belum disimpan akan hilang."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Kembalikan"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Buka Ulang"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Urungkan"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Ulangi"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Potong"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Salin"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Tempel"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Hapus"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Pilih Semua"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Editor Teks"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Simpan Sebagai"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Buka"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "Tentang Editor Teks"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Pengaturan…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Sembunyikan Editor Teks"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Keluar dari Editor Teks"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "File"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Tab Baru"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Jendela Baru"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Buka…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Buka Terbaru"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Hapus Daftar File Terbaru"
+
+#: src/editorwindow.cpp
+msgid "Reopen Closed Tab"
+msgstr "Buka Kembali Tab yang Ditutup"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Tutup Tab"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Tutup Jendela"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Simpan Sebagai…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Simpan Semua"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Kembalikan ke Versi Tersimpan…"
+
+#: src/editorwindow.cpp
+msgid "Document Statistics"
+msgstr "Statistik Dokumen"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Edit"
+
+#: src/editorwindow.cpp
+msgid "Duplicate Line"
+msgstr "Gandakan Baris"
+
+#: src/editorwindow.cpp
+msgid "Delete Line"
+msgstr "Hapus Baris"
+
+#: src/editorwindow.cpp
+msgid "Move Line Up"
+msgstr "Pindahkan Baris ke Atas"
+
+#: src/editorwindow.cpp
+msgid "Move Line Down"
+msgstr "Pindahkan Baris ke Bawah"
+
+#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
+#: src/editorwindow.cpp
+msgid "UPPERCASE"
+msgstr "HURUF BESAR"
+
+#: src/editorwindow.cpp
+msgid "lowercase"
+msgstr "huruf kecil"
+
+#: src/editorwindow.cpp
+msgid "Title Case"
+msgstr "Huruf Awal Kapital"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Indentasi"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Hapus Indentasi"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Cari…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Ganti…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Cari Berikutnya"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Cari Sebelumnya"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Ke Baris…"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Bungkus Kata"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Perbesar"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Perkecil"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Ukuran Asli"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Masuk Layar Penuh"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Keluar dari Layar Penuh"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Jendela"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Minimalkan"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Zoom"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Tampilkan Tab Sebelumnya"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Tampilkan Tab Berikutnya"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Left"
+msgstr "Pindahkan Tab ke Kiri"
+
+#: src/editorwindow.cpp
+msgid "Move Tab Right"
+msgstr "Pindahkan Tab ke Kanan"
+
+#: src/editorwindow.cpp
+msgid "Help"
+msgstr "Bantuan"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Lines: {count}"
+msgstr "Baris: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Words: {count}"
+msgstr "Kata: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters: {count}"
+msgstr "Karakter: {count}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Characters without spaces: {count}"
+msgstr "Karakter tanpa spasi: {count}"
+
+#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "Selection: {lines}, {words}, {characters}"
+msgstr "Pilihan: {lines}, {words}, {characters}"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} line"
+msgid_plural "{n} lines"
+msgstr[0] "{n} baris"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} word"
+msgid_plural "{n} words"
+msgstr[0] "{n} kata"
+
+#: src/editorwindow.cpp
+#, python-brace-format
+msgid "{n} character"
+msgid_plural "{n} characters"
+msgstr[0] "{n} karakter"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Editor sederhana untuk teks biasa"
+
+#: src/editorwindow.cpp
+msgid "Move to New Window"
+msgstr "Pindahkan ke Jendela Baru"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Salin Jalur"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Tampilkan di Folder"
+
+#: src/editorwindow.cpp
+msgid "Close Other Tabs"
+msgstr "Tutup Tab Lain"
+
+#: src/editorwindow.cpp
+msgid "Close Tabs to the Right"
+msgstr "Tutup Tab di Sebelah Kanan"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Brs {line}, Kol {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position}  ({n} dipilih)"
+
+#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
+#: src/pagebars.cpp
+msgid "OVR"
+msgstr "TIMPA"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Hanya Baca"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Spasi: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Lebar Tab: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Indentasi dengan Spasi"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Indentasi dengan Tab"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Lebar: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Mac Klasik (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Buka Ulang dengan Pengodean"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Simpan dengan Pengodean"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Byte Order Mark"
+
+#: src/pagebars.cpp
+msgid "Unsaved changes from your last session were restored."
+msgstr "Perubahan yang belum disimpan dari sesi terakhir Anda telah dipulihkan."
+
+#: src/pagebars.cpp
+msgid "Discard Changes"
+msgstr "Buang Perubahan"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr "File telah berubah di disk. Menyimpan sekarang akan menimpa perubahan tersebut."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Pertahankan Versi Saya"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Muat Ulang"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "File telah dihapus atau dipindahkan. Teks Anda masih ada di sini."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Tutup"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr "Beberapa karakter tidak dapat dibaca sebagai {encoding} dan ditampilkan sebagai �."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Tutup"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Pilih Pengodean…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "File ini tidak tampak seperti teks. Mengeditnya dapat merusaknya."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Tetap Edit"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "Anda tidak memiliki izin untuk menyimpan file ini."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "Anda tidak memiliki izin untuk membuka file ini."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Coba Lagi"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "File tidak dapat dibuka."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "File tidak dapat dibuka. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "File terlalu besar untuk dibuka (lebih dari 256 MB)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "File tidak dapat disimpan."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "File tidak dapat disimpan. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr "Beberapa karakter tidak dapat disimpan sebagai {encoding}. Tidak ada yang disimpan."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "Simpan sebagai UTF-8"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Penyorotan sintaksis dinonaktifkan untuk file besar ini."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Tetap Sorot"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Saving would replace the characters that could not be read as {encoding}."
+msgstr "Menyimpan akan mengganti karakter yang tidak dapat dibaca sebagai {encoding}."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Tetap Simpan"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr "File ini mencampur akhir baris. Menyimpan akan memakai {ending} di seluruh file."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "{n} kemunculan diganti"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Cari"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "Cocokkan Huruf Besar/Kecil"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Seluruh Kata"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Ekspresi Reguler"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "Dalam Pilihan"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Ganti dengan"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Ganti"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Ganti Semua"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Tidak valid"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "Diulang dari awal"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Tidak ada yang cocok"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index} dari {count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} kecocokan"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Ke baris (1–{count}), :kolom"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "Membuka “{name}”…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Teks Biasa"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Tionghoa Sederhana (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Tionghoa Tradisional (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Tionghoa Tradisional (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Jepang (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Jepang (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Korea (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Barat (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Barat (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Barat (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Eropa Tengah (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Eropa Tengah (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Sirilik (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Sirilik (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Sirilik (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Yunani (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Turki (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "Ibrani (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Arab (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Baltik (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Vietnam (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Thai (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Edit file teks biasa"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Text;Editor;Plain;Notes;Code;Teks;Catatan;Kode;"
