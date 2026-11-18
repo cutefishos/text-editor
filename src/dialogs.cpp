@@ -18,7 +18,6 @@
 #include "ui/layout.h"
 #include "ui/painter.h"
 #include "ui/cell_layout.h"
-#include "ui/scroll_view.h"
 #include "ui/switch.h"
 #include "ui/theme.h"
 #include "ui/window.h"
@@ -26,13 +25,11 @@
 
 #include <algorithm>
 #include <cmath>
-#include <map>
 
 using namespace cutefish::ui;
 using cutefish::i18n::format;
 using cutefish::i18n::tr;
 using cutefish::i18n::trn;
-using cutefish::i18n::trNoop;
 
 // Destroys a window from the event loop, after the event being handled.
 static void releaseLater(std::unique_ptr<Window> &window)
@@ -475,205 +472,5 @@ void PreferencesDialog::show()
     m_dialog = std::make_unique<DialogWindow>(m_parent, tr("Settings"), 460);
     m_dialog->setContent<Content>(m_application);
     m_dialog->window()->setBackgroundColor(ColorId::Background);
-    m_dialog->show();
-}
-
-// The shortcuts in their native text: modifiers first, joined by "+".
-struct ShortcutRow
-{
-    const char *text;
-    const char *keys;
-};
-
-struct ShortcutSection
-{
-    const char *title;
-    std::vector<ShortcutRow> rows;
-};
-
-static const std::vector<ShortcutSection> &shortcutSections()
-{
-    static const std::vector<ShortcutSection> sections{
-        {trNoop("Files and Tabs"),
-         {{trNoop("New tab"), "Ctrl+T"},
-          {trNoop("New window"), "Ctrl+N"},
-          {trNoop("Open a file"), "Ctrl+O"},
-          {trNoop("Save, save as"), "Ctrl+S, Ctrl+Shift+S"},
-          {trNoop("Save all"), "Ctrl+Alt+S"},
-          {trNoop("Close the tab, the window"), "Ctrl+W, Ctrl+Shift+W"},
-          {trNoop("Reopen the closed tab"), "Ctrl+Shift+T"},
-          {trNoop("Next or previous tab"), "Ctrl+PgDown, Ctrl+PgUp"},
-          {trNoop("Move the tab"), "Ctrl+Shift+PgDown, Ctrl+Shift+PgUp"},
-          {trNoop("Go to tab 1 to 9"), "Alt+1, Alt+9"},
-          {trNoop("Quit"), "Ctrl+Q"}}},
-        {trNoop("Editing"),
-         {{trNoop("Undo, redo"), "Ctrl+Z, Ctrl+Shift+Z"},
-          {trNoop("Cut, copy, paste"), "Ctrl+X, Ctrl+C, Ctrl+V"},
-          {trNoop("Delete the word before or after"), "Ctrl+Backspace, Ctrl+Del"},
-          {trNoop("Indent or unindent"), "Tab, Shift+Tab"},
-          {trNoop("Move the line up or down"), "Alt+Up, Alt+Down"},
-          {trNoop("Duplicate the line"), "Ctrl+Alt+D"},
-          {trNoop("Delete the line"), "Ctrl+D"},
-          {trNoop("Uppercase, lowercase"), "Ctrl+U, Ctrl+Shift+U"},
-          {trNoop("Overwrite mode"), "Ins"}}},
-        {trNoop("Find and Move"),
-         {{trNoop("Find, replace"), "Ctrl+F, Ctrl+H"},
-          {trNoop("Next or previous match"), "F3, Shift+F3"},
-          {trNoop("Go to line"), "Ctrl+I, Ctrl+L"},
-          {trNoop("Word left or right"), "Ctrl+Left, Ctrl+Right"},
-          {trNoop("Start or end of the document"), "Ctrl+Home, Ctrl+End"}}},
-        {trNoop("View"),
-         {{trNoop("Zoom in, out, reset"), "Ctrl+=, Ctrl+-, Ctrl+0"},
-          {trNoop("Word wrap"), "Alt+W"},
-          {trNoop("Full screen"), "F11"},
-          {trNoop("Settings"), "Ctrl+,"},
-          {trNoop("Keyboard shortcuts"), "Ctrl+?"}}},
-    };
-    return sections;
-}
-
-// One read-only row of a card: the label, then its value in secondary text.
-class InfoRow : public View
-{
-public:
-    InfoRow(std::string text, std::string value, bool last)
-        : m_text(addChild<Label>(std::move(text)))
-        , m_value(addChild<Label>(std::move(value)))
-        , m_last(last)
-    {
-        m_value->setColor(ColorId::DisabledText);
-        m_value->setTextAlignment(Label::TextAlignment::Right);
-    }
-
-    double heightForWidth(double) const override { return 44; }
-    SizeF sizeHint() const override { return {0, 44}; }
-
-protected:
-    void layout() override
-    {
-        // A row, margins 16, spacing 12: the label fills, the value is at most 65% wide.
-        const double width = geometry().width;
-        const SizeF value = m_value->sizeHint();
-        const double valueWidth = std::min(std::ceil(value.width), std::round(width * 0.65));
-        const double valueX = width - 16 - valueWidth;
-        const SizeF text = m_text->sizeHint();
-        m_text->setGeometry({16, std::round((44 - std::ceil(text.height)) / 2), std::max(0.0, valueX - 12 - 16),
-                             std::ceil(text.height)});
-        m_value->setGeometry({valueX, std::round((44 - std::ceil(value.height)) / 2), valueWidth, std::ceil(value.height)});
-    }
-
-    void paint(Painter &painter) override
-    {
-        if (m_last)
-            return;
-        hairline(painter, 16, 44 - 1 / painter.scale(), geometry().width - 32, color(ColorId::Separator));
-    }
-
-private:
-    Label *m_text;
-    Label *m_value;
-    bool m_last;
-};
-
-class ShortcutsDialog::Content : public View
-{
-public:
-    Content()
-        : m_scroll(addChild<ScrollView>())
-    {
-        m_scroll->setElastic(false);
-        m_scroll->setBottomCornerRadius(Theme::current().windowRadius);
-        m_list = m_scroll->setContent<List>();
-    }
-
-    double heightForWidth(double) const override { return 600 - 44 - 16; }
-
-protected:
-    void layout() override
-    {
-        // The scroll area spans the window under the title, past the dialog's padding.
-        m_scroll->setGeometry({-16, 0, geometry().width + 32, geometry().height + 16});
-    }
-
-private:
-    class List : public View
-    {
-    public:
-        List()
-        {
-            for (const ShortcutSection &section : shortcutSections()) {
-                Label *title = addChild<Label>(tr(section.title));
-                title->setColor(ColorId::DisabledText);
-                title->setElide(Label::Elide::Right);
-                Card *card = addChild<Card>();
-                for (size_t i = 0; i < section.rows.size(); ++i) {
-                    InfoRow *row = card->addChild<InfoRow>(tr(section.rows[i].text), section.rows[i].keys,
-                                                           i + 1 == section.rows.size());
-                    card->addRow(row);
-                }
-                m_sections.push_back({title, card});
-            }
-        }
-
-        double heightForWidth(double width) const override
-        {
-            // A column at x 16, y 4, 32 narrower, spacing 12 between sections
-            // and 8 inside them; 20 more below.
-            double height = 0;
-            for (size_t i = 0; i < m_sections.size(); ++i) {
-                height += std::ceil(m_sections[i].first->sizeHint().height) + 8
-                        + m_sections[i].second->heightForWidth(width - 32);
-                if (i + 1 < m_sections.size())
-                    height += 12;
-            }
-            return height + 20;
-        }
-
-    protected:
-        void layout() override
-        {
-            const double width = geometry().width - 32;
-            double y = 4;
-            for (const auto &[title, card] : m_sections) {
-                const double titleHeight = std::ceil(title->sizeHint().height);
-                title->setGeometry({16 + 16, y, std::max(0.0, width - 32), titleHeight});
-                y += titleHeight + 8;
-                const double height = card->heightForWidth(width);
-                card->setGeometry({16, y, width, height});
-                y += height + 12;
-            }
-        }
-
-    private:
-        std::vector<std::pair<Label *, Card *>> m_sections;
-    };
-
-    ScrollView *m_scroll;
-    List *m_list;
-};
-
-ShortcutsDialog::ShortcutsDialog(Window *parent)
-    : m_parent(parent)
-{
-}
-
-ShortcutsDialog::~ShortcutsDialog() = default;
-
-Window *ShortcutsDialog::window() const
-{
-    return m_dialog ? m_dialog->window() : nullptr;
-}
-
-void ShortcutsDialog::show()
-{
-    if (m_dialog && m_dialog->window()) {
-        m_dialog->window()->activate();
-        return;
-    }
-    m_dialog = std::make_unique<DialogWindow>(m_parent, tr("Keyboard Shortcuts"), 480);
-    m_dialog->setContent<Content>();
-    m_dialog->window()->setBackgroundColor(ColorId::Background);
-    DialogWindow *dialog = m_dialog.get();
-    m_dialog->window()->addShortcut(NoModifier, key::Escape, [dialog] { dialog->close(); });
     m_dialog->show();
 }

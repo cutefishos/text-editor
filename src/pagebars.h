@@ -63,7 +63,6 @@ private:
     EditorPage &m_page;
     RoundButton *m_position;
     RoundButton *m_zoom;
-    RoundButton *m_overwrite;
     RoundButton *m_readOnly;
     RoundButton *m_indentation;
     RoundButton *m_language;

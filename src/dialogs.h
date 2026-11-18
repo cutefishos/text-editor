@@ -71,21 +71,4 @@ private:
     std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
 };
 
-// Every shortcut, by what it does, in four cards.
-class ShortcutsDialog
-{
-public:
-    explicit ShortcutsDialog(cutefish::ui::Window *parent);
-    ~ShortcutsDialog();
-
-    void show();
-    cutefish::ui::Window *window() const;
-
-private:
-    class Content;
-
-    cutefish::ui::Window *m_parent;
-    std::unique_ptr<cutefish::ui::DialogWindow> m_dialog;
-};
-
 #endif

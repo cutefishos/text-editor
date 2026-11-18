@@ -7,7 +7,6 @@
 
 #include <unicode/uchar.h>
 #include <unicode/ucasemap.h>
-#include <unicode/uscript.h>
 
 #include <memory>
 
@@ -133,21 +132,7 @@ bool Unicode::isPrint(char32_t c)
     return (mask & (U_GC_CC_MASK | U_GC_CF_MASK | U_GC_CS_MASK | U_GC_CN_MASK)) == 0;
 }
 
-bool Unicode::isIdeograph(char32_t c)
-{
-    if (c < 0x2E80)
-        return false;
-    UErrorCode status = U_ZERO_ERROR;
-    const UScriptCode script = uscript_getScript(UChar32(c), &status);
-    return script == USCRIPT_HAN || script == USCRIPT_HIRAGANA || script == USCRIPT_KATAKANA;
-}
-
-char32_t Unicode::toTitleCase(char32_t c)
-{
-    return char32_t(u_totitle(UChar32(c)));
-}
-
-static std::string mapCase(std::string_view text, bool upper)
+std::string Unicode::toLower(std::string_view text)
 {
     UErrorCode status = U_ZERO_ERROR;
     std::unique_ptr<UCaseMap, decltype(&ucasemap_close)> map(ucasemap_open("", 0, &status), &ucasemap_close);
@@ -156,9 +141,8 @@ static std::string mapCase(std::string_view text, bool upper)
     std::string result(text.size() + 16, '\0');
     for (int attempt = 0; attempt < 2; ++attempt) {
         status = U_ZERO_ERROR;
-        const int32_t length = upper
-                ? ucasemap_utf8ToUpper(map.get(), result.data(), int32_t(result.size()), text.data(), int32_t(text.size()), &status)
-                : ucasemap_utf8ToLower(map.get(), result.data(), int32_t(result.size()), text.data(), int32_t(text.size()), &status);
+        const int32_t length =
+                ucasemap_utf8ToLower(map.get(), result.data(), int32_t(result.size()), text.data(), int32_t(text.size()), &status);
         if (status == U_BUFFER_OVERFLOW_ERROR) {
             result.resize(size_t(length));
             continue;
@@ -169,16 +153,6 @@ static std::string mapCase(std::string_view text, bool upper)
         return result;
     }
     return std::string(text);
-}
-
-std::string Unicode::toUpper(std::string_view text)
-{
-    return mapCase(text, true);
-}
-
-std::string Unicode::toLower(std::string_view text)
-{
-    return mapCase(text, false);
 }
 
 std::string Unicode::sanitized(std::string_view text)

@@ -164,13 +164,6 @@ int main(int argc, char **argv)
         spin(50);
         savePopups(window.window(), "settings");
     }
-    if (wanted("shortcuts")) {
-        Run run(root);
-        EditorWindow &window = run.start({});
-        window.showShortcuts();
-        spin(50);
-        savePopups(window.window(), "shortcuts");
-    }
 
     const std::vector<std::string> files{"hello.cpp", "script.py", "notes.md", "data.json", "page.html", "cjk.txt"};
     const std::vector<std::string> names{"syntax-cpp", "syntax-python", "syntax-markdown", "syntax-json", "syntax-html",

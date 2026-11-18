@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -100,142 +100,6 @@ msgstr "Padankan Kurungan"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "Tetapan"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "Fail dan Tab"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "Tab baharu"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "Tetingkap baharu"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "Buka fail"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "Simpan, simpan sebagai"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "Simpan semua"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "Tutup tab, tetingkap"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "Buka semula tab yang ditutup"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "Tab seterusnya atau sebelumnya"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "Alihkan tab"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "Pergi ke tab 1 hingga 9"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "Keluar"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "Mengedit"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "Buat asal, buat semula"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "Potong, salin, tampal"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "Padam perkataan sebelum atau selepas"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "Inden atau nyahinden"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "Alihkan baris ke atas atau ke bawah"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "Pendua baris"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "Padam baris"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "Huruf besar, huruf kecil"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "Mod tulis ganti"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "Cari dan Alih"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "Cari, ganti"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "Padanan seterusnya atau sebelumnya"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "Pergi ke baris"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "Perkataan ke kiri atau ke kanan"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "Permulaan atau penghujung dokumen"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "Lihat"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "Zum masuk, keluar, set semula"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "Balut perkataan"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "Skrin penuh"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "Pintasan papan kekunci"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "Pintasan Papan Kekunci"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -357,10 +221,6 @@ msgid "Clear Recent Files"
 msgstr "Kosongkan Fail Terkini"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "Buka Semula Tab yang Ditutup"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "Tutup Tab"
 
@@ -381,41 +241,8 @@ msgid "Revert to Saved…"
 msgstr "Kembalikan kepada Versi Disimpan…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "Statistik Dokumen"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "Edit"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "Pendua Baris"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "Padam Baris"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "Alihkan Baris ke Atas"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "Alihkan Baris ke Bawah"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "HURUF BESAR"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "huruf kecil"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "Huruf Tajuk"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -444,6 +271,10 @@ msgstr "Cari Sebelumnya"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "Pergi ke Baris…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "Lihat"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -490,72 +321,8 @@ msgid "Show Next Tab"
 msgstr "Tunjukkan Tab Seterusnya"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "Alihkan Tab ke Kiri"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "Alihkan Tab ke Kanan"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "Bantuan"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "Baris: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "Perkataan: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "Aksara: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "Aksara tanpa ruang: {count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "Pilihan: {lines}, {words}, {characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n} baris"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n} perkataan"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n} aksara"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "OK"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "Editor ringkas untuk teks biasa"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "Alihkan ke Tetingkap Baharu"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -564,14 +331,6 @@ msgstr "Salin Laluan"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "Tunjukkan dalam Folder"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "Tutup Tab Lain"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "Tutup Tab di Sebelah Kanan"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -585,11 +344,6 @@ msgstr "Brs {line}, Lajur {column}"
 msgid "{position}  ({n} selected)"
 msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  ({n} dipilih)"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "TIN"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -747,6 +501,10 @@ msgstr "Simpan Juga"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "Fail ini mencampurkan penamat baris. Menyimpan akan menggunakan {ending} di seluruhnya."
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
 
 #: src/pagebars.cpp
 #, python-brace-format

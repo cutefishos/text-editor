@@ -68,8 +68,6 @@ public:
     void setMatchBrackets(bool match);
     bool autoIndent() const { return m_autoIndent; }
     void setAutoIndent(bool indent);
-    bool overwriteMode() const { return m_overwrite; }
-    void setOverwriteMode(bool overwrite);
     void setDarkMode(bool dark);
     void setAccentColor(cutefish::ui::Color color);
     cutefish::ui::Color backgroundColor() const { return m_theme.background; }
@@ -97,7 +95,7 @@ public:
     void ensureCursorVisible(bool center = false);
     // The text position under a point of this view.
     TextPosition positionAt(cutefish::ui::PointF point);
-    // Scrolls so `line` (from 0) is at the top, e.g. when a closed tab is reopened.
+    // Scrolls so `line` (from 0) is at the top, e.g. when wrapping changes.
     void scrollToLine(double line);
     double topLine() const;
     // A press over the text, as the context menu opens from one.
@@ -107,7 +105,6 @@ public:
     void updateNow();
 
     cutefish::base::Signal<> optionsChanged;
-    cutefish::base::Signal<> overwriteModeChanged;
     cutefish::base::Signal<> metricsChanged;
     cutefish::base::Signal<> scrolled;
     std::function<void(cutefish::ui::PointF position)> onContextMenuRequested;
@@ -239,7 +236,6 @@ private:
     bool m_showWhitespace = false;
     bool m_matchBrackets = true;
     bool m_autoIndent = true;
-    bool m_overwrite = false;
     bool m_dark = false;
     cutefish::ui::Color m_accent = cutefish::ui::Color::rgb(0x3385FF);
     SyntaxTheme m_theme;

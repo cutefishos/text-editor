@@ -458,7 +458,7 @@ void Document::finishLoad(LoadResult &result)
     m_states.reset(Syntax::language(m_language), m_buffer.lineCount());
 
     if (!m_indentationFromFile || !reloading)
-        applyEditorConfig();
+        detectIndentation();
 
     if (m_locked != decoded.binary) {
         m_locked = decoded.binary;
@@ -530,16 +530,10 @@ void Document::replaceWithReloaded(const std::vector<std::string> &lines)
     m_undo.setClean();
 }
 
-void Document::applyEditorConfig()
+void Document::detectIndentation()
 {
-    const EditorConfig config = m_filePath.empty() ? EditorConfig() : EditorConfig::forFile(m_filePath);
     m_indentationFromFile = false;
-    if (config.insertSpaces || config.indentSize) {
-        m_insertSpaces = config.insertSpaces.value_or(m_insertSpaces);
-        m_indentWidth = config.indentSize.value_or(m_indentWidth);
-        m_tabWidth = config.tabWidth.value_or(m_insertSpaces ? m_tabWidth : m_indentWidth);
-        m_indentationFromFile = true;
-    } else if (const auto detected = FileOptions::detectIndentation(m_buffer.lines())) {
+    if (const auto detected = FileOptions::detectIndentation(m_buffer.lines())) {
         m_insertSpaces = detected->insertSpaces;
         if (detected->insertSpaces)
             m_indentWidth = detected->width;
@@ -547,8 +541,6 @@ void Document::applyEditorConfig()
             m_indentWidth = m_tabWidth;
         m_indentationFromFile = true;
     }
-    m_trimTrailingWhitespace = config.trimTrailingWhitespace.value_or(false);
-    m_finalNewline = config.insertFinalNewline;
     indentationChanged();
 }
 
@@ -885,20 +877,12 @@ void Document::goToLine(int line, int column)
     revealCursor();
 }
 
-void Document::insertText(std::string_view input, bool overwrite)
+void Document::insertText(std::string_view input)
 {
     std::string text = strings::replaceAll(input, "\r\n", "\n");
     std::replace(text.begin(), text.end(), '\r', '\n');
-    TextRange range = selection();
+    const TextRange range = selection();
     const bool singleLine = text.find('\n') == std::string::npos;
-    if (overwrite && range.isEmpty() && singleLine) {
-        // As many characters as are typed.
-        const std::string &line = m_buffer.line(m_cursor.line);
-        size_t end = size_t(m_cursor.column);
-        for (size_t i = 0; i < text.size() && end < line.size(); i = Unicode::next(text, i))
-            end = Unicode::next(line, end);
-        range.end.column = int(end);
-    }
     const TextPosition end = TextBuffer::endOf(range.start, text);
     const bool typed = Unicode::utf16Length(text) <= 2 && singleLine;
     replace(range, text, typed ? UndoGroup::Typing : UndoGroup::Other, {end, end});
@@ -1096,42 +1080,6 @@ void Document::indentSelection(bool unindent)
     cursorChanged();
 }
 
-void Document::moveLines(bool up)
-{
-    const auto [first, last] = selectedLines(selection());
-    if ((up && first == 0) || (!up && last + 1 >= m_buffer.lineCount()))
-        return;
-    std::string block;
-    for (int line = first; line <= last; ++line) {
-        if (line > first)
-            block += '\n';
-        block += m_buffer.line(line);
-    }
-    const int delta = up ? -1 : 1;
-    const Selection after{{m_cursor.line + delta, m_cursor.column}, {m_anchor.line + delta, m_anchor.column}};
-    if (up) {
-        const std::string above = m_buffer.line(first - 1);
-        replace({{first - 1, 0}, {last, int(m_buffer.line(last).size())}}, block + '\n' + above, UndoGroup::Other, after);
-    } else {
-        const std::string below = m_buffer.line(last + 1);
-        replace({{first, 0}, {last + 1, int(below.size())}}, below + '\n' + block, UndoGroup::Other, after);
-    }
-}
-
-void Document::duplicateLines()
-{
-    const auto [first, last] = selectedLines(selection());
-    std::string block;
-    for (int line = first; line <= last; ++line) {
-        block += '\n';
-        block += m_buffer.line(line);
-    }
-    const int count = last - first + 1;
-    const Selection after{{m_cursor.line + count, m_cursor.column}, {m_anchor.line + count, m_anchor.column}};
-    const TextPosition end{last, int(m_buffer.line(last).size())};
-    replace({end, end}, block, UndoGroup::Other, after);
-}
-
 void Document::deleteLines()
 {
     const auto [first, last] = selectedLines(selection());
@@ -1145,42 +1093,6 @@ void Document::deleteLines()
     const int line = std::min(first, m_buffer.lineCount() - 1 - (last - first + 1));
     const TextPosition at{std::max(0, line), 0};
     replace(range, std::string(), UndoGroup::Other, {at, at});
-}
-
-void Document::changeCase(int change)
-{
-    TextRange range = selection();
-    if (range.isEmpty())
-        range = wordAt(m_cursor);
-    if (range.isEmpty())
-        return;
-    const std::string text = m_buffer.text(range);
-    std::string result;
-    if (change == Upper) {
-        result = Unicode::toUpper(text);
-    } else if (change == Lower) {
-        result = Unicode::toLower(text);
-    } else {
-        const std::string lower = Unicode::toLower(text);
-        bool start = true;
-        for (size_t i = 0; i < lower.size(); i = Unicode::next(lower, i)) {
-            char32_t c = Unicode::at(lower, i);
-            if (Unicode::isLetter(c)) {
-                if (start)
-                    c = Unicode::toTitleCase(c);
-                start = false;
-            } else {
-                start = !Unicode::isLetterOrNumber(c) && c != '\'';
-            }
-            Unicode::append(result, c);
-        }
-    }
-    if (result == text)
-        return;
-    // Case changes can change lengths (e.g. "ß" to "SS").
-    const TextPosition end = TextBuffer::endOf(range.start, result);
-    const bool forward = m_anchor <= m_cursor;
-    replace(range, result, UndoGroup::Other, forward ? Selection{end, range.start} : Selection{range.start, end});
 }
 
 TextRange Document::matchingBracket(const TextPosition &position) const
@@ -1234,47 +1146,6 @@ TextRange Document::matchingBracket(const TextPosition &position) const
         return none;
     }
     return none;
-}
-
-static void countText(std::string_view text, int64_t *characters, int64_t *nonSpace, int64_t *words)
-{
-    bool inWord = false;
-    for (size_t i = 0; i < text.size(); i = Unicode::next(text, i)) {
-        const char32_t c = Unicode::at(text, i);
-        ++*characters;
-        if (Unicode::isSpace(c)) {
-            inWord = false;
-            continue;
-        }
-        ++*nonSpace;
-        // Ideographs count as words of their own.
-        if (Unicode::isIdeograph(c)) {
-            ++*words;
-            inWord = false;
-        } else if (!inWord) {
-            ++*words;
-            inWord = true;
-        }
-    }
-}
-
-DocumentStatistics Document::statistics() const
-{
-    DocumentStatistics result;
-    for (int i = 0; i < m_buffer.lineCount(); ++i) {
-        countText(m_buffer.line(i), &result.characters, &result.charactersWithoutSpaces, &result.words);
-        if (i > 0)
-            ++result.characters;
-    }
-    result.lines = m_buffer.lineCount();
-    if (hasSelection()) {
-        int64_t nonSpace = 0;
-        countText(selectedText(), &result.selectionCharacters, &nonSpace, &result.selectionWords);
-        const TextRange r = selection();
-        result.hasSelection = true;
-        result.selectionLines = r.end.line - r.start.line + 1;
-    }
-    return result;
 }
 
 void Document::setSearch(const std::string &text, bool caseSensitive, bool wholeWords, bool regex, bool inSelection)
@@ -1593,26 +1464,16 @@ bool Document::write(const std::string &path, const std::string &encoding, bool 
         return false;
     }
 
-    // EditorConfig's whitespace rules go into the file first and into the buffer,
-    // as one undo step, only once it is written.
-    const bool finalNewline = m_finalNewline.value_or(newFile);
-    const bool needsNewline = finalNewline && !m_buffer.line(m_buffer.lineCount() - 1).empty() && !isEmpty();
-    const bool reformat = (m_trimTrailingWhitespace || needsNewline) && !m_locked;
-    std::vector<std::string> trimmedLines;
-    if (reformat) {
-        trimmedLines = m_buffer.lines();
-        if (m_trimTrailingWhitespace) {
-            for (std::string &text : trimmedLines) {
-                size_t end = text.size();
-                while (end > 0 && (text[end - 1] == ' ' || text[end - 1] == '\t'))
-                    --end;
-                text.resize(end);
-            }
-        }
-        if (needsNewline)
-            trimmedLines.emplace_back();
+    // A new file ends with a line break; an existing one is left as it is. The
+    // break goes into the file first and into the buffer, as one undo step,
+    // only once it is written.
+    const bool needsNewline = newFile && !m_buffer.line(m_buffer.lineCount() - 1).empty() && !isEmpty() && !m_locked;
+    std::vector<std::string> withNewline;
+    if (needsNewline) {
+        withNewline = m_buffer.lines();
+        withNewline.emplace_back();
     }
-    const std::vector<std::string> &lines = reformat ? trimmedLines : m_buffer.lines();
+    const std::vector<std::string> &lines = needsNewline ? withNewline : m_buffer.lines();
 
     bool lossy = false;
     const std::string bytes = TextCodec::encode(lines, encoding, bom, m_lineEnding, &lossy);
@@ -1642,21 +1503,9 @@ bool Document::write(const std::string &path, const std::string &encoding, bool 
         return false;
     }
 
-    if (reformat) {
+    if (needsNewline) {
         beginEdit();
-        if (m_trimTrailingWhitespace) {
-            for (int line = 0; line < m_buffer.lineCount(); ++line) {
-                const std::string &text = m_buffer.line(line);
-                const int end = int(lines[size_t(line)].size());
-                if (end < int(text.size())) {
-                    const TextPosition cursor = m_cursor.line == line ? TextPosition{line, std::min(m_cursor.column, end)}
-                                                                      : m_cursor;
-                    replace({{line, end}, {line, int(text.size())}}, std::string(), UndoGroup::Other, {cursor, cursor});
-                }
-            }
-        }
-        if (needsNewline)
-            replace({m_buffer.end(), m_buffer.end()}, "\n", UndoGroup::Other, {m_cursor, m_anchor});
+        replace({m_buffer.end(), m_buffer.end()}, "\n", UndoGroup::Other, {m_cursor, m_anchor});
         endEdit();
     }
 

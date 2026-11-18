@@ -195,7 +195,7 @@ TEST_F(AppTest, WindowShowsItsMenusInTheStatusBar)
     Menu *menu = window->window().mainMenu();
     ASSERT_TRUE(menu);
     const std::vector<MenuRole> roles {MenuRole::Application, MenuRole::None, MenuRole::None, MenuRole::None,
-                                       MenuRole::Windows, MenuRole::Help};
+                                       MenuRole::Windows};
     for (size_t i = 0; i < roles.size(); ++i) {
         ASSERT_TRUE(menu->submenu(i)) << i;
         EXPECT_EQ(menu->submenu(i)->role(), roles[i]) << i;
@@ -273,7 +273,7 @@ TEST_F(AppTest, ScrollBarDrag)
     EXPECT_GT(view->contentY(), 100 * view->lineHeight());
 }
 
-TEST_F(AppTest, TabsAndReopenClosedTab)
+TEST_F(AppTest, Tabs)
 {
     const std::string a = writeFile("a.txt", "first file\nsecond line\n");
     const std::string b = writeFile("b.md", "# Title\n\nSome *text*.\n");
@@ -284,30 +284,13 @@ TEST_F(AppTest, TabsAndReopenClosedTab)
     m_app->openPaths({a});
     EXPECT_EQ(window->tabCount(), 2);
     EXPECT_EQ(window->currentPage()->document().filePath(), a);
-    window->currentPage()->document().setCursor({1, 3});
 
     TestInput::typeKey(window->window(), key::letter('t'), ControlModifier);
     EXPECT_EQ(window->tabCount(), 3);
     TestInput::typeText(window->window(), "untitled text");
     EXPECT_EQ(window->currentPage()->title(), "untitled text");
-
-    // A closed untitled tab does not come back.
     window->closeTab(2, false);
     EXPECT_EQ(window->tabCount(), 2);
-    EXPECT_FALSE(m_app->canReopenClosedTab());
-
-    // A closed file does, where its cursor was.
-    window->closeTab(0, false);
-    EXPECT_EQ(window->tabCount(), 1);
-    EXPECT_TRUE(m_app->canReopenClosedTab());
-    TestInput::typeKey(window->window(), key::letter('t'), ControlModifier | ShiftModifier);
-    ASSERT_EQ(window->tabCount(), 2);
-    Document &reopened = window->currentPage()->document();
-    ASSERT_TRUE(reopened.waitForLoaded());
-    TestSupport::wait(5);
-    EXPECT_EQ(reopened.filePath(), a);
-    EXPECT_EQ(reopened.cursor(), (TextPosition{1, 3}));
-    EXPECT_FALSE(m_app->canReopenClosedTab());
 }
 
 TEST_F(AppTest, CrowdedTabs)
@@ -481,7 +464,6 @@ TEST_F(AppTest, WrappingAndDialogs)
     EXPECT_GT(wrapped.column, 2);
 
     window->showPreferences();
-    window->showShortcuts();
     TestSupport::wait(30);
 }
 
@@ -660,7 +642,8 @@ TEST_F(AppTest, LanguageChangeKeepsTheDocuments)
     Window *dialog = openDialog(*m_app);
     ASSERT_TRUE(dialog);
     const View *question = dialog->contentView();
-    const StatusBar *status = &page->statusBar();
+    // Marked, as the rebuilt bar may take the old one's address.
+    page->statusBar().setName("oldStatusBar");
     const EditorView *view = &page->editor();
 
     cutefish::ui::Application::instance()->languageChanged.emit();
@@ -670,7 +653,7 @@ TEST_F(AppTest, LanguageChangeKeepsTheDocuments)
     EXPECT_EQ(window->currentPage(), untitled);
     EXPECT_EQ(untitled->title(), untitledTitle);
     EXPECT_EQ(&page->editor(), view);
-    EXPECT_NE(&page->statusBar(), status);
+    EXPECT_EQ(page->statusBar().name(), "statusBar");
     EXPECT_EQ(document.text(), text);
     EXPECT_TRUE(document.isModified());
     EXPECT_TRUE(document.canUndo());
@@ -796,7 +779,6 @@ TEST_F(AppTest, StartBringsNothingBack)
     EXPECT_EQ(m_app->windowCount(), 1);
     EXPECT_EQ(again->tabCount(), 1);
     EXPECT_TRUE(EditorWindow::isPristine(again->currentPage()));
-    EXPECT_FALSE(m_app->canReopenClosedTab());
 }
 
 TEST_F(AppTest, TextFromOutsideAsksBeforeItIsLost)

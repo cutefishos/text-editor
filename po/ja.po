@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -100,142 +100,6 @@ msgstr "対応する括弧を強調"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "設定"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "ファイルとタブ"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "新規タブ"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "新規ウインドウ"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "ファイルを開く"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "保存、別名で保存"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "すべて保存"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "タブを閉じる、ウインドウを閉じる"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "閉じたタブを再度開く"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "次または前のタブ"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "タブを移動"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "タブ 1～9 に移動"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "終了"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "編集"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "取り消す、やり直す"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "カット、コピー、ペースト"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "前または後ろの単語を削除"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "インデントを増やす/減らす"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "行を上下に移動"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "行を複製"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "行を削除"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "大文字、小文字"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "上書きモード"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "検索と移動"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "検索、置換"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "次または前の一致"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "指定行へ移動"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "左または右の単語へ"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "書類の先頭または末尾"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "表示"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "拡大、縮小、リセット"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "行の折り返し"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "フルスクリーン"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "キーボードショートカット"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "キーボードショートカット"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -357,10 +221,6 @@ msgid "Clear Recent Files"
 msgstr "最近使ったファイルを消去"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "閉じたタブを再度開く"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "タブを閉じる"
 
@@ -381,41 +241,8 @@ msgid "Revert to Saved…"
 msgstr "保存した状態に戻す…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "書類の統計情報"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "編集"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "行を複製"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "行を削除"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "行を上に移動"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "行を下に移動"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "大文字"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "小文字"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "単語の先頭を大文字"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -444,6 +271,10 @@ msgstr "前を検索"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "指定行へ移動…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "表示"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -490,72 +321,8 @@ msgid "Show Next Tab"
 msgstr "次のタブを表示"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "タブを左に移動"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "タブを右に移動"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "ヘルプ"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "行数: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "単語数: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "文字数: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "文字数（スペースを除く）: {count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "選択範囲: {lines}、{words}、{characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n} 行"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n} 単語"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n} 文字"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "OK"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "プレーンテキスト用のシンプルなエディタ"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "新規ウインドウに移動"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -564,14 +331,6 @@ msgstr "パスをコピー"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "フォルダに表示"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "ほかのタブを閉じる"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "右側のタブを閉じる"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -585,11 +344,6 @@ msgstr "{line} 行、{column} 列"
 msgid "{position}  ({n} selected)"
 msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  （{n} 文字を選択）"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "上書き"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -747,6 +501,10 @@ msgstr "このまま保存"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "このファイルでは改行コードが混在しています。保存すると、すべて {ending} に統一されます。"
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
 
 #: src/pagebars.cpp
 #, python-brace-format

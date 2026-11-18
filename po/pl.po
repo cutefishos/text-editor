@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -102,142 +102,6 @@ msgstr "Dopasowuj nawiasy"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "Ustawienia"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "Pliki i karty"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "Nowa karta"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "Nowe okno"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "Otwórz plik"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "Zapisz, zapisz jako"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "Zapisz wszystkie"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "Zamknij kartę, okno"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "Otwórz ponownie zamkniętą kartę"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "Następna lub poprzednia karta"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "Przenieś kartę"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "Przejdź do karty od 1 do 9"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "Zakończ"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "Edycja"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "Cofnij, ponów"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "Wytnij, kopiuj, wklej"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "Usuń słowo przed lub za kursorem"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "Zwiększ lub zmniejsz wcięcie"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "Przenieś wiersz w górę lub w dół"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "Powiel wiersz"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "Usuń wiersz"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "Wielkie litery, małe litery"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "Tryb zastępowania"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "Wyszukiwanie i nawigacja"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "Znajdź, zastąp"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "Następny lub poprzedni wynik"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "Przejdź do wiersza"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "Słowo w lewo lub w prawo"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "Początek lub koniec dokumentu"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "Widok"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "Powiększ, pomniejsz, resetuj"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "Zawijanie wierszy"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "Pełny ekran"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "Skróty klawiszowe"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "Skróty klawiszowe"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -359,10 +223,6 @@ msgid "Clear Recent Files"
 msgstr "Wyczyść listę ostatnich"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "Otwórz ponownie zamkniętą kartę"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "Zamknij kartę"
 
@@ -383,41 +243,8 @@ msgid "Revert to Saved…"
 msgstr "Przywróć zapisaną wersję…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "Statystyki dokumentu"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "Edycja"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "Powiel wiersz"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "Usuń wiersz"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "Przenieś wiersz w górę"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "Przenieś wiersz w dół"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "WIELKIE LITERY"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "małe litery"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "Jak W Tytule"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -446,6 +273,10 @@ msgstr "Znajdź poprzednie"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "Przejdź do wiersza…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "Widok"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -492,78 +323,8 @@ msgid "Show Next Tab"
 msgstr "Pokaż następną kartę"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "Przesuń kartę w lewo"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "Przesuń kartę w prawo"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "Pomoc"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "Wiersze: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "Słowa: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "Znaki: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "Znaki bez spacji: {count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "Zaznaczenie: {lines}, {words}, {characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n} wiersz"
-msgstr[1] "{n} wiersze"
-msgstr[2] "{n} wierszy"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n} słowo"
-msgstr[1] "{n} słowa"
-msgstr[2] "{n} słów"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n} znak"
-msgstr[1] "{n} znaki"
-msgstr[2] "{n} znaków"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "OK"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "Prosty edytor zwykłego tekstu"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "Przenieś do nowego okna"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -572,14 +333,6 @@ msgstr "Kopiuj ścieżkę"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "Pokaż w folderze"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "Zamknij pozostałe karty"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "Zamknij karty po prawej"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -595,11 +348,6 @@ msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  (zaznaczono {n})"
 msgstr[1] "{position}  (zaznaczono {n})"
 msgstr[2] "{position}  (zaznaczono {n})"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "ZAS"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -757,6 +505,10 @@ msgstr "Zapisz mimo to"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "Ten plik ma mieszane zakończenia wierszy. Przy zapisie w całym pliku zostanie użyte {ending}."
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
 
 #: src/pagebars.cpp
 #, python-brace-format

@@ -58,7 +58,6 @@ StatusBar::StatusBar(EditorPage &page)
     setName("statusBar");
     m_position = addItem("positionItem");
     m_zoom = addItem("zoomItem");
-    m_overwrite = addItem("overwriteItem");
     m_readOnly = addItem("readOnlyItem");
     m_indentation = addItem("indentationItem");
     m_language = addItem("languageItem");
@@ -70,7 +69,6 @@ StatusBar::StatusBar(EditorPage &page)
         if (EditorWindow *window = m_page.editorWindow())
             window->zoomBy(0);
     };
-    m_overwrite->onClicked = [this] { m_page.editor().setOverwriteMode(false); };
     m_readOnly->onClicked = [this] { m_page.document().setLocked(false); };
     m_indentation->onClickedAt = [this](PointF position) { openIndentMenu(position); };
     m_language->onClickedAt = [this](PointF position) { openLanguageMenu(position); };
@@ -108,9 +106,6 @@ void StatusBar::update()
     const double zoom = window ? window->zoom() : 1;
     m_zoom->setVisible(window && zoom != 1);
     m_zoom->label()->setText(std::to_string(int(std::lround(zoom * 100))) + "%");
-    m_overwrite->setVisible(m_page.editor().overwriteMode());
-    // TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-    m_overwrite->label()->setText(tr("OVR"));
     m_readOnly->setVisible(document.isLocked());
     m_readOnly->label()->setText(tr("Read-Only"));
     m_indentation->label()->setText(document.insertSpaces()
@@ -176,10 +171,7 @@ void StatusBar::openLanguageMenu(PointF position)
     Document &document = m_page.document();
     m_menu = std::make_unique<Menu>();
     for (const auto &[id, name] : m_page.application().languages()) {
-        const size_t item = m_menu->addItem(name, [this, &document, id = id] {
-            document.setLanguage(id);
-            m_page.chosenLanguage = id;
-        });
+        const size_t item = m_menu->addItem(name, [&document, id = id] { document.setLanguage(id); });
         m_menu->setItemChecked(item, document.language() == id);
     }
     m_menu->popup(window(), position);

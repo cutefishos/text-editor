@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -100,142 +100,6 @@ msgstr "匹配括号"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "设置"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "文件和标签页"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "新建标签页"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "新建窗口"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "打开文件"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "保存、另存为"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "全部保存"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "关闭标签页、窗口"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "重新打开已关闭的标签页"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "下一个或上一个标签页"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "移动标签页"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "转到第 1 至 9 个标签页"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "退出"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "编辑"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "撤销、重做"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "剪切、复制、粘贴"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "删除前一个或后一个单词"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "缩进或取消缩进"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "上移或下移行"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "复制行"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "删除行"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "大写、小写"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "改写模式"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "查找和移动"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "查找、替换"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "下一个或上一个匹配项"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "转到行"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "向左或向右移动一个单词"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "文档开头或结尾"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "视图"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "放大、缩小、重置"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "自动换行"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "全屏"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "键盘快捷键"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "键盘快捷键"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -357,10 +221,6 @@ msgid "Clear Recent Files"
 msgstr "清除最近使用的文件"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "重新打开已关闭的标签页"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "关闭标签页"
 
@@ -381,41 +241,8 @@ msgid "Revert to Saved…"
 msgstr "还原到上次保存的版本…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "文档统计"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "编辑"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "复制行"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "删除行"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "上移行"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "下移行"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "大写"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "小写"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "首字母大写"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -444,6 +271,10 @@ msgstr "查找上一个"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "转到行…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "视图"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -490,72 +321,8 @@ msgid "Show Next Tab"
 msgstr "显示下一个标签页"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "向左移动标签页"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "向右移动标签页"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "帮助"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "行数：{count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "单词数：{count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "字符数：{count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "字符数（不含空格）：{count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "所选内容：{lines}，{words}，{characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n} 行"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n} 个单词"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n} 个字符"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "确定"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "一款简单的纯文本编辑器"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "移到新窗口"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -564,14 +331,6 @@ msgstr "复制路径"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "在文件夹中显示"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "关闭其他标签页"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "关闭右侧标签页"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -585,11 +344,6 @@ msgstr "第 {line} 行，第 {column} 列"
 msgid "{position}  ({n} selected)"
 msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  （已选择 {n} 个字符）"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "改写"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -747,6 +501,10 @@ msgstr "仍然保存"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "此文件混用了多种换行符。保存时将统一使用 {ending}。"
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "确定"
 
 #: src/pagebars.cpp
 #, python-brace-format

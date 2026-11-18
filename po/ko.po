@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -100,142 +100,6 @@ msgstr "괄호 짝 표시"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "설정"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "파일 및 탭"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "새 탭"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "새 창"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "파일 열기"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "저장, 다른 이름으로 저장"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "모두 저장"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "탭 닫기, 창 닫기"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "닫은 탭 다시 열기"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "다음 또는 이전 탭"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "탭 이동"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "탭 1–9로 이동"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "종료"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "편집"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "실행 취소, 다시 실행"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "잘라내기, 복사, 붙여넣기"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "앞 또는 뒤 단어 삭제"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "들여쓰기 또는 내어쓰기"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "줄을 위나 아래로 이동"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "줄 복제"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "줄 삭제"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "대문자, 소문자"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "겹쳐쓰기 모드"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "찾기 및 이동"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "찾기, 바꾸기"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "다음 또는 이전 일치 항목"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "줄로 이동"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "왼쪽 또는 오른쪽 단어"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "문서의 처음 또는 끝"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "보기"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "확대, 축소, 초기화"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "자동 줄 바꿈"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "전체 화면"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "키보드 단축키"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "키보드 단축키"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -357,10 +221,6 @@ msgid "Clear Recent Files"
 msgstr "최근 파일 지우기"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "닫은 탭 다시 열기"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "탭 닫기"
 
@@ -381,41 +241,8 @@ msgid "Revert to Saved…"
 msgstr "저장된 버전으로 되돌리기…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "문서 통계"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "편집"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "줄 복제"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "줄 삭제"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "줄을 위로 이동"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "줄을 아래로 이동"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "대문자"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "소문자"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "단어 첫 글자 대문자"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -444,6 +271,10 @@ msgstr "이전 찾기"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "줄로 이동…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "보기"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -490,72 +321,8 @@ msgid "Show Next Tab"
 msgstr "다음 탭 보기"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "탭을 왼쪽으로 이동"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "탭을 오른쪽으로 이동"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "도움말"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "줄: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "단어: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "문자: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "공백 제외 문자: {count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "선택 영역: {lines}, {words}, {characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n}줄"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n}단어"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n}자"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "확인"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "일반 텍스트를 위한 간단한 편집기"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "새 창으로 이동"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -564,14 +331,6 @@ msgstr "경로 복사"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "폴더에서 보기"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "다른 탭 닫기"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "오른쪽 탭 닫기"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -585,11 +344,6 @@ msgstr "줄 {line}, 열 {column}"
 msgid "{position}  ({n} selected)"
 msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  ({n}자 선택됨)"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "겹쳐쓰기"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -747,6 +501,10 @@ msgstr "그래도 저장"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "이 파일에는 여러 종류의 줄 끝이 섞여 있습니다. 저장하면 모두 {ending} 방식으로 통일됩니다."
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "확인"
 
 #: src/pagebars.cpp
 #, python-brace-format

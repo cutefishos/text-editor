@@ -794,24 +794,6 @@ TEST_F(CoreTest, SaveUnwritableFileKeepsText)
     EXPECT_EQ(readFile(file), "keep\n");
 }
 
-TEST_F(CoreTest, FailedSaveLeavesWhitespace)
-{
-    writeFile("trim/.editorconfig", "[*]\ntrim_trailing_whitespace = true\n");
-    const std::string file = writeFile("trim/locked.txt", "keep\n");
-    ::chmod(file.c_str(), 0400);
-    Document document;
-    document.load(file);
-    ASSERT_TRUE(document.waitForLoaded());
-    document.setCursor({0, 4});
-    document.insertText("  ");
-    EXPECT_FALSE(document.save());
-    EXPECT_EQ(document.buffer().line(0), "keep  ");
-    document.undo();
-    EXPECT_EQ(document.buffer().line(0), "keep");
-    EXPECT_FALSE(document.isModified());
-    ::chmod(file.c_str(), 0600);
-}
-
 TEST_F(CoreTest, ReplaceAllThenTypingUndoesSeparately)
 {
     Document document;
@@ -858,48 +840,19 @@ TEST_F(CoreTest, EncodingRoundTripAll)
 TEST_F(CoreTest, EditingCommands)
 {
     Document document;
-    document.setText("a\nb\nc");
-    document.setCursor({1, 0});
-    document.moveLines(true);
-    EXPECT_EQ(document.text(), "b\na\nc");
-    EXPECT_EQ(document.cursor().line, 0);
-    document.moveLines(false);
-    document.moveLines(false);
-    EXPECT_EQ(document.text(), "a\nc\nb");
-    document.duplicateLines();
-    EXPECT_EQ(document.text(), "a\nc\nb\nb");
-    EXPECT_EQ(document.cursor().line, 3);
+    // Cut without a selection takes the whole line.
+    document.setText("a\nc\nb\nb");
+    document.setCursor({3, 0});
     document.deleteLines();
     EXPECT_EQ(document.text(), "a\nc\nb");
     document.setCursor({0, 0});
     document.deleteLines();
     EXPECT_EQ(document.text(), "c\nb");
 
-    document.setText("hello wide world");
-    document.setCursor({0, 10}, {0, 6});
-    document.changeCase(Document::Upper);
-    EXPECT_EQ(document.text(), "hello WIDE world");
-    document.selectAll();
-    document.changeCase(Document::Title);
-    EXPECT_EQ(document.text(), "Hello Wide World");
-    document.setText("straße");
-    document.selectAll();
-    document.changeCase(Document::Upper);
-    EXPECT_EQ(document.text(), "STRASSE");
-
     document.setText("    indented");
     document.setCursor({0, 12});
     document.insertNewline(true);
     EXPECT_EQ(document.text(), "    indented\n    ");
-
-    document.setText("abc");
-    document.setCursor({0, 0});
-    document.insertText("XY", true);
-    EXPECT_EQ(document.text(), "XYc");
-    document.setText("中文字");
-    document.setCursor({0, 0});
-    document.insertText("ab", true);
-    EXPECT_EQ(document.text(), "ab字");
 }
 
 TEST_F(CoreTest, IndentCommands)
@@ -952,17 +905,6 @@ TEST_F(CoreTest, BracketMatching)
     EXPECT_EQ(document.matchingBracket({1, 1}).start.line, -1);
 }
 
-TEST_F(CoreTest, Statistics)
-{
-    Document document;
-    document.setText("two words\n中文");
-    const DocumentStatistics stats = document.statistics();
-    EXPECT_EQ(stats.lines, 2);
-    EXPECT_EQ(stats.words, 4);
-    EXPECT_EQ(stats.characters, 12);
-    EXPECT_EQ(stats.charactersWithoutSpaces, 10);
-}
-
 TEST_F(CoreTest, StatusBarCounts)
 {
     // The status bar counts columns in characters, tabs expanded,
@@ -974,42 +916,6 @@ TEST_F(CoreTest, StatusBarCounts)
     EXPECT_EQ(document.selectionLength(), 4);
     document.goToLine(1, 3);
     EXPECT_EQ(document.cursor(), at(0, 4));
-}
-
-TEST_F(CoreTest, EditorConfig)
-{
-    EXPECT_TRUE(EditorConfig::globMatches("*.py", "src/a.py"));
-    EXPECT_TRUE(EditorConfig::globMatches("*.{c,h}", "x.h"));
-    EXPECT_FALSE(EditorConfig::globMatches("*.{c,h}", "x.cpp"));
-    EXPECT_TRUE(EditorConfig::globMatches("lib/**.js", "lib/a/b.js"));
-    EXPECT_FALSE(EditorConfig::globMatches("/top.txt", "sub/top.txt"));
-
-    writeFile("ec/.editorconfig",
-              "root = true\n[*]\nindent_style = space\nindent_size = 2\n"
-              "[*.mk]\nindent_style = tab\ntab_width = 8\n"
-              "[sub/*.txt]\ntrim_trailing_whitespace = true\nend_of_line = crlf\n");
-    writeFile("ec/sub/.editorconfig", "[*.txt]\ninsert_final_newline = false\n");
-    const std::string file = writeFile("ec/sub/a.txt", "x  \ny\n");
-
-    const EditorConfig config = EditorConfig::forFile(file);
-    EXPECT_EQ(config.insertSpaces.value(), true);
-    EXPECT_EQ(config.indentSize.value(), 2);
-    EXPECT_TRUE(config.trimTrailingWhitespace.value());
-    EXPECT_FALSE(config.insertFinalNewline.value());
-    EXPECT_EQ(config.lineEnding.value(), LineEnding::Windows);
-
-    const EditorConfig make = EditorConfig::forFile(path("ec/rules.mk"));
-    EXPECT_EQ(make.insertSpaces.value(), false);
-    EXPECT_EQ(make.tabWidth.value(), 8);
-
-    Document document;
-    document.load(file);
-    ASSERT_TRUE(document.waitForLoaded());
-    EXPECT_EQ(document.indentWidth(), 2);
-    document.setCursor({1, 1});
-    document.insertText("z ");
-    EXPECT_TRUE(document.save());
-    EXPECT_EQ(readFile(file), "x\nyz\n");
 }
 
 TEST_F(CoreTest, IndentationDetection)

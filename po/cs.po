@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-18 14:51+0800\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -102,142 +102,6 @@ msgstr "Párovat závorky"
 #: src/dialogs.cpp
 msgid "Settings"
 msgstr "Nastavení"
-
-#: src/dialogs.cpp
-msgid "Files and Tabs"
-msgstr "Soubory a karty"
-
-#: src/dialogs.cpp
-msgid "New tab"
-msgstr "Nová karta"
-
-#: src/dialogs.cpp
-msgid "New window"
-msgstr "Nové okno"
-
-#: src/dialogs.cpp
-msgid "Open a file"
-msgstr "Otevřít soubor"
-
-#: src/dialogs.cpp
-msgid "Save, save as"
-msgstr "Uložit, uložit jako"
-
-#: src/dialogs.cpp
-msgid "Save all"
-msgstr "Uložit vše"
-
-#: src/dialogs.cpp
-msgid "Close the tab, the window"
-msgstr "Zavřít kartu, okno"
-
-#: src/dialogs.cpp
-msgid "Reopen the closed tab"
-msgstr "Znovu otevřít zavřenou kartu"
-
-#: src/dialogs.cpp
-msgid "Next or previous tab"
-msgstr "Další nebo předchozí karta"
-
-#: src/dialogs.cpp
-msgid "Move the tab"
-msgstr "Přesunout kartu"
-
-#: src/dialogs.cpp
-msgid "Go to tab 1 to 9"
-msgstr "Přejít na kartu 1 až 9"
-
-#: src/dialogs.cpp
-msgid "Quit"
-msgstr "Ukončit"
-
-#: src/dialogs.cpp
-msgid "Editing"
-msgstr "Úpravy"
-
-#: src/dialogs.cpp
-msgid "Undo, redo"
-msgstr "Zpět, znovu"
-
-#: src/dialogs.cpp
-msgid "Cut, copy, paste"
-msgstr "Vyjmout, kopírovat, vložit"
-
-#: src/dialogs.cpp
-msgid "Delete the word before or after"
-msgstr "Smazat slovo před nebo za kurzorem"
-
-#: src/dialogs.cpp
-msgid "Indent or unindent"
-msgstr "Odsadit nebo zrušit odsazení"
-
-#: src/dialogs.cpp
-msgid "Move the line up or down"
-msgstr "Přesunout řádek nahoru nebo dolů"
-
-#: src/dialogs.cpp
-msgid "Duplicate the line"
-msgstr "Duplikovat řádek"
-
-#: src/dialogs.cpp
-msgid "Delete the line"
-msgstr "Smazat řádek"
-
-#: src/dialogs.cpp
-msgid "Uppercase, lowercase"
-msgstr "Velká písmena, malá písmena"
-
-#: src/dialogs.cpp
-msgid "Overwrite mode"
-msgstr "Režim přepisování"
-
-#: src/dialogs.cpp
-msgid "Find and Move"
-msgstr "Hledání a pohyb"
-
-#: src/dialogs.cpp
-msgid "Find, replace"
-msgstr "Najít, nahradit"
-
-#: src/dialogs.cpp
-msgid "Next or previous match"
-msgstr "Další nebo předchozí shoda"
-
-#: src/dialogs.cpp
-msgid "Go to line"
-msgstr "Přejít na řádek"
-
-#: src/dialogs.cpp
-msgid "Word left or right"
-msgstr "O slovo doleva nebo doprava"
-
-#: src/dialogs.cpp
-msgid "Start or end of the document"
-msgstr "Začátek nebo konec dokumentu"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "View"
-msgstr "Zobrazení"
-
-#: src/dialogs.cpp
-msgid "Zoom in, out, reset"
-msgstr "Přiblížit, oddálit, obnovit"
-
-#: src/dialogs.cpp
-msgid "Word wrap"
-msgstr "Zalamování řádků"
-
-#: src/dialogs.cpp
-msgid "Full screen"
-msgstr "Celá obrazovka"
-
-#: src/dialogs.cpp
-msgid "Keyboard shortcuts"
-msgstr "Klávesové zkratky"
-
-#: src/dialogs.cpp src/editorwindow.cpp
-msgid "Keyboard Shortcuts"
-msgstr "Klávesové zkratky"
 
 #: src/document.cpp
 msgid "The file does not exist."
@@ -359,10 +223,6 @@ msgid "Clear Recent Files"
 msgstr "Vymazat nedávné soubory"
 
 #: src/editorwindow.cpp
-msgid "Reopen Closed Tab"
-msgstr "Znovu otevřít zavřenou kartu"
-
-#: src/editorwindow.cpp
 msgid "Close Tab"
 msgstr "Zavřít kartu"
 
@@ -383,41 +243,8 @@ msgid "Revert to Saved…"
 msgstr "Vrátit k uložené verzi…"
 
 #: src/editorwindow.cpp
-msgid "Document Statistics"
-msgstr "Statistika dokumentu"
-
-#: src/editorwindow.cpp
 msgid "Edit"
 msgstr "Úpravy"
-
-#: src/editorwindow.cpp
-msgid "Duplicate Line"
-msgstr "Duplikovat řádek"
-
-#: src/editorwindow.cpp
-msgid "Delete Line"
-msgstr "Smazat řádek"
-
-#: src/editorwindow.cpp
-msgid "Move Line Up"
-msgstr "Přesunout řádek nahoru"
-
-#: src/editorwindow.cpp
-msgid "Move Line Down"
-msgstr "Přesunout řádek dolů"
-
-#. TRANSLATORS: changes the selection to upper case; written in the case it applies, as are "lowercase" and "Title Case".
-#: src/editorwindow.cpp
-msgid "UPPERCASE"
-msgstr "VELKÁ PÍSMENA"
-
-#: src/editorwindow.cpp
-msgid "lowercase"
-msgstr "malá písmena"
-
-#: src/editorwindow.cpp
-msgid "Title Case"
-msgstr "Velká Počáteční Písmena"
 
 #: src/editorwindow.cpp
 msgid "Indent"
@@ -446,6 +273,10 @@ msgstr "Najít předchozí"
 #: src/editorwindow.cpp
 msgid "Go to Line…"
 msgstr "Přejít na řádek…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "Zobrazení"
 
 #: src/editorwindow.cpp
 msgid "Word Wrap"
@@ -492,78 +323,8 @@ msgid "Show Next Tab"
 msgstr "Zobrazit následující kartu"
 
 #: src/editorwindow.cpp
-msgid "Move Tab Left"
-msgstr "Přesunout kartu doleva"
-
-#: src/editorwindow.cpp
-msgid "Move Tab Right"
-msgstr "Přesunout kartu doprava"
-
-#: src/editorwindow.cpp
-msgid "Help"
-msgstr "Nápověda"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Lines: {count}"
-msgstr "Řádky: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Words: {count}"
-msgstr "Slova: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters: {count}"
-msgstr "Znaky: {count}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Characters without spaces: {count}"
-msgstr "Znaky bez mezer: {count}"
-
-#. TRANSLATORS: each value is a count with its noun, such as "3 lines".
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "Selection: {lines}, {words}, {characters}"
-msgstr "Výběr: {lines}, {words}, {characters}"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} line"
-msgid_plural "{n} lines"
-msgstr[0] "{n} řádek"
-msgstr[1] "{n} řádky"
-msgstr[2] "{n} řádků"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} word"
-msgid_plural "{n} words"
-msgstr[0] "{n} slovo"
-msgstr[1] "{n} slova"
-msgstr[2] "{n} slov"
-
-#: src/editorwindow.cpp
-#, python-brace-format
-msgid "{n} character"
-msgid_plural "{n} characters"
-msgstr[0] "{n} znak"
-msgstr[1] "{n} znaky"
-msgstr[2] "{n} znaků"
-
-#: src/editorwindow.cpp src/pagebars.cpp
-msgid "OK"
-msgstr "OK"
-
-#: src/editorwindow.cpp
 msgid "A simple editor for plain text"
 msgstr "Jednoduchý editor prostého textu"
-
-#: src/editorwindow.cpp
-msgid "Move to New Window"
-msgstr "Přesunout do nového okna"
 
 #: src/editorwindow.cpp
 msgid "Copy Path"
@@ -572,14 +333,6 @@ msgstr "Kopírovat cestu"
 #: src/editorwindow.cpp
 msgid "Show in Folder"
 msgstr "Zobrazit ve složce"
-
-#: src/editorwindow.cpp
-msgid "Close Other Tabs"
-msgstr "Zavřít ostatní karty"
-
-#: src/editorwindow.cpp
-msgid "Close Tabs to the Right"
-msgstr "Zavřít karty vpravo"
 
 #. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col" abbreviate line and column.
 #: src/pagebars.cpp
@@ -595,11 +348,6 @@ msgid_plural "{position}  ({n} selected)"
 msgstr[0] "{position}  (vybrán {n})"
 msgstr[1] "{position}  (vybrány {n})"
 msgstr[2] "{position}  (vybráno {n})"
-
-#. TRANSLATORS: a short status bar badge shown while typing overwrites the text after the cursor.
-#: src/pagebars.cpp
-msgid "OVR"
-msgstr "PŘE"
 
 #: src/pagebars.cpp
 msgid "Read-Only"
@@ -757,6 +505,10 @@ msgstr "Přesto uložit"
 #, python-brace-format
 msgid "This file mixes line endings. Saving will use {ending} throughout."
 msgstr "Tento soubor míchá konce řádků. Při uložení se všude použije {ending}."
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "OK"
 
 #: src/pagebars.cpp
 #, python-brace-format

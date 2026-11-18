@@ -19,7 +19,6 @@
 #include <ctime>
 #include <functional>
 #include <memory>
-#include <optional>
 
 // The end states of each line's highlighting, computed lazily from the top.
 // After an edit only the changed lines are recomputed when the state they
@@ -64,18 +63,6 @@ struct DiskStamp
     }
 };
 
-struct DocumentStatistics
-{
-    int64_t lines = 0;
-    int64_t characters = 0;
-    int64_t charactersWithoutSpaces = 0;
-    int64_t words = 0;
-    bool hasSelection = false;
-    int64_t selectionLines = 0;
-    int64_t selectionCharacters = 0;
-    int64_t selectionWords = 0;
-};
-
 // One open text: its buffer, undo history, file, encoding and search state.
 // Changes are announced through the signals below.
 class Document
@@ -96,12 +83,6 @@ public:
         LargeFile,
         MixedLineEndings,
         MalformedSave,
-    };
-
-    enum CaseChange {
-        Upper,
-        Lower,
-        Title,
     };
 
     // The biggest file that is opened; anything larger is refused.
@@ -203,26 +184,21 @@ public:
     // From 1; the column in characters.
     void goToLine(int line, int column = 1);
 
-    // Typing: replaces the selection; in overwrite mode replaces the next character.
-    void insertText(std::string_view text, bool overwrite = false);
+    // Typing: replaces the selection.
+    void insertText(std::string_view text);
     void paste(std::string_view text) { insertText(text); }
     void insertNewline(bool autoIndent);
     void deleteBackward(bool word);
     void deleteForward(bool word);
     void deleteSelection();
     void indentSelection(bool unindent);
-    void moveLines(bool up);
-    void duplicateLines();
     void deleteLines();
-    void changeCase(int change);
 
     // Word movement: the start of the previous word or the end of the next.
     TextPosition wordBoundary(const TextPosition &from, bool forward) const;
     TextRange wordAt(const TextPosition &position) const;
     // The bracket matching the one before or after the cursor, or {-1,-1}.
     TextRange matchingBracket(const TextPosition &position) const;
-
-    DocumentStatistics statistics() const;
 
     int notice() const { return m_notice; }
     const std::string &noticeDetail() const { return m_noticeDetail; }
@@ -293,7 +269,7 @@ private:
     void detectLanguage();
     void updateMatches();
     void computeMatches();
-    void applyEditorConfig();
+    void detectIndentation();
     bool write(const std::string &path, const std::string &encoding, bool bom);
     void highlightSlice();
 
@@ -327,8 +303,6 @@ private:
     int m_tabWidth = 4;
     int m_indentWidth = 4;
     bool m_indentationFromFile = false;
-    bool m_trimTrailingWhitespace = false;
-    std::optional<bool> m_finalNewline;
 
     int m_notice = NoNotice;
     std::string m_noticeDetail;

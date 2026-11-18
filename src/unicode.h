@@ -47,13 +47,8 @@ bool isLetterOrNumber(char32_t c);
 bool isDigit(char32_t c);
 // Anything but the C categories (other than private use).
 bool isPrint(char32_t c);
-// Han, Hiragana or Katakana.
-bool isIdeograph(char32_t c);
-// The simple title case of one character.
-char32_t toTitleCase(char32_t c);
 
-// Full case mappings, locale independent.
-std::string toUpper(std::string_view text);
+// The full lower case mapping, locale independent.
 std::string toLower(std::string_view text);
 // Replaces malformed UTF-8 with U+FFFD.
 std::string sanitized(std::string_view text);

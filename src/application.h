@@ -41,7 +41,6 @@ public:
     // Plain Text first, then the languages by name: (id, name).
     std::vector<std::pair<std::string, std::string>> languages() const;
 
-    bool canReopenClosedTab() const { return !m_closedTabs.empty(); }
     int windowCount() const;
     bool isQuitting() const { return m_quitting; }
 
@@ -58,9 +57,6 @@ public:
         int index;
     };
     std::optional<OpenDocument> findOpenDocument(const std::string &path) const;
-
-    void pushClosedTab(const TabState &state);
-    std::optional<TabState> takeClosedTab();
 
     // Ends the process, without asking: the unsaved documents are dealt with.
     void quit();
@@ -80,7 +76,6 @@ public:
     // Registers org.cutefish.TextEditor; false when another process has it.
     bool registerService();
 
-    cutefish::base::Signal<> closedTabsChanged;
     cutefish::base::Signal<> windowCountChanged;
 
 private:
@@ -92,7 +87,6 @@ private:
     // Front to back: the window brought forward last is at the end.
     std::vector<EditorWindow *> m_order;
     EditorWindow *m_lastActive = nullptr;
-    std::vector<TabState> m_closedTabs;
     bool m_quitting = false;
     std::unique_ptr<cutefish::base::dbus::Object> m_service;
 };

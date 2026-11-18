@@ -29,30 +29,17 @@ class InfoBar;
 class LoadingView;
 class StatusBar;
 
-// A closed tab's file and place, for Reopen Closed Tab.
-struct TabState
-{
-    std::string path;
-    int line = 0;
-    // A UTF-8 byte offset into the line.
-    int column = 0;
-    double scroll = 0;
-    std::string encoding;
-    std::string language;
-};
-
 // One tab: a document, the bars that belong to it and its view.
 class EditorPage : public cutefish::ui::View
 {
 public:
-    // How the tab starts: a file, text from standard input, or a closed tab.
+    // How the tab starts: a file or text from standard input.
     struct Options
     {
         std::string initialPath;
         // From 0.
         int initialLine = 0;
         std::optional<std::string> initialText;
-        std::optional<TabState> restoreState;
     };
 
     EditorPage(EditorApplication &application, EditorWindow *window, const Options &options);
@@ -67,14 +54,9 @@ public:
     std::string title() const { return m_document->title(); }
     bool modified() const { return m_document->isModified(); }
 
-    // Chosen by the user, so kept for Reopen Closed Tab.
-    std::string chosenEncoding;
-    std::string chosenLanguage;
-
     void focusEditor();
     // `line` from 1, or 0 for none.
     void open(const std::string &path, int line);
-    TabState tabState() const;
     void showFind(bool replace);
     void findNext(bool backwards);
     void showGoToLine();
@@ -133,14 +115,8 @@ private:
     // A file that takes a moment shows its progress; a quick one shows nothing.
     cutefish::base::Timer m_loadingDelay;
 
-    // Where the cursor and the view go once the file is loaded.
-    struct PendingCursor
-    {
-        int line = 0;
-        int column = 0;
-        double scroll = -1;
-    };
-    std::optional<PendingCursor> m_pendingCursor;
+    // The line (from 0) the cursor goes to once the file is loaded.
+    std::optional<int> m_pendingLine;
     std::shared_ptr<bool> m_alive = std::make_shared<bool>(true);
 };
 

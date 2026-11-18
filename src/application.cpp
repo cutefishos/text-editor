@@ -24,7 +24,6 @@ namespace fs = std::filesystem;
 namespace strings = cutefish::base::strings;
 namespace dbus = cutefish::base::dbus;
 
-static constexpr size_t closedTabLimit = 20;
 static constexpr const char *serviceName = "org.cutefish.TextEditor";
 static constexpr const char *servicePath = "/TextEditor";
 
@@ -247,24 +246,6 @@ void EditorApplication::start(const std::vector<std::string> &arguments, const s
         openText(*standardInput);
     if (m_windows.empty())
         newWindow();
-}
-
-void EditorApplication::pushClosedTab(const TabState &state)
-{
-    m_closedTabs.push_back(state);
-    if (m_closedTabs.size() > closedTabLimit)
-        m_closedTabs.erase(m_closedTabs.begin());
-    closedTabsChanged();
-}
-
-std::optional<TabState> EditorApplication::takeClosedTab()
-{
-    if (m_closedTabs.empty())
-        return std::nullopt;
-    TabState state = m_closedTabs.back();
-    m_closedTabs.pop_back();
-    closedTabsChanged();
-    return state;
 }
 
 void EditorApplication::quit()

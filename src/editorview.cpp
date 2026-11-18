@@ -278,15 +278,6 @@ void EditorView::setAutoIndent(bool indent)
     optionsChanged();
 }
 
-void EditorView::setOverwriteMode(bool overwrite)
-{
-    if (m_overwrite == overwrite)
-        return;
-    m_overwrite = overwrite;
-    polish();
-    overwriteModeChanged();
-}
-
 void EditorView::setDarkMode(bool dark)
 {
     if (m_dark == dark)
@@ -1117,11 +1108,8 @@ void EditorView::plan()
 
     if (cursor.line >= firstLine && cursor.line <= lastLine) {
         const RectF caret = caretRect(cursor);
-        if (caret.width > 0) {
+        if (caret.width > 0)
             m_caret = {caret.x + textLeft() - m_contentX, caret.y - m_contentY, caret.width, caret.height};
-            if (m_overwrite && selection.isEmpty() && m_preedit.empty())
-                m_caret.width = std::max(m_caret.width, m_charWidth);
-        }
         if (m_highlightCurrentLine && selection.isEmpty()) {
             const double top = lineTop(cursor.line) - m_contentY;
             m_underlay.push_back({{0, top, width, m_lines[size_t(cursor.line)].visualLines * m_lineHeight},
@@ -1195,7 +1183,7 @@ void EditorView::paint(Painter &painter)
     const Window *window = this->window();
     const bool showCaret = hasFocus() && m_caretVisible && m_caret.width > 0 && window && window->isActive();
     if (showCaret)
-        painter.fillRect(snapped(m_caret), m_overwrite && m_caret.width > 3 ? m_theme.selection : m_theme.text);
+        painter.fillRect(snapped(m_caret), m_theme.text);
     if (m_dropCaret.width > 0)
         painter.fillRect(snapped(m_dropCaret), m_theme.text);
 
@@ -1395,7 +1383,7 @@ void EditorView::typeText(std::string_view text)
     if (!m_document)
         return;
     m_preferredX = -1;
-    m_document->insertText(text, m_overwrite);
+    m_document->insertText(text);
 }
 
 void EditorView::cut()
@@ -1523,10 +1511,6 @@ bool EditorView::keyPress(const KeyEvent &event)
     case key::Down: {
         const bool up = key == key::Up;
         resetBlink();
-        if (alt && !shift && !ctrl) {
-            m_document->moveLines(up);
-            return true;
-        }
         if (ctrl) {
             // Scrolls by a line without moving the cursor.
             applyScroll(m_contentX, m_contentY + (up ? -m_lineHeight : m_lineHeight));
@@ -1590,11 +1574,6 @@ bool EditorView::keyPress(const KeyEvent &event)
         }
         return true;
     }
-    case key::Insert:
-        if (mods != NoModifier)
-            return false;
-        setOverwriteMode(!m_overwrite);
-        return true;
     default:
         break;
     }
