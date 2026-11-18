@@ -1874,6 +1874,12 @@ void EditorView::dragEnter(const DragEvent &event)
     dragUpdate(event);
 }
 
+uint32_t EditorView::textDropActions(const DropOffer *offer) const
+{
+    const bool fromSelf = offer && offer->localSource() && offer->localSource()->context == this;
+    return fromSelf ? dropActions(CopyAction | MoveAction, MoveAction) : uint32_t(CopyAction);
+}
+
 uint32_t EditorView::dragUpdate(const DragEvent &event)
 {
     if (event.offer && event.offer->hasMimeType("text/uri-list"))
@@ -1883,9 +1889,7 @@ uint32_t EditorView::dragUpdate(const DragEvent &event)
     m_dropCaret = caret.width > 0 ? RectF{caret.x + textLeft() - m_contentX, caret.y - m_contentY, caret.width, caret.height}
                                   : RectF{};
     requestPaint();
-    const bool fromSelf = event.offer && event.offer->localSource() && event.offer->localSource()->context == this;
-    const bool copy = (event.modifiers & ControlModifier) || !fromSelf;
-    return copy ? CopyAction : MoveAction;
+    return textDropActions(event.offer);
 }
 
 void EditorView::dragLeave()
@@ -1921,8 +1925,7 @@ uint32_t EditorView::drop(const DragEvent &event)
     if (m_document->isLocked())
         return NoAction;
     TextPosition position = hitTest(event.position);
-    const bool fromSelf = offer->localSource() && offer->localSource()->context == this;
-    const bool move = fromSelf && !(event.modifiers & ControlModifier);
+    const bool move = takenDropAction(textDropActions(offer), offer->action()) == MoveAction;
 
     if (move) {
         const TextRange range = m_document->selection();

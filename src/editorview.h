@@ -225,6 +225,9 @@ private:
     void applyScroll(double x, double y);
     void updateScrollBars();
     void startTextDrag();
+    // A text drag from this view may be copied or moved, a move unless the
+    // keys pick a copy; other text is copied.
+    uint32_t textDropActions(const cutefish::ui::DropOffer *offer) const;
 
     Document *m_document = nullptr;
     std::vector<cutefish::base::Subscription> m_connections;

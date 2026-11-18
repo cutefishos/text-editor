@@ -125,6 +125,30 @@ private:
     std::function<void(std::string data)> m_done;
 };
 
+// Text dragged within one view, with the action the compositor picked.
+class SelfTextOffer : public DropOffer
+{
+public:
+    SelfTextOffer(const void *view, std::string text)
+        : m_text(std::move(text))
+    {
+        m_source.context = view;
+    }
+
+    const std::vector<std::string> &mimeTypes() const override { return m_types; }
+    uint32_t sourceActions() const override { return CopyAction | MoveAction; }
+    void read(const std::string &, std::function<void(std::string data)> done) override { done(m_text); }
+    const DragSource *localSource() const override { return &m_source; }
+    uint32_t action() const override { return picked; }
+
+    uint32_t picked = NoAction;
+
+private:
+    std::vector<std::string> m_types{"text/plain;charset=utf-8", "text/plain"};
+    std::string m_text;
+    DragSource m_source;
+};
+
 TEST_F(AppTest, OpensFileAndTypes)
 {
     const std::string path = writeFile("hello.c", "int main(void)\n{\n    return 0; /* done */\n}\n");
@@ -714,4 +738,29 @@ TEST_F(AppTest, FilesArriveAfterTheirTargetCloses)
     onTabs.answer("file://" + late + "\n");
     EXPECT_EQ(window->tabCount(), 1);
     EXPECT_FALSE(m_app->findOpenDocument(late).has_value());
+}
+
+// A selection dragged within the view moves unless the keys picked a copy.
+TEST_F(AppTest, TextDraggedWithinTheViewTakesThePickedAction)
+{
+    EditorWindow *window = start({writeFile("drag.txt", "one two three\n")});
+    ASSERT_TRUE(window);
+    EditorView *view = editor(window);
+    Document &document = *view->document();
+    const PointF end = at(view, {view->geometry().width - 30, 6 + view->lineHeight() * 0.5});
+    const auto dragFirstWord = [&](uint32_t picked) {
+        document.setCursor({0, 4}, {0, 0});
+        SelfTextOffer offer(view, document.selectedText());
+        const uint32_t answer = TestInput::dragEnter(window->window(), end, &offer);
+        EXPECT_EQ(answer, dropActions(CopyAction | MoveAction, MoveAction));
+        offer.picked = picked;
+        TestInput::drop(window->window());
+    };
+
+    dragFirstWord(NoAction);
+    EXPECT_EQ(document.buffer().line(0), "two threeone ");
+    dragFirstWord(CopyAction);
+    EXPECT_EQ(document.buffer().line(0), "two threeone two ");
+    dragFirstWord(MoveAction);
+    EXPECT_EQ(document.buffer().line(0), "threeone two two ");
 }
