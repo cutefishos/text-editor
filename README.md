@@ -1,7 +1,9 @@
 # Text Editor
 
-A plain-text editor for Cutefish, with tabs, session restore, encoding
-detection and syntax highlighting for common languages.
+A simple text editor for Cutefish Desktop, made for quick edits such as a
+configuration file or a note. It has tabs, find and replace, encoding
+detection and syntax highlighting for common languages, and is not meant to
+replace a code editor.
 
 <img src="screenshots/text-editor.png" alt="Text Editor" width="945">
 
