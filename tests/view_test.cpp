@@ -8,6 +8,7 @@
 #include "base/file.h"
 #include "test_support.h"
 #include "ui/keys.h"
+#include "ui/scroll_bar.h"
 #include "ui/test_input.h"
 #include "ui/window.h"
 
@@ -82,6 +83,21 @@ TEST(ViewTest, ClicksPlaceTheCursor)
     EXPECT_EQ(f.document.cursor(), (TextPosition{1, 11}));
     TestInput::click(f.window, {f.view->gutterWidth() + 1, 6 + lineHeight * 0.5});
     EXPECT_EQ(f.document.cursor(), (TextPosition{0, 0}));
+}
+
+TEST(ViewTest, HoverSetsTheCursorShape)
+{
+    Fixture f;
+    std::string text;
+    for (int i = 0; i < 200; ++i)
+        text += "line " + std::to_string(i) + "\n";
+    f.document.setText(text);
+    f.window.grab();
+    const double lineHeight = f.view->lineHeight();
+    TestInput::movePointer(f.window, {400, 6 + lineHeight * 0.5});
+    EXPECT_EQ(f.view->cursorShape(), CursorShape::Text);
+    TestInput::movePointer(f.window, {900 - ScrollBar::thickness / 2, 100});
+    EXPECT_EQ(f.view->cursorShape(), CursorShape::Default);
 }
 
 TEST(ViewTest, LargeFilePerformance)

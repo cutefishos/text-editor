@@ -149,6 +149,7 @@ EditorView::EditorView()
 {
     setName("editorView");
     setCursorShape(CursorShape::Text);
+    setTracksHover(true);
     m_verticalBar->onPositionRequested = [this](double y) {
         if (m_scroller)
             m_scroller->cancel(false);
@@ -1666,6 +1667,10 @@ void EditorView::selectByUnit(const TextPosition &position)
 
 CursorShape EditorView::cursorShape() const
 {
+    for (const ScrollBar *bar : {m_verticalBar, m_horizontalBar}) {
+        if (bar->isVisible() && bar->isNeeded() && bar->geometry().contains(m_lastMouse))
+            return CursorShape::Default;
+    }
     return m_lineNumbers && m_lastMouse.x < gutterWidth() ? CursorShape::Default : CursorShape::Text;
 }
 
