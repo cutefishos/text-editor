@@ -5,7 +5,6 @@
 #include "fileoptions.h"
 #include "recentfiles.h"
 #include "searcher.h"
-#include "session.h"
 #include "syntax.h"
 #include "textbuffer.h"
 #include "textcodec.h"
@@ -659,6 +658,86 @@ TEST_F(CoreTest, SaveRefusesOverwritingExternalChange)
     EXPECT_EQ(readFile(file), "base mine\n");
 }
 
+TEST_F(CoreTest, SaveRefusesWhileChangedOnDiskShows)
+{
+    const std::string file = writeFile("noticed.txt", "base\n");
+    Document document;
+    document.load(file);
+    ASSERT_TRUE(document.waitForLoaded());
+    document.setCursor({0, 4});
+    document.insertText(" mine");
+    TestSupport::wait(50);
+    writeFile("noticed.txt", "theirs\n");
+    ASSERT_TRUE(TestSupport::waitUntil([&] { return document.notice() == Document::ChangedOnDisk; }, 5000));
+
+    EXPECT_FALSE(document.save());
+    EXPECT_EQ(document.notice(), int(Document::ChangedOnDisk));
+    EXPECT_EQ(readFile(file), "theirs\n");
+    EXPECT_TRUE(document.isModified());
+
+    document.keepLocalVersion();
+    EXPECT_TRUE(document.save());
+    EXPECT_EQ(readFile(file), "base mine\n");
+    EXPECT_FALSE(document.isModified());
+}
+
+TEST_F(CoreTest, ChangeAfterKeepMyVersionIsRefusedAgain)
+{
+    const std::string file = writeFile("twice.txt", "base\n");
+    Document document;
+    document.load(file);
+    ASSERT_TRUE(document.waitForLoaded());
+    document.setCursor({0, 4});
+    document.insertText(" mine");
+    TestSupport::wait(50);
+    writeFile("twice.txt", "theirs\n");
+    ASSERT_TRUE(TestSupport::waitUntil([&] { return document.notice() == Document::ChangedOnDisk; }, 5000));
+    document.keepLocalVersion();
+    EXPECT_EQ(document.notice(), int(Document::NoNotice));
+
+    writeFile("twice.txt", "theirs again\n");
+    ASSERT_TRUE(TestSupport::waitUntil([&] { return document.notice() == Document::ChangedOnDisk; }, 5000));
+    EXPECT_FALSE(document.save());
+    EXPECT_EQ(readFile(file), "theirs again\n");
+
+    document.keepLocalVersion();
+    EXPECT_TRUE(document.save());
+    EXPECT_EQ(readFile(file), "base mine\n");
+}
+
+TEST_F(CoreTest, ChangedOnDiskIsRaisedOncePerChange)
+{
+    const std::string file = writeFile("raised.txt", "base\n");
+    Document document;
+    document.load(file);
+    ASSERT_TRUE(document.waitForLoaded());
+    document.setCursor({0, 4});
+    document.insertText(" mine");
+    int raised = 0;
+    const cutefish::base::Subscription counting = document.noticeChanged.connect([&] {
+        if (document.notice() == Document::ChangedOnDisk)
+            ++raised;
+    });
+    TestSupport::wait(50);
+    writeFile("raised.txt", "theirs\n");
+    ASSERT_TRUE(TestSupport::waitUntil([&] { return document.notice() == Document::ChangedOnDisk; }, 5000));
+    document.dismissNotice();
+    // The same file on disk does not raise it again.
+    document.checkDisk();
+    document.checkDisk();
+    EXPECT_EQ(raised, 1);
+    EXPECT_EQ(document.notice(), int(Document::NoNotice));
+    EXPECT_FALSE(document.save());
+    EXPECT_EQ(readFile(file), "theirs\n");
+
+    // A further change is seen: with the edits undone it is loaded.
+    document.undo();
+    EXPECT_FALSE(document.isModified());
+    writeFile("raised.txt", "theirs, later\n");
+    EXPECT_TRUE(TestSupport::waitUntil([&] { return document.buffer().line(0) == "theirs, later"; }, 5000));
+    EXPECT_EQ(document.notice(), int(Document::NoNotice));
+}
+
 TEST_F(CoreTest, SaveRefusesLosingMalformedBytes)
 {
     const std::string file = writeFile("bad.txt", "ok \xff here\n");
@@ -731,67 +810,6 @@ TEST_F(CoreTest, FailedSaveLeavesWhitespace)
     EXPECT_EQ(document.buffer().line(0), "keep");
     EXPECT_FALSE(document.isModified());
     ::chmod(file.c_str(), 0600);
-}
-
-TEST_F(CoreTest, DeletedFileKeepsDraft)
-{
-    const std::string file = writeFile("gone.txt", "text\n");
-    std::string id;
-    {
-        Document document;
-        id = document.draftId();
-        document.load(file);
-        ASSERT_TRUE(document.waitForLoaded());
-        document.setCursor({0, 4});
-        document.insertText(" unsaved");
-        document.writeDraftNow();
-    }
-    fs::remove(file);
-
-    // As a restored session does: the file is gone, the draft is not.
-    Document restored(id);
-    restored.load(file);
-    restored.restoreDraft();
-    ASSERT_TRUE(restored.waitForLoaded());
-    EXPECT_EQ(restored.buffer().line(0), "text unsaved");
-    EXPECT_TRUE(restored.isModified());
-    EXPECT_EQ(restored.notice(), int(Document::Deleted));
-    EXPECT_TRUE(fs::exists(restored.draftPath()));
-    EXPECT_TRUE(restored.save());
-    EXPECT_TRUE(fs::exists(file));
-}
-
-TEST_F(CoreTest, DraftWritesAreOrdered)
-{
-    Document document;
-    document.insertText("one");
-    document.writeDraftAsync();
-    document.insertText(" two");
-    document.writeDraftNow();
-    EXPECT_EQ(readFile(document.draftPath()), "one two");
-    struct stat info;
-    ASSERT_EQ(::stat(document.draftPath().c_str(), &info), 0);
-    EXPECT_EQ(info.st_mode & 0777, 0600u);
-    document.removeDraft();
-    EXPECT_FALSE(fs::exists(document.draftPath()));
-    ASSERT_EQ(::stat(fs::path(document.draftPath()).parent_path().c_str(), &info), 0);
-    EXPECT_EQ(info.st_mode & 0077, 0u);
-}
-
-TEST_F(CoreTest, CorruptSessionKeepsDrafts)
-{
-    const std::string broken = writeFile("broken/session.json", "{\"windows\": [");
-    bool ok = true;
-    EXPECT_TRUE(Session::load(broken, &ok).empty());
-    EXPECT_FALSE(ok);
-    Session::load(path("missing.json"), &ok);
-    EXPECT_TRUE(ok);
-
-    // Fresh orphans stay while they may still be wanted.
-    const std::string drafts = path("orphans");
-    writeFile("orphans/fresh.txt", "x");
-    Session::removeOrphanDrafts(drafts, {}, 7);
-    EXPECT_TRUE(fs::exists(drafts + "/fresh.txt"));
 }
 
 TEST_F(CoreTest, ReplaceAllThenTypingUndoesSeparately)
@@ -1107,86 +1125,6 @@ TEST_F(CoreTest, SyntaxStatesResume)
     EXPECT_EQ(first, 11);
     EXPECT_EQ(last, 999);
     EXPECT_NE(states.before(500), 0);
-}
-
-TEST_F(CoreTest, SessionRoundTrip)
-{
-    const std::string file = path("session/session.json");
-    std::vector<WindowState> windows(2);
-    windows[0].tabs = {TabState{"/a.txt", "d1", false, 3, 4, 120.5, "GB18030", ""},
-                       TabState{"", "d2", true, 0, 0, 0, "", "python"}};
-    windows[0].current = 1;
-    windows[1].tabs = {TabState{"", "d3", false, 0, 0, 0, "", ""}};
-    ASSERT_TRUE(Session::save(windows, file));
-
-    const std::vector<WindowState> loaded = Session::load(file);
-    // The empty untitled tab is not brought back.
-    ASSERT_EQ(loaded.size(), 1u);
-    ASSERT_EQ(loaded.at(0).tabs.size(), 2u);
-    EXPECT_EQ(loaded.at(0).current, 1);
-    EXPECT_EQ(loaded.at(0).tabs.at(0).path, "/a.txt");
-    EXPECT_EQ(loaded.at(0).tabs.at(0).line, 3);
-    EXPECT_EQ(loaded.at(0).tabs.at(0).scroll, 120.5);
-    EXPECT_EQ(loaded.at(0).tabs.at(0).encoding, "GB18030");
-    EXPECT_TRUE(loaded.at(0).tabs.at(1).unsaved);
-    EXPECT_EQ(loaded.at(0).tabs.at(1).language, "python");
-
-    const std::string drafts = path("drafts-orphans");
-    writeFile("drafts-orphans/keep.txt", "x");
-    writeFile("drafts-orphans/old.txt", "y");
-    writeFile("drafts-orphans/stale.txt.a1B2c3", "z");
-    writeFile("drafts-orphans/current.txt.d4E5f6", "z");
-    writeFile("drafts-orphans/other.txt.bak", "z");
-    // Only a temporary from before this process started is stale.
-    const auto before = fs::file_time_type::clock::now() - std::chrono::hours(1);
-    fs::last_write_time(drafts + "/stale.txt.a1B2c3", before);
-    fs::last_write_time(drafts + "/other.txt.bak", before);
-    Session::removeOrphanDrafts(drafts, {"keep"});
-    EXPECT_TRUE(fs::exists(drafts + "/keep.txt"));
-    EXPECT_FALSE(fs::exists(drafts + "/old.txt"));
-    EXPECT_FALSE(fs::exists(drafts + "/stale.txt.a1B2c3"));
-    EXPECT_TRUE(fs::exists(drafts + "/current.txt.d4E5f6"));
-    EXPECT_TRUE(fs::exists(drafts + "/other.txt.bak"));
-}
-
-TEST_F(CoreTest, DraftRestore)
-{
-    const std::string file = writeFile("drafted.txt", "saved text\n");
-    std::string id;
-    {
-        Document document;
-        id = document.draftId();
-        document.load(file);
-        ASSERT_TRUE(document.waitForLoaded());
-        document.setCursor({0, 10});
-        document.insertText(" plus edits");
-        document.writeDraftNow();
-        EXPECT_TRUE(fs::exists(document.draftPath()));
-    }
-
-    Document restored(id);
-    restored.load(file);
-    restored.restoreDraft();
-    ASSERT_TRUE(restored.waitForLoaded());
-    EXPECT_EQ(restored.buffer().line(0), "saved text plus edits");
-    EXPECT_TRUE(restored.isModified());
-    EXPECT_EQ(restored.notice(), int(Document::Restored));
-    EXPECT_TRUE(restored.save());
-    EXPECT_FALSE(fs::exists(restored.draftPath()));
-
-    // An untitled draft comes back as an unsaved document.
-    std::string untitledId;
-    {
-        Document untitled;
-        untitledId = untitled.draftId();
-        untitled.insertText("scratch");
-        untitled.writeDraftNow();
-    }
-    Document back(untitledId);
-    EXPECT_TRUE(back.restoreDraft());
-    EXPECT_EQ(back.text(), "scratch");
-    EXPECT_TRUE(back.isModified());
-    back.removeDraft();
 }
 
 TEST_F(CoreTest, RecentFiles)

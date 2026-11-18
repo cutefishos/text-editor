@@ -23,7 +23,6 @@ add_library(editor-core STATIC
     src/recentfiles.cpp
     src/regexp.cpp
     src/searcher.cpp
-    src/session.cpp
     src/syntax.cpp
     src/textbuffer.cpp
     src/textcodec.cpp

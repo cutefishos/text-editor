@@ -7,8 +7,7 @@
 #include <functional>
 #include <string>
 
-// The event loop and scratch folder the tests run in: session.json and the
-// drafts go there, never to the user's data folder.
+// The event loop and scratch folder the tests run in.
 namespace TestSupport
 {
 const std::string &directory();

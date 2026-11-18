@@ -30,7 +30,6 @@ public:
     bool autoIndent = true;
     int tabWidth = 4;
     bool insertSpaces = true;
-    bool restoreSession = true;
 
     bool findCaseSensitive = false;
     bool findWholeWords = false;

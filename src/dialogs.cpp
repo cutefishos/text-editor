@@ -98,13 +98,7 @@ public:
         cancel->onClicked = [&dialog] { dialog.finish(false); };
         DialogButton *discard = actions->addChild<DialogButton>(pages.size() > 1 ? tr("Discard All") : tr("Don't Save"));
         discard->setDestructive(true);
-        discard->onClicked = [&dialog] {
-            for (EditorPage *page : dialog.m_pages) {
-                if (!dialog.lifetimeOf(page).expired())
-                    page->document().removeDraft();
-            }
-            dialog.finish(true);
-        };
+        discard->onClicked = [&dialog] { dialog.finish(true); };
         m_save = actions->addChild<DialogButton>(tr("Save"), true);
         m_save->onClicked = [&dialog] { dialog.saveChecked(); };
         m_save->setEnabled(!dialog.m_checked.empty());
@@ -223,24 +217,15 @@ void SaveChangesDialog::saveChecked()
     auto queue = std::make_shared<std::vector<TrackedPage>>();
     for (EditorPage *page : m_checked)
         queue->emplace_back(page, lifetimeOf(page));
-    std::vector<TrackedPage> unchecked;
-    for (EditorPage *page : m_pages) {
-        if (std::find(m_checked.begin(), m_checked.end(), page) == m_checked.end())
-            unchecked.emplace_back(page, lifetimeOf(page));
-    }
     if (m_window)
         m_window->hide();
     // Only the save waiting to finish holds the chain; it holds itself weakly.
     auto next = std::make_shared<std::function<void()>>();
     const std::weak_ptr<std::function<void()>> self = next;
-    *next = [this, queue, unchecked, self, alive = std::weak_ptr<bool>(m_alive)] {
+    *next = [this, queue, self, alive = std::weak_ptr<bool>(m_alive)] {
         if (alive.expired())
             return;
         if (queue->empty()) {
-            for (const auto &[page, lifetime] : unchecked) {
-                if (!lifetime.expired())
-                    page->document().removeDraft();
-            }
             finish(true);
             return;
         }
@@ -402,9 +387,6 @@ public:
         addSwitch(view, tr("Highlight Current Line"), &EditorSettings::highlightCurrentLine, false);
         addSwitch(view, tr("Show Whitespace"), &EditorSettings::showWhitespace, false);
         addSwitch(view, tr("Match Brackets"), &EditorSettings::matchBrackets, true);
-
-        Card *session = addCard();
-        addSwitch(session, tr("Restore Session on Start"), &EditorSettings::restoreSession, true);
 
         m_connection = m_settings.changed.connect([this] { sync(); });
     }

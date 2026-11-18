@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: 2026 Reion Wong <reionwong@gmail.com>
 // SPDX-License-Identifier: BSD-3-Clause
 
-#include "session.h"
 #include "test_support.h"
 
 #include "base/elapsed_timer.h"
@@ -59,6 +58,5 @@ int main(int argc, char **argv)
     if (!scratch.isValid())
         return 1;
     s_directory = scratch.path();
-    Session::setDataDirectory(s_directory + "/data");
     return RUN_ALL_TESTS();
 }

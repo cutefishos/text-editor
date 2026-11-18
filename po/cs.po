@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"POT-Creation-Date: 2026-11-18 14:51+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -98,10 +98,6 @@ msgstr "Zobrazit prázdné znaky"
 #: src/dialogs.cpp src/editorwindow.cpp
 msgid "Match Brackets"
 msgstr "Párovat závorky"
-
-#: src/dialogs.cpp
-msgid "Restore Session on Start"
-msgstr "Při spuštění obnovit relaci"
 
 #: src/dialogs.cpp
 msgid "Settings"
@@ -655,14 +651,6 @@ msgstr "Uložit v kódování"
 #: src/pagebars.cpp
 msgid "Byte Order Mark"
 msgstr "Značka pořadí bajtů (BOM)"
-
-#: src/pagebars.cpp
-msgid "Unsaved changes from your last session were restored."
-msgstr "Neuložené změny z minulé relace byly obnoveny."
-
-#: src/pagebars.cpp
-msgid "Discard Changes"
-msgstr "Zahodit změny"
 
 #: src/pagebars.cpp
 msgid "The file has changed on disk. Saving now would overwrite that change."

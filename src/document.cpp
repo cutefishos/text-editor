@@ -3,7 +3,6 @@
 
 #include "document.h"
 #include "fileoptions.h"
-#include "session.h"
 #include "unicode.h"
 
 #include "base/elapsed_timer.h"
@@ -12,7 +11,6 @@
 #include "base/i18n.h"
 #include "base/paths.h"
 #include "base/strings.h"
-#include "base/uuid.h"
 
 #include <algorithm>
 #include <cerrno>
@@ -232,19 +230,13 @@ int SyntaxStates::advance(const TextBuffer &buffer, int line, int64_t budgetMs, 
     return first;
 }
 
-Document::Document(const std::string &draftId)
-    : m_draftId(draftId.empty() ? cutefish::base::Uuid::generate().toString() : draftId)
+Document::Document()
 {
     m_states.reset(nullptr, 1);
 
     m_highlightTimer.setInterval(0ms);
     m_highlightTimer.setSingleShot(true);
     m_highlightTimer.onTimeout = [this] { highlightSlice(); };
-
-    // Drafts are written a moment after typing stops, never to the file itself.
-    m_draftTimer.setInterval(3000ms);
-    m_draftTimer.setSingleShot(true);
-    m_draftTimer.onTimeout = [this] { writeDraftAsync(); };
 
     m_diskCheckTimer.setInterval(200ms);
     m_diskCheckTimer.setSingleShot(true);
@@ -271,25 +263,6 @@ Document::~Document()
     if (m_loadCancel)
         m_loadCancel->store(true);
     m_loadJob.cancel();
-    waitForDraftWrite();
-}
-
-std::string Document::draftDirectory()
-{
-    return Session::dataDirectory() + "/drafts";
-}
-
-void Document::setDraftId(const std::string &id)
-{
-    if (id.empty() || id == m_draftId)
-        return;
-    m_draftId = id;
-    draftIdChanged();
-}
-
-std::string Document::draftPath() const
-{
-    return draftDirectory() + "/" + m_draftId + ".txt";
 }
 
 // The bytes of the first `units` UTF-16 code units of `text`.
@@ -369,11 +342,10 @@ void Document::updateWritable()
     }
 }
 
-void Document::load(const std::string &path, const std::string &encoding, bool addToRecent)
+void Document::load(const std::string &path, const std::string &encoding)
 {
     cancelLoading();
     setFilePath(path);
-    m_addToRecent = addToRecent;
     m_loading = true;
     m_loadProgress = 0;
     loadingChanged();
@@ -447,14 +419,6 @@ void Document::finishLoad(LoadResult &result)
 
     if (result.error != NoNotice) {
         loadingChanged();
-        // Unsaved text of a file that can no longer be read still comes back.
-        if (m_restoreDraftAfterLoad) {
-            m_restoreDraftAfterLoad = false;
-            if (restoreDraft()) {
-                m_diskDiffers = true;
-                updateModified();
-            }
-        }
         setNotice(result.error == LoadFailed && !exists(m_filePath) && m_modified ? Deleted : Notice(result.error),
                   result.errorString);
         return;
@@ -477,8 +441,8 @@ void Document::finishLoad(LoadResult &result)
     }
     m_formatModified = false;
     m_diskDiffers = false;
-    m_ignoreDisk = false;
     m_diskStamp = result.stamp;
+    m_changedStamp = DiskStamp();
     m_encoding = decoded.encoding;
     m_bom = decoded.bom;
     m_lineEnding = decoded.lineEnding;
@@ -530,14 +494,7 @@ void Document::finishLoad(LoadResult &result)
     else
         setNotice(NoNotice);
 
-    if (m_restoreDraftAfterLoad) {
-        m_restoreDraftAfterLoad = false;
-        restoreDraft();
-    } else if (!reloading) {
-        removeDraft();
-    }
-
-    if (!reloading && m_addToRecent && s_recentFilesHook)
+    if (!reloading && s_recentFilesHook)
         s_recentFilesHook(m_filePath);
     loaded();
 }
@@ -622,9 +579,9 @@ void Document::dismissNotice()
 void Document::keepLocalVersion()
 {
     // The disk copy is no longer what the buffer started from.
-    m_ignoreDisk = true;
     m_diskDiffers = true;
     m_diskStamp = stampOf(m_filePath);
+    m_changedStamp = DiskStamp();
     updateModified();
     setNotice(NoNotice);
 }
@@ -658,7 +615,6 @@ void Document::setEncoding(const std::string &encoding)
     m_formatModified = true;
     encodingChanged();
     updateModified();
-    scheduleDraft();
 }
 
 void Document::setBom(bool bom)
@@ -822,7 +778,6 @@ void Document::replace(const TextRange &range, std::string_view input, UndoGroup
     undoChanged();
     contentsChanged();
     updateModified();
-    scheduleDraft();
     updateMatches();
     revealCursor();
 }
@@ -840,7 +795,6 @@ void Document::undo()
     undoChanged();
     contentsChanged();
     updateModified();
-    scheduleDraft();
     updateMatches();
     revealCursor();
 }
@@ -858,7 +812,6 @@ void Document::redo()
     undoChanged();
     contentsChanged();
     updateModified();
-    scheduleDraft();
     updateMatches();
     revealCursor();
 }
@@ -1461,113 +1414,6 @@ int Document::replaceAll(const std::string &replacement)
     return count;
 }
 
-void Document::scheduleDraft()
-{
-    m_draftTimer.start();
-}
-
-// Written whole under a temporary name and renamed over the draft, owner only.
-static void writeDraftFile(const std::string &path, const std::string &text)
-{
-    const std::string directory = parentOf(path);
-    if (::access(directory.c_str(), F_OK) != 0) {
-        std::error_code error;
-        fs::create_directories(directory, error);
-        ::chmod(directory.c_str(), 0700);
-    }
-    std::string temporary = path + ".XXXXXX";
-    const int fd = ::mkostemp(temporary.data(), O_CLOEXEC);
-    if (fd < 0)
-        return;
-    ::fchmod(fd, 0600);
-    std::string_view rest = text;
-    bool ok = true;
-    while (!rest.empty()) {
-        const ssize_t written = ::write(fd, rest.data(), rest.size());
-        if (written < 0 && errno == EINTR)
-            continue;
-        if (written <= 0) {
-            ok = false;
-            break;
-        }
-        rest.remove_prefix(size_t(written));
-    }
-    ok = ok && ::fsync(fd) == 0;
-    ::close(fd);
-    if (!ok || ::rename(temporary.c_str(), path.c_str()) != 0)
-        ::unlink(temporary.c_str());
-}
-
-void Document::waitForDraftWrite()
-{
-    if (m_draftWrite.valid())
-        m_draftWrite.wait();
-}
-
-void Document::writeDraftAsync()
-{
-    if (!m_modified && !(m_filePath.empty() && !isEmpty())) {
-        removeDraft();
-        return;
-    }
-    // One write at a time, so an older text never lands after a newer one.
-    waitForDraftWrite();
-    m_draftWrite = std::async(std::launch::async, writeDraftFile, draftPath(), m_buffer.text());
-}
-
-void Document::writeDraftNow()
-{
-    m_draftTimer.stop();
-    waitForDraftWrite();
-    if (!m_modified && !(m_filePath.empty() && !isEmpty())) {
-        removeDraft();
-        return;
-    }
-    writeDraftFile(draftPath(), m_buffer.text());
-}
-
-void Document::removeDraft()
-{
-    m_draftTimer.stop();
-    waitForDraftWrite();
-    ::unlink(draftPath().c_str());
-}
-
-bool Document::restoreDraft()
-{
-    if (m_loading) {
-        m_restoreDraftAfterLoad = true;
-        return true;
-    }
-    std::optional<std::string> data = cutefish::base::file::read(draftPath());
-    if (!data)
-        return false;
-    const std::string text = Unicode::isValid(*data) ? std::move(*data) : Unicode::sanitized(*data);
-    if (text == m_buffer.text()) {
-        if (m_filePath.empty())
-            m_diskDiffers = !text.empty();
-        updateModified();
-        return true;
-    }
-    const int oldCount = m_buffer.lineCount();
-    m_buffer.setText(text);
-    m_undo.clear();
-    m_undo.setCleanUnreachable();
-    m_states.reset(m_states.language(), m_buffer.lineCount());
-    m_cursor = m_anchor = m_buffer.clamp(m_cursor);
-    if (m_filePath.empty())
-        detectLanguage();
-    linesChanged(0, oldCount, m_buffer.lineCount());
-    contentsChanged();
-    titleChanged();
-    undoChanged();
-    cursorChanged();
-    updateModified();
-    if (!m_filePath.empty())
-        setNotice(Restored);
-    return true;
-}
-
 void Document::checkDisk()
 {
     if (m_filePath.empty() || m_loading)
@@ -1578,7 +1424,7 @@ void Document::checkDisk()
 
     if (!stamp.isValid()) {
         if (m_notice != Deleted) {
-            // Quitting must keep the text: the file is gone.
+            // Closing or quitting must ask: the file is gone.
             m_diskDiffers = true;
             updateModified();
             setNotice(Deleted);
@@ -1587,17 +1433,15 @@ void Document::checkDisk()
     }
 
     const bool returned = m_notice == Deleted;
-    if (!returned && stamp == m_diskStamp)
+    if (!returned && (stamp == m_diskStamp || stamp == m_changedStamp))
         return;
-    if (m_ignoreDisk && !returned) {
-        m_diskStamp = stamp;
-        return;
-    }
     if (!m_modified || (returned && m_undo.isClean() && !m_formatModified)) {
         reload();
         return;
     }
-    m_diskStamp = stamp;
+    // m_diskStamp stays what the buffer started from, so Save refuses until
+    // the user keeps their version or reloads.
+    m_changedStamp = stamp;
     setNotice(ChangedOnDisk);
 }
 
@@ -1645,7 +1489,7 @@ bool Document::saveAsUtf8()
     return true;
 }
 
-// umask() can only be read by changing it, which races with the draft writer.
+// umask() can only be read by changing it, which races with other threads.
 static mode_t currentUmask()
 {
     const std::optional<std::string> status = cutefish::base::file::read("/proc/self/status");
@@ -1737,7 +1581,7 @@ bool Document::write(const std::string &path, const std::string &encoding, bool 
     const bool samePath = !m_filePath.empty() && absolutePath(path) == m_filePath;
 
     // Someone else's change since it was loaded is not overwritten unasked.
-    if (samePath && !newFile && !m_ignoreDisk && m_diskStamp.isValid()) {
+    if (samePath && !newFile && m_diskStamp.isValid()) {
         if (!(stampOf(path) == m_diskStamp)) {
             setNotice(ChangedOnDisk);
             return false;
@@ -1817,12 +1661,11 @@ bool Document::write(const std::string &path, const std::string &encoding, bool 
     }
 
     m_diskStamp = stampOf(target);
+    m_changedStamp = DiskStamp();
     m_undo.setClean();
     m_formatModified = false;
     m_diskDiffers = false;
-    m_ignoreDisk = false;
     updateModified();
-    removeDraft();
     if (m_notice != Malformed && m_notice != Binary)
         setNotice(NoNotice);
     undoChanged();

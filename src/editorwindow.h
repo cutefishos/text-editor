@@ -5,7 +5,6 @@
 #define EDITORWINDOW_H
 
 #include "editorpage.h"
-#include "session.h"
 
 #include "base/signal.h"
 #include "ui/geometry.h"
@@ -39,9 +38,6 @@ class EditorWindow
 public:
     struct Options
     {
-        // Tabs to open with, from a restored session.
-        std::vector<TabState> initialTabs;
-        int initialIndex = 0;
         // A tab pulled out of another window, which this window opens with.
         std::unique_ptr<EditorPage> detachedPage;
         cutefish::ui::SizeF size;
@@ -81,7 +77,6 @@ public:
     void openFile(const std::string &path, int line);
     void openText(const std::string &text);
     void openPaths(const std::vector<std::string> &paths);
-    std::vector<TabState> sessionTabs() const;
 
     // Asks about unsaved pages, then runs `action` unless the user cancels.
     void confirmDiscard(const std::vector<EditorPage *> &dirty, std::function<void()> action);

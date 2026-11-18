@@ -18,7 +18,6 @@
 #include <atomic>
 #include <ctime>
 #include <functional>
-#include <future>
 #include <memory>
 #include <optional>
 
@@ -77,14 +76,13 @@ struct DocumentStatistics
     int64_t selectionWords = 0;
 };
 
-// One open text: its buffer, undo history, file, encoding, search state and
-// draft. Changes are announced through the signals below.
+// One open text: its buffer, undo history, file, encoding and search state.
+// Changes are announced through the signals below.
 class Document
 {
 public:
     enum Notice {
         NoNotice,
-        Restored,
         ChangedOnDisk,
         Deleted,
         Malformed,
@@ -114,15 +112,14 @@ public:
     static constexpr int maximumHighlightedLine = 20000;
     static bool isTooLongToHighlight(const std::string &line);
 
-    explicit Document(const std::string &draftId = std::string());
+    Document();
     ~Document();
 
     Document(const Document &) = delete;
     Document &operator=(const Document &) = delete;
 
     // Opens `path`; empty `encoding` detects it.
-    // A tab restored from the session was opened before: it stays where it is in the recent files.
-    void load(const std::string &path, const std::string &encoding = std::string(), bool addToRecent = true);
+    void load(const std::string &path, const std::string &encoding = std::string());
     void reload();
     void reloadWithEncoding(const std::string &encoding);
     void cancelLoading();
@@ -252,18 +249,6 @@ public:
     // Computes highlighting states up to `line`, a slice at a time.
     void requestHighlighting(int line);
 
-    const std::string &draftId() const { return m_draftId; }
-    void setDraftId(const std::string &id);
-    static std::string draftDirectory();
-    std::string draftPath() const;
-    // Writes the unsaved text to the draft now, on this thread.
-    void writeDraftNow();
-    void removeDraft();
-    // Takes the text of a draft as the unsaved state of this document.
-    bool restoreDraft();
-    // Starts a draft write on a worker thread, as the draft timer does.
-    void writeDraftAsync();
-
     // Compares the file with what was loaded or saved; reloads or reports.
     void checkDisk();
 
@@ -294,7 +279,6 @@ public:
     // A view should scroll the cursor into view.
     cutefish::base::Signal<> revealCursor;
     cutefish::base::Signal<> loaded;
-    cutefish::base::Signal<> draftIdChanged;
     cutefish::base::Signal<> saved;
 
 private:
@@ -309,11 +293,9 @@ private:
     void detectLanguage();
     void updateMatches();
     void computeMatches();
-    void scheduleDraft();
     void applyEditorConfig();
     bool write(const std::string &path, const std::string &encoding, bool bom);
     void highlightSlice();
-    void waitForDraftWrite();
 
     TextBuffer m_buffer;
     UndoStack m_undo;
@@ -324,9 +306,9 @@ private:
     bool m_modified = false;
     // The encoding, BOM or line ending changed since the last save.
     bool m_formatModified = false;
-    // The file is gone or its text was replaced by a draft: the disk copy is not the buffer.
+    // The file is gone or the user kept their version over a change on disk:
+    // the disk copy is not what the buffer started from.
     bool m_diskDiffers = false;
-    bool m_restoreDraftAfterLoad = false;
     // Some bytes did not decode; saving as is would replace them for good.
     bool m_malformed = false;
     std::string m_loadedEncoding;
@@ -362,16 +344,13 @@ private:
     int m_highlightTarget = 0;
     cutefish::base::Timer m_highlightTimer;
 
-    std::string m_draftId;
-    cutefish::base::Timer m_draftTimer;
-    std::future<void> m_draftWrite;
-
     cutefish::base::FileWatch m_watch;
     std::string m_watchedFile;
+    // What the buffer started from: the file as loaded, saved or kept over.
     DiskStamp m_diskStamp;
+    // A newer file the ChangedOnDisk notice was raised for.
+    DiskStamp m_changedStamp;
     cutefish::base::Timer m_diskCheckTimer;
-    // The disk changed while the buffer was modified and the user kept theirs.
-    bool m_ignoreDisk = false;
 
     cutefish::base::Job m_loadJob;
     std::shared_ptr<std::atomic<int>> m_loadProgressShared;
@@ -379,7 +358,6 @@ private:
     cutefish::base::Timer m_progressTimer;
     // A reload keeps the cursor and scroll position.
     bool m_reloading = false;
-    bool m_addToRecent = true;
     TextPosition m_reloadCursor;
 };
 

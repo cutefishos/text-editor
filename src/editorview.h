@@ -97,7 +97,7 @@ public:
     void ensureCursorVisible(bool center = false);
     // The text position under a point of this view.
     TextPosition positionAt(cutefish::ui::PointF point);
-    // Scrolls so `line` (from 0) is at the top, e.g. when a session is restored.
+    // Scrolls so `line` (from 0) is at the top, e.g. when a closed tab is reopened.
     void scrollToLine(double line);
     double topLine() const;
     // A press over the text, as the context menu opens from one.

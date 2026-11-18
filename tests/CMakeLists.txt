@@ -23,7 +23,7 @@ gtest_discover_tests(text-editor-ui-tests)
 add_executable(text-editor-capture capture.cpp)
 target_link_libraries(text-editor-capture PRIVATE editor-ui)
 
-# The editor on the live session with a scratch data folder: text-editor-live SCRATCH [FILE...].
+# The editor on the live session with a scratch settings file: text-editor-live SCRATCH [FILE...].
 add_executable(text-editor-live ${PROJECT_SOURCE_DIR}/src/main.cpp)
 target_compile_definitions(text-editor-live PRIVATE TEXT_EDITOR_LIVE_TEST)
 target_link_libraries(text-editor-live PRIVATE editor-ui)

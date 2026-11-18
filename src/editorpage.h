@@ -5,7 +5,6 @@
 #define EDITORPAGE_H
 
 #include "document.h"
-#include "session.h"
 
 #include "base/signal.h"
 #include "base/timer.h"
@@ -30,11 +29,23 @@ class InfoBar;
 class LoadingView;
 class StatusBar;
 
+// A closed tab's file and place, for Reopen Closed Tab.
+struct TabState
+{
+    std::string path;
+    int line = 0;
+    // A UTF-8 byte offset into the line.
+    int column = 0;
+    double scroll = 0;
+    std::string encoding;
+    std::string language;
+};
+
 // One tab: a document, the bars that belong to it and its view.
 class EditorPage : public cutefish::ui::View
 {
 public:
-    // How the tab starts: a file, text from standard input, or a saved state.
+    // How the tab starts: a file, text from standard input, or a closed tab.
     struct Options
     {
         std::string initialPath;
@@ -42,9 +53,6 @@ public:
         int initialLine = 0;
         std::optional<std::string> initialText;
         std::optional<TabState> restoreState;
-        // A tab back from the last session was opened before; one reopened
-        // by the user counts as opened now.
-        bool fromSession = false;
     };
 
     EditorPage(EditorApplication &application, EditorWindow *window, const Options &options);
@@ -59,14 +67,14 @@ public:
     std::string title() const { return m_document->title(); }
     bool modified() const { return m_document->isModified(); }
 
-    // Chosen by the user, so kept in the session.
+    // Chosen by the user, so kept for Reopen Closed Tab.
     std::string chosenEncoding;
     std::string chosenLanguage;
 
     void focusEditor();
     // `line` from 1, or 0 for none.
     void open(const std::string &path, int line);
-    TabState sessionState() const;
+    TabState tabState() const;
     void showFind(bool replace);
     void findNext(bool backwards);
     void showGoToLine();
@@ -116,7 +124,7 @@ private:
     EditorView *m_editor;
     StatusBar *m_statusBar;
     LoadingView *m_loading = nullptr;
-    // Made on first use: a restored session builds every tab's page at start.
+    // Made on first use.
     FindBar *m_findBar = nullptr;
     GoToLineBar *m_goToLine = nullptr;
     std::unique_ptr<cutefish::ui::Menu> m_contextMenu;

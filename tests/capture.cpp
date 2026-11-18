@@ -3,7 +3,7 @@
 
 // Renders the editor's reference states headless for the reference script:
 // capture SAMPLES OUTDIR SCALE light|dark [STATE...].
-// The session, drafts and settings live in a scratch folder.
+// The settings live in a scratch folder.
 
 #include "application.h"
 #include "editorpage.h"
@@ -11,7 +11,6 @@
 #include "editorview.h"
 #include "editorwindow.h"
 #include "pagebars.h"
-#include "session.h"
 
 #include "base/event_loop.h"
 #include "base/file.h"
@@ -87,7 +86,7 @@ static void writeSettings(const std::string &path, const std::vector<std::pair<s
 {
     std::string text = "[Editor]\nautoIndent=true\nfindCaseSensitive=false\nfindRegex=false\nfindWholeWords=false\n"
                        "fontFamily=\nfontSize=0\nhighlightCurrentLine=true\ninsertSpaces=true\nlastFolder="
-            + s_samples + "\nlineNumbers=true\nmatchBrackets=true\nrestoreSession=true\nshowWhitespace=false\n"
+            + s_samples + "\nlineNumbers=true\nmatchBrackets=true\nshowWhitespace=false\n"
                           "tabWidth=4\nwordWrap=true\n";
     for (const auto &[key, value] : overrides) {
         const size_t at = text.find(key + "=");
@@ -101,8 +100,6 @@ struct Run
 {
     explicit Run(const std::string &scratch, const std::vector<std::pair<std::string, std::string>> &overrides = {})
     {
-        fs::remove_all(scratch + "/data");
-        Session::setDataDirectory(scratch + "/data");
         writeSettings(scratch + "/text-editor.conf", overrides);
         settings = std::make_unique<EditorSettings>(scratch + "/text-editor.conf");
         application = std::make_unique<EditorApplication>(*settings);

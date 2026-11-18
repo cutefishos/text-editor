@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"POT-Creation-Date: 2026-11-18 14:51+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -97,10 +97,6 @@ msgstr ""
 
 #: src/dialogs.cpp src/editorwindow.cpp
 msgid "Match Brackets"
-msgstr ""
-
-#: src/dialogs.cpp
-msgid "Restore Session on Start"
 msgstr ""
 
 #: src/dialogs.cpp
@@ -650,14 +646,6 @@ msgstr ""
 
 #: src/pagebars.cpp
 msgid "Byte Order Mark"
-msgstr ""
-
-#: src/pagebars.cpp
-msgid "Unsaved changes from your last session were restored."
-msgstr ""
-
-#: src/pagebars.cpp
-msgid "Discard Changes"
 msgstr ""
 
 #: src/pagebars.cpp

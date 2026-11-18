@@ -229,7 +229,7 @@ InfoBar::InfoBar(EditorPage &page)
 
 bool InfoBar::warning() const
 {
-    return m_notice != Document::Restored && m_notice != Document::LargeFile && m_notice != Document::MixedLineEndings;
+    return m_notice != Document::LargeFile && m_notice != Document::MixedLineEndings;
 }
 
 void InfoBar::update()
@@ -254,12 +254,6 @@ void InfoBar::update()
             window->saveAs(&page);
     };
     switch (m_notice) {
-    case Document::Restored:
-        m_message = tr("Unsaved changes from your last session were restored.");
-        if (!document.isUntitled())
-            actions.push_back({tr("Discard Changes"), [&page] { page.revert(); }});
-        actions.push_back({tr("OK"), [&document] { document.dismissNotice(); }});
-        break;
     case Document::ChangedOnDisk:
         m_message = tr("The file has changed on disk. Saving now would overwrite that change.");
         actions = {{tr("Keep My Version"), [&document] { document.keepLocalVersion(); }},

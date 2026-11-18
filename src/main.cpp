@@ -5,18 +5,13 @@
 #include "editorsettings.h"
 
 #include "base/dbus.h"
-#include "base/event_loop.h"
 #include "base/i18n.h"
 #include "ui/application.h"
 
-#include <csignal>
 #include <cstdio>
 #include <filesystem>
 #include <iostream>
 #include <iterator>
-#include <sys/epoll.h>
-#include <sys/signalfd.h>
-#include <unistd.h>
 
 #ifndef TEXT_EDITOR_VERSION
 #define TEXT_EDITOR_VERSION "1.0"
@@ -37,12 +32,8 @@ static void printHelp(const char *program)
                 program);
 }
 
-// The live test runs the same with a scratch data folder and settings file,
-// without the D-Bus service, so it never meets the user's session.
-#ifdef TEXT_EDITOR_LIVE_TEST
-#include "session.h"
-#endif
-
+// The live test runs the same with a scratch settings file, without the
+// D-Bus service, so it never meets the user's session.
 int main(int argc, char **argv)
 {
 #ifdef TEXT_EDITOR_LIVE_TEST
@@ -50,7 +41,6 @@ int main(int argc, char **argv)
     const std::string scratch = argv[1];
     ++argv;
     --argc;
-    Session::setDataDirectory(scratch + "/data");
 #endif
     std::vector<std::string> files;
     bool newWindow = false;
@@ -88,14 +78,6 @@ int main(int argc, char **argv)
     if (readInput)
         standardInput = std::string(std::istreambuf_iterator<char>(std::cin), std::istreambuf_iterator<char>());
 
-    // Logging out ends the process with SIGTERM: the session is kept, as on
-    // quit. Blocked before any thread starts, so the signals reach the fd.
-    sigset_t signals;
-    sigemptyset(&signals);
-    sigaddset(&signals, SIGTERM);
-    sigaddset(&signals, SIGHUP);
-    sigprocmask(SIG_BLOCK, &signals, nullptr);
-
     cutefish::ui::Application app(argc, argv);
 #ifdef TEXT_EDITOR_LIVE_TEST
     app.setApplicationId("cutefish-text-editor-live");
@@ -129,19 +111,6 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    const int signalFd = signalfd(-1, &signals, SFD_NONBLOCK | SFD_CLOEXEC);
-    if (signalFd >= 0) {
-        app.loop().watch(signalFd, EPOLLIN, [&application, signalFd](uint32_t) {
-            signalfd_siginfo info;
-            while (::read(signalFd, &info, sizeof(info)) == ssize_t(sizeof(info))) {
-            }
-            application.terminate();
-        });
-    }
-
     application.start(newWindow && files.empty() ? std::vector<std::string>() : files, workingDirectory, standardInput);
-    const int result = app.run();
-    if (signalFd >= 0)
-        ::close(signalFd);
-    return result;
+    return app.run();
 }

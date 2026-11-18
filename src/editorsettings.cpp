@@ -24,7 +24,6 @@ EditorSettings::EditorSettings(std::string path)
     autoIndent = settings.boolValue("Editor/autoIndent", autoIndent);
     tabWidth = int(std::clamp<int64_t>(settings.intValue("Editor/tabWidth", tabWidth), 1, 16));
     insertSpaces = settings.boolValue("Editor/insertSpaces", insertSpaces);
-    restoreSession = settings.boolValue("Editor/restoreSession", restoreSession);
     findCaseSensitive = settings.boolValue("Editor/findCaseSensitive", findCaseSensitive);
     findWholeWords = settings.boolValue("Editor/findWholeWords", findWholeWords);
     findRegex = settings.boolValue("Editor/findRegex", findRegex);
@@ -49,7 +48,6 @@ void EditorSettings::commit()
     settings.setValue("Editor/autoIndent", autoIndent);
     settings.setValue("Editor/tabWidth", tabWidth);
     settings.setValue("Editor/insertSpaces", insertSpaces);
-    settings.setValue("Editor/restoreSession", restoreSession);
     settings.setValue("Editor/findCaseSensitive", findCaseSensitive);
     settings.setValue("Editor/findWholeWords", findWholeWords);
     settings.setValue("Editor/findRegex", findRegex);

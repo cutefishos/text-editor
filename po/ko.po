@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cutefish-text-editor\n"
 "Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
-"POT-Creation-Date: 2026-11-13 15:22+0800\n"
+"POT-Creation-Date: 2026-11-18 14:51+0800\n"
 "PO-Revision-Date: 2026-11-13 15:22+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -96,10 +96,6 @@ msgstr "공백 문자 보기"
 #: src/dialogs.cpp src/editorwindow.cpp
 msgid "Match Brackets"
 msgstr "괄호 짝 표시"
-
-#: src/dialogs.cpp
-msgid "Restore Session on Start"
-msgstr "시작 시 세션 복원"
 
 #: src/dialogs.cpp
 msgid "Settings"
@@ -645,14 +641,6 @@ msgstr "인코딩을 지정하여 저장"
 #: src/pagebars.cpp
 msgid "Byte Order Mark"
 msgstr "바이트 순서 표시(BOM)"
-
-#: src/pagebars.cpp
-msgid "Unsaved changes from your last session were restored."
-msgstr "지난 세션에서 저장하지 않은 변경 사항이 복원되었습니다."
-
-#: src/pagebars.cpp
-msgid "Discard Changes"
-msgstr "변경 사항 폐기"
 
 #: src/pagebars.cpp
 msgid "The file has changed on disk. Saving now would overwrite that change."

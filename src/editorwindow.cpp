@@ -335,19 +335,10 @@ EditorWindow::EditorWindow(EditorApplication &application, Options options)
     addShortcuts();
     buildMainMenu();
 
-    if (options.detachedPage) {
+    if (options.detachedPage)
         insertTab(std::move(options.detachedPage), 0);
-    } else {
-        for (const TabState &state : options.initialTabs) {
-            EditorPage::Options page;
-            page.restoreState = state;
-            page.fromSession = true;
-            newTab(page);
-        }
-        if (m_pages.empty())
-            newTab();
-        selectTab(std::clamp(options.initialIndex, 0, int(m_pages.size()) - 1));
-    }
+    else
+        newTab();
     updateTitle();
 }
 
@@ -462,7 +453,6 @@ EditorPage *EditorWindow::newTab(const EditorPage::Options &options, int index)
     auto page = std::make_unique<EditorPage>(m_application, this, options);
     EditorPage *raw = page.get();
     insertTab(std::move(page), index < 0 ? int(m_pages.size()) : index);
-    m_application.scheduleSessionSave();
     return raw;
 }
 
@@ -476,7 +466,6 @@ void EditorWindow::insertTab(std::unique_ptr<EditorPage> page, int index)
     m_content->requestLayout();
     showPage(index);
     raw->focusEditor();
-    m_application.scheduleSessionSave();
 }
 
 std::unique_ptr<EditorPage> EditorWindow::takePage(int index)
@@ -501,7 +490,6 @@ void EditorWindow::showPage(int index)
     for (size_t i = 0; i < m_pages.size(); ++i)
         m_pages[i]->setVisible(int(i) == index);
     pagesChanged();
-    m_application.scheduleSessionSave();
 }
 
 void EditorWindow::selectTab(int index)
@@ -582,23 +570,18 @@ void EditorWindow::openFile(const std::string &path, int line)
 
 void EditorWindow::openText(const std::string &text)
 {
+    const int pristine = isPristine(currentPage()) ? m_currentIndex : -1;
     EditorPage::Options options;
     options.initialText = text;
     newTab(options);
+    if (pristine >= 0)
+        closeTab(pristine, false);
 }
 
 void EditorWindow::openPaths(const std::vector<std::string> &paths)
 {
     if (!paths.empty())
         m_application.openPaths(paths, 0, this);
-}
-
-std::vector<TabState> EditorWindow::sessionTabs() const
-{
-    std::vector<TabState> tabs;
-    for (const EditorPage *page : m_pages)
-        tabs.push_back(page->sessionState());
-    return tabs;
 }
 
 void EditorWindow::confirmDiscard(const std::vector<EditorPage *> &dirty, std::function<void()> action)
@@ -628,23 +611,13 @@ void EditorWindow::closeTab(int index, bool ask)
         });
         return;
     }
-    // Kept for Reopen Closed Tab; an unsaved text stays in its draft.
-    if (!isPristine(page)) {
-        TabState state = page->sessionState();
-        Document &document = page->document();
-        if (document.isModified() || (document.isUntitled() && !document.isEmpty())) {
-            document.writeDraftNow();
-            state.unsaved = true;
-        } else {
-            document.removeDraft();
-        }
-        m_application.pushClosedTab(state);
-    }
+    // Reopen Closed Tab opens the file again; text that is not in a file does not come back.
+    if (!page->document().isUntitled())
+        m_application.pushClosedTab(page->tabState());
     std::unique_ptr<EditorPage> taken = takePage(index);
     // The page may be the one handling this event; it goes once the event is over.
     std::shared_ptr<EditorPage> doomed(std::move(taken));
     cutefish::base::EventLoop::current()->post([doomed] {});
-    m_application.scheduleSessionSave();
     if (m_pages.empty()) {
         m_closeConfirmed = true;
         requestClose();
@@ -701,7 +674,7 @@ void EditorWindow::closeTabsToRight(int index)
 void EditorWindow::reopenClosedTab()
 {
     const std::optional<TabState> state = m_application.takeClosedTab();
-    if (!state || state->draftId.empty())
+    if (!state)
         return;
     if (!state->path.empty() && indexOfPath(state->path, state->path) >= 0) {
         selectTab(indexOfPath(state->path, state->path));
@@ -714,10 +687,6 @@ void EditorWindow::reopenClosedTab()
 
 void EditorWindow::quitApplication()
 {
-    if (m_application.settings().restoreSession) {
-        m_application.quit();
-        return;
-    }
     std::vector<EditorPage *> dirty;
     for (EditorWindow *window : m_application.windows()) {
         for (EditorPage *page : window->pages()) {
@@ -750,8 +719,6 @@ void EditorWindow::requestClose()
     confirmDiscard(dirty, [this, alive = std::weak_ptr<bool>(m_alive)] {
         if (alive.expired())
             return;
-        for (EditorPage *page : m_pages)
-            page->document().removeDraft();
         m_closeConfirmed = true;
         finishClose();
     });

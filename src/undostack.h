@@ -65,8 +65,6 @@ public:
     const UndoGroup &redo();
 
     void setClean() { m_cleanIndex = m_index; }
-    // The disk copy can no longer be reached by undo or redo.
-    void setCleanUnreachable() { m_cleanIndex = -1; }
     bool isClean() const { return m_cleanIndex == m_index; }
 
     int index() const { return m_index; }
