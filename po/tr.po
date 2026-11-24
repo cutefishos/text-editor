@@ -1,0 +1,711 @@
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: cutefish-text-editor\n"
+"Report-Msgid-Bugs-To: https://github.com/cutefishos\n"
+"POT-Creation-Date: 2026-11-18 15:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/dialogs.cpp
+msgid "If you don't save, your changes will be lost."
+msgstr "Kaydetmezseniz değişiklikleriniz kaybolacaktır."
+
+#: src/dialogs.cpp src/pagebars.cpp
+msgid "Cancel"
+msgstr "İptal et"
+
+#: src/dialogs.cpp
+msgid "Discard All"
+msgstr "Tümünü Sil"
+
+#: src/dialogs.cpp
+msgid "Don't Save"
+msgstr "Kaydetme"
+
+#: src/dialogs.cpp src/editorwindow.cpp src/pagebars.cpp
+msgid "Save"
+msgstr "Kaydet"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to “{name}”?"
+msgstr "Değişiklikler “{name}” dosyasına kaydedilsin mi?"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "Save changes to {n} document?"
+msgid_plural "Save changes to {n} documents?"
+msgstr[0] "Değişiklikler {n} belgesine kaydedilsin mi?"
+msgstr[1] "{n} dokümanlarındaki değişiklikler kaydedilsin mi?"
+
+#: src/dialogs.cpp
+msgid "System Monospace"
+msgstr "Sistem Eşit Aralıklı"
+
+#: src/dialogs.cpp
+msgid "Font"
+msgstr "Yazı tipi"
+
+#. TRANSLATORS: the system's default font size, first in a list of sizes in
+#. points.
+#: src/dialogs.cpp
+msgid "System"
+msgstr "Sistem"
+
+#: src/dialogs.cpp
+#, python-brace-format
+msgid "{size} pt"
+msgstr "{size} nk"
+
+#: src/dialogs.cpp
+msgid "Size"
+msgstr "Boyut"
+
+#: src/dialogs.cpp
+msgid "Tab Width"
+msgstr "Sekme Genişliği"
+
+#: src/dialogs.cpp
+msgid "Insert Spaces Instead of Tabs"
+msgstr "Sekmeler Yerine Boşluk Ekle"
+
+#: src/dialogs.cpp
+msgid "Automatic Indentation"
+msgstr "Otomatik Girinti"
+
+#: src/dialogs.cpp
+msgid "Wrap Lines"
+msgstr "Sarma Hatları"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Line Numbers"
+msgstr "Satır Numaraları"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Highlight Current Line"
+msgstr "Geçerli Satırı Vurgula"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Show Whitespace"
+msgstr "Boşlukları Göster"
+
+#: src/dialogs.cpp src/editorwindow.cpp
+msgid "Match Brackets"
+msgstr "Parantezleri Eşleştir"
+
+#: src/dialogs.cpp
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: src/document.cpp
+msgid "The file does not exist."
+msgstr "Dosya mevcut değil."
+
+#: src/document.cpp
+msgid "This is a folder."
+msgstr "Bu bir klasör."
+
+#: src/document.cpp src/editorwindow.cpp
+msgid "Untitled"
+msgstr "İsimsiz"
+
+#: src/document.cpp
+#, python-brace-format
+msgid "Existing file {path} is not writable"
+msgstr "Mevcut {path} dosyası yazılabilir değil"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Revert “{name}”?"
+msgstr "“{name}” geri alınsın mı?"
+
+#: src/editorpage.cpp
+#, python-brace-format
+msgid "Reopen with {encoding}?"
+msgstr "{encoding} ile yeniden açılsın mı?"
+
+#: src/editorpage.cpp
+msgid "Your unsaved changes will be lost."
+msgstr "Kaydedilmemiş değişiklikleriniz kaybolacak."
+
+#: src/editorpage.cpp
+msgid "Revert"
+msgstr "Geri al"
+
+#: src/editorpage.cpp
+msgid "Reopen"
+msgstr "Yeniden aç"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Undo"
+msgstr "Geri al"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Redo"
+msgstr "Yinele"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Cut"
+msgstr "Kes"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Copy"
+msgstr "Kopyala"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Paste"
+msgstr "Yapıştır"
+
+#: src/editorpage.cpp
+msgid "Delete"
+msgstr "Sil"
+
+#: src/editorpage.cpp src/editorwindow.cpp
+msgid "Select All"
+msgstr "Tümünü Seç"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "Text Editor"
+msgstr "Metin Düzenleyici"
+
+#: src/editorwindow.cpp
+msgid "Save As"
+msgstr "Farklı Kaydet"
+
+#: src/editorwindow.cpp
+msgid "Open"
+msgstr "Aç"
+
+#: src/editorwindow.cpp
+msgid "About Text Editor"
+msgstr "Metin Düzenleyici Hakkında"
+
+#: src/editorwindow.cpp
+msgid "Settings…"
+msgstr "Ayarlar…"
+
+#: src/editorwindow.cpp
+msgid "Hide Text Editor"
+msgstr "Metin Düzenleyiciyi Gizle"
+
+#: src/editorwindow.cpp
+msgid "Quit Text Editor"
+msgstr "Metin Düzenleyiciden Çık"
+
+#: src/editorwindow.cpp
+msgid "File"
+msgstr "Dosya"
+
+#: src/editorwindow.cpp
+msgid "New Tab"
+msgstr "Yeni Sekme"
+
+#: src/editorwindow.cpp cutefish-text-editor.desktop
+msgid "New Window"
+msgstr "Yeni Pencere"
+
+#: src/editorwindow.cpp
+msgid "Open…"
+msgstr "Aç…"
+
+#: src/editorwindow.cpp
+msgid "Open Recent"
+msgstr "Son Kullanılanları Aç"
+
+#: src/editorwindow.cpp
+msgid "Clear Recent Files"
+msgstr "Son Dosyaları Temizle"
+
+#: src/editorwindow.cpp
+msgid "Close Tab"
+msgstr "Sekmeyi Kapat"
+
+#: src/editorwindow.cpp
+msgid "Close Window"
+msgstr "Pencereyi Kapat"
+
+#: src/editorwindow.cpp src/pagebars.cpp
+msgid "Save As…"
+msgstr "Farklı Kaydet…"
+
+#: src/editorwindow.cpp
+msgid "Save All"
+msgstr "Tümünü Kaydet"
+
+#: src/editorwindow.cpp
+msgid "Revert to Saved…"
+msgstr "Kaydedilenlere Geri Dön…"
+
+#: src/editorwindow.cpp
+msgid "Edit"
+msgstr "Düzenle"
+
+#: src/editorwindow.cpp
+msgid "Indent"
+msgstr "Girinti"
+
+#: src/editorwindow.cpp
+msgid "Unindent"
+msgstr "Girintiyi kaldır"
+
+#: src/editorwindow.cpp
+msgid "Find…"
+msgstr "Bul…"
+
+#: src/editorwindow.cpp
+msgid "Replace…"
+msgstr "Yer değiştir…"
+
+#: src/editorwindow.cpp
+msgid "Find Next"
+msgstr "Sonrakini Bul"
+
+#: src/editorwindow.cpp
+msgid "Find Previous"
+msgstr "Öncekini Bul"
+
+#: src/editorwindow.cpp
+msgid "Go to Line…"
+msgstr "Hatta Git…"
+
+#: src/editorwindow.cpp
+msgid "View"
+msgstr "Görünüm"
+
+#: src/editorwindow.cpp
+msgid "Word Wrap"
+msgstr "Kelime Kaydırma"
+
+#: src/editorwindow.cpp
+msgid "Zoom In"
+msgstr "Yakınlaştır"
+
+#: src/editorwindow.cpp
+msgid "Zoom Out"
+msgstr "Uzaklaştır"
+
+#: src/editorwindow.cpp
+msgid "Actual Size"
+msgstr "Gerçek Boyut"
+
+#: src/editorwindow.cpp
+msgid "Enter Full Screen"
+msgstr "Tam Ekran Görünümü"
+
+#: src/editorwindow.cpp
+msgid "Exit Full Screen"
+msgstr "Tam Ekrandan Çık"
+
+#: src/editorwindow.cpp
+msgid "Window"
+msgstr "Pencere"
+
+#: src/editorwindow.cpp
+msgid "Minimize"
+msgstr "Küçült"
+
+#: src/editorwindow.cpp
+msgid "Zoom"
+msgstr "Yakınlaştır"
+
+#: src/editorwindow.cpp
+msgid "Show Previous Tab"
+msgstr "Önceki Sekmeyi Göster"
+
+#: src/editorwindow.cpp
+msgid "Show Next Tab"
+msgstr "Sonraki Sekmeyi Göster"
+
+#: src/editorwindow.cpp
+msgid "A simple editor for plain text"
+msgstr "Düz metin için basit bir düzenleyici"
+
+#: src/editorwindow.cpp
+msgid "Copy Path"
+msgstr "Yolu Kopyala"
+
+#: src/editorwindow.cpp
+msgid "Show in Folder"
+msgstr "Klasörde Göster"
+
+#. TRANSLATORS: the cursor position in the status bar; "Ln" and "Col"
+#. abbreviate line and column.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Ln {line}, Col {column}"
+msgstr "Ln {line}, Sütun {column}"
+
+#. TRANSLATORS: {position} is the cursor position, such as "Ln 3, Col 7".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{position}  ({n} selected)"
+msgid_plural "{position}  ({n} selected)"
+msgstr[0] "{position} ({n} seçili)"
+msgstr[1] "{position} ({n} seçili)"
+
+#: src/pagebars.cpp
+msgid "Read-Only"
+msgstr "Salt Okunur"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Spaces: {width}"
+msgstr "Boşluklar: {width}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Tab Width: {width}"
+msgstr "Sekme Genişliği: {width}"
+
+#: src/pagebars.cpp
+msgid "Indent with Spaces"
+msgstr "Boşluklarla Girinti"
+
+#: src/pagebars.cpp
+msgid "Indent with Tabs"
+msgstr "Sekmelerle Girinti"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Width: {width}"
+msgstr "Genişlik: {width}"
+
+#: src/pagebars.cpp
+msgid "Unix (LF)"
+msgstr "Unix (LF)"
+
+#: src/pagebars.cpp
+msgid "Windows (CRLF)"
+msgstr "Windows (CRLF)"
+
+#: src/pagebars.cpp
+msgid "Classic Mac (CR)"
+msgstr "Klasik Mac (CR)"
+
+#: src/pagebars.cpp
+msgid "Reopen with Encoding"
+msgstr "Kodlamayla Yeniden Aç"
+
+#: src/pagebars.cpp
+msgid "Save with Encoding"
+msgstr "Kodlamayla Kaydet"
+
+#: src/pagebars.cpp
+msgid "Byte Order Mark"
+msgstr "Bayt Sırası İşareti"
+
+#: src/pagebars.cpp
+msgid "The file has changed on disk. Saving now would overwrite that change."
+msgstr ""
+"Dosya diskte değişti. Şimdi kaydetmek bu değişikliğin üzerine yazılmasına "
+"neden olur."
+
+#: src/pagebars.cpp
+msgid "Keep My Version"
+msgstr "Sürümümü Koru"
+
+#: src/pagebars.cpp
+msgid "Reload"
+msgstr "Yeniden yükle"
+
+#: src/pagebars.cpp
+msgid "The file was deleted or moved. Your text is still here."
+msgstr "Dosya silindi veya taşındı. Metniniz hâlâ burada."
+
+#: src/pagebars.cpp
+msgid "Close"
+msgstr "Kapalı"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters could not be read as {encoding} and show as �."
+msgstr ""
+"Bazı karakterler {encoding} olarak okunamadı ve � olarak gösterilemedi."
+
+#: src/pagebars.cpp
+msgid "Dismiss"
+msgstr "Kapat"
+
+#: src/pagebars.cpp
+msgid "Choose Encoding…"
+msgstr "Kodlamayı Seçin…"
+
+#: src/pagebars.cpp
+msgid "This file does not look like text. Editing it could damage it."
+msgstr "Bu dosya metne benzemiyor. Düzenlemek ona zarar verebilir."
+
+#: src/pagebars.cpp
+msgid "Edit Anyway"
+msgstr "Yine de Düzenle"
+
+#: src/pagebars.cpp
+msgid "You do not have permission to save this file."
+msgstr "Bu dosyayı kaydetme izniniz yok."
+
+#: src/pagebars.cpp
+msgid "You do not have permission to open this file."
+msgstr "Bu dosyayı açma izniniz yok."
+
+#: src/pagebars.cpp
+msgid "Retry"
+msgstr "Yeniden dene"
+
+#: src/pagebars.cpp
+msgid "The file could not be opened."
+msgstr "Dosya açılamadı."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be opened. {error}"
+msgstr "Dosya açılamadı. {error}"
+
+#: src/pagebars.cpp
+msgid "The file is too large to open (more than 256 MB)."
+msgstr "Dosya açılamayacak kadar büyük (256 MB'tan fazla)."
+
+#: src/pagebars.cpp
+msgid "The file could not be saved."
+msgstr "Dosya kaydedilemedi."
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "The file could not be saved. {error}"
+msgstr "Dosya kaydedilemedi. {error}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Some characters cannot be saved as {encoding}. Nothing was saved."
+msgstr ""
+"Bazı karakterler {encoding} olarak kaydedilemez. Hiçbir şey kurtarılmadı."
+
+#: src/pagebars.cpp
+msgid "Save as UTF-8"
+msgstr "UTF-8 olarak kaydet"
+
+#: src/pagebars.cpp
+msgid "Syntax highlighting is off for this large file."
+msgstr "Bu büyük dosya için sözdizimi vurgulama kapalı."
+
+#: src/pagebars.cpp
+msgid "Highlight Anyway"
+msgstr "Yine de Vurgula"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid ""
+"Saving would replace the characters that could not be read as {encoding}."
+msgstr ""
+"Kaydetme, {encoding} olarak okunamayan karakterlerin yerini alacaktır."
+
+#: src/pagebars.cpp
+msgid "Save Anyway"
+msgstr "Yine de Kaydet"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "This file mixes line endings. Saving will use {ending} throughout."
+msgstr ""
+"Bu dosya satır sonlarını karıştırır. Kaydetme işlemi boyunca {ending} "
+"kullanılacaktır."
+
+#: src/pagebars.cpp
+msgid "OK"
+msgstr "TAMAM"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Replaced {n} occurrence"
+msgid_plural "Replaced {n} occurrences"
+msgstr[0] "{n} oluşumu değiştirildi"
+msgstr[1] "{n} oluşumları değiştirildi"
+
+#: src/pagebars.cpp
+msgid "Find"
+msgstr "Bul"
+
+#: src/pagebars.cpp
+msgid "Match Case"
+msgstr "Büyük/Küçük Harf Eşleştir"
+
+#: src/pagebars.cpp
+msgid "Whole Words"
+msgstr "Tüm Kelimeler"
+
+#: src/pagebars.cpp
+msgid "Regular Expression"
+msgstr "Normal İfade"
+
+#: src/pagebars.cpp
+msgid "In Selection"
+msgstr "Seçimde"
+
+#: src/pagebars.cpp
+msgid "Replace with"
+msgstr "Şununla değiştir:"
+
+#: src/pagebars.cpp
+msgid "Replace"
+msgstr "Yer değiştir"
+
+#: src/pagebars.cpp
+msgid "Replace All"
+msgstr "Tümünü Değiştir"
+
+#. TRANSLATORS: beside the find field, when the search is not a valid regular
+#. expression.
+#: src/pagebars.cpp
+msgid "Invalid"
+msgstr "Geçersiz"
+
+#. TRANSLATORS: beside the find field, when the search has continued from the
+#. other end of the document.
+#: src/pagebars.cpp
+msgid "Wrapped"
+msgstr "Başa sarıldı"
+
+#: src/pagebars.cpp
+msgid "No matches"
+msgstr "Eşleşme yok"
+
+#. TRANSLATORS: the current match and the number of matches, such as "2 of 5".
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{index} of {count}"
+msgstr "{index} / {count}"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "{n} match"
+msgid_plural "{n} matches"
+msgstr[0] "{n} eşleşmesi"
+msgstr[1] "{n} eşleşir"
+
+#. TRANSLATORS: {count} is the number of lines; a column number can follow the
+#. line number after a colon.
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Go to line (1–{count}), :column"
+msgstr "Satıra git (1–{count}), :sütun"
+
+#: src/pagebars.cpp
+#, python-brace-format
+msgid "Opening “{name}”…"
+msgstr "“{name}” açılıyor…"
+
+#: src/syntax.cpp
+msgid "Plain Text"
+msgstr "Düz Metin"
+
+#. TRANSLATORS: an encoding menu entry; the codec name in parentheses stays as
+#. it is.
+#: src/textcodec.cpp
+msgid "Unicode (UTF-8)"
+msgstr "Unicode (UTF-8)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 LE)"
+msgstr "Unicode (UTF-16 LE)"
+
+#: src/textcodec.cpp
+msgid "Unicode (UTF-16 BE)"
+msgstr "Unicode (UTF-16 BE)"
+
+#: src/textcodec.cpp
+msgid "Chinese Simplified (GB18030)"
+msgstr "Basitleştirilmiş Çince (GB18030)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5)"
+msgstr "Geleneksel Çince (Big5)"
+
+#: src/textcodec.cpp
+msgid "Chinese Traditional (Big5-HKSCS)"
+msgstr "Geleneksel Çince (Big5-HKSCS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (Shift_JIS)"
+msgstr "Japonca (Shift_JIS)"
+
+#: src/textcodec.cpp
+msgid "Japanese (EUC-JP)"
+msgstr "Japonca (EUC-JP)"
+
+#: src/textcodec.cpp
+msgid "Korean (EUC-KR)"
+msgstr "Korece (EUC-KR)"
+
+#: src/textcodec.cpp
+msgid "Western (Windows-1252)"
+msgstr "Batı (Windows-1252)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-1)"
+msgstr "Batı (ISO-8859-1)"
+
+#: src/textcodec.cpp
+msgid "Western (ISO-8859-15)"
+msgstr "Batı (ISO-8859-15)"
+
+#: src/textcodec.cpp
+msgid "Central European (Windows-1250)"
+msgstr "Orta Avrupa (Windows-1250)"
+
+#: src/textcodec.cpp
+msgid "Central European (ISO-8859-2)"
+msgstr "Orta Avrupa (ISO-8859-2)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (Windows-1251)"
+msgstr "Kiril (Windows-1251)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-R)"
+msgstr "Kiril (KOI8-R)"
+
+#: src/textcodec.cpp
+msgid "Cyrillic (KOI8-U)"
+msgstr "Kiril (KOI8-U)"
+
+#: src/textcodec.cpp
+msgid "Greek (Windows-1253)"
+msgstr "Yunanca (Windows-1253)"
+
+#: src/textcodec.cpp
+msgid "Turkish (Windows-1254)"
+msgstr "Türkçe (Windows-1254)"
+
+#: src/textcodec.cpp
+msgid "Hebrew (Windows-1255)"
+msgstr "İbranice (Windows-1255)"
+
+#: src/textcodec.cpp
+msgid "Arabic (Windows-1256)"
+msgstr "Arapça (Windows-1256)"
+
+#: src/textcodec.cpp
+msgid "Baltic (Windows-1257)"
+msgstr "Baltık (Windows-1257)"
+
+#: src/textcodec.cpp
+msgid "Vietnamese (Windows-1258)"
+msgstr "Vietnamca (Windows-1258)"
+
+#: src/textcodec.cpp
+msgid "Thai (Windows-874)"
+msgstr "Tayca (Windows-874)"
+
+#: cutefish-text-editor.desktop
+msgid "Edit plain text files"
+msgstr "Düz metin dosyalarını düzenle"
+
+#: cutefish-text-editor.desktop
+msgid "Text;Editor;Plain;Notes;Code;"
+msgstr "Metin;Düzenleyici;Düz;Notlar;Kod;"
